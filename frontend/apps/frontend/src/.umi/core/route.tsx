@@ -50,8 +50,8 @@ export async function getRoutes() {
 '40': React.lazy(() => import(/* webpackChunkName: "p__System__OperationLog__index" */'@/pages/System/OperationLog/index.tsx')),
 '41': React.lazy(() => import('./EmptyRoute')),
 '42': React.lazy(() => import(/* webpackChunkName: "p__404" */'@/pages/404.tsx')),
-'max-tabs': React.lazy(() => import(/* webpackChunkName: "umi__plugin-maxtabs__Layout" */'E:/Code/work/shared/temp/front-end/am-admin/frontend/apps/frontend/src/.umi/plugin-maxtabs/Layout.tsx')),
-'ant-design-pro-layout': React.lazy(() => import(/* webpackChunkName: "umi__plugin-layout__Layout" */'E:/Code/work/shared/temp/front-end/am-admin/frontend/apps/frontend/src/.umi/plugin-layout/Layout.tsx')),
+'max-tabs': React.lazy(() => import(/* webpackChunkName: "umi__plugin-maxtabs__Layout" */'/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/apps/frontend/src/.umi/plugin-maxtabs/Layout.tsx')),
+'ant-design-pro-layout': React.lazy(() => import(/* webpackChunkName: "umi__plugin-layout__Layout" */'/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/apps/frontend/src/.umi/plugin-layout/Layout.tsx')),
 },
   };
 }

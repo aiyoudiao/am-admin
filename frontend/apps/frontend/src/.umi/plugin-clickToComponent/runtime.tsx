@@ -5,7 +5,7 @@ import { ClickToComponent } from 'click-to-react-component';
 import React from 'react';
 
 const pathModifier = (path) => {
-  return path.startsWith('E:\Code\work\shared\temp\front-end\am-admin\frontend\apps\frontend') ? path : 'E:\Code\work\shared\temp\front-end\am-admin\frontend\apps\frontend/' + path;
+  return path.startsWith('/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/apps/frontend') ? path : '/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/apps/frontend/' + path;
 }
 
 export function rootContainer(container, opts) {

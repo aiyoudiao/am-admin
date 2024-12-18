@@ -16,6 +16,8 @@ const renderIcon = (icon: UmiIcon, color: string) => (
   <Icon icon={icon} style={{ fontSize: '40px', color }} />
 );
 
+
+// !NOTE: 导航到指定系统或者文档～
 /* 跨站点导航列表 */
 export const appList: HeaderProps['appList'] = [
   {

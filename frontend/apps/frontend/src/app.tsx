@@ -11,7 +11,7 @@ import { Settings as LayoutSettings } from '@ant-design/pro-components'; // 高�
 import { addLocale, history } from '@umijs/max';
 import { assign, eq, forEach, get, isEmpty, isNil } from 'lodash-es'
 
-import { BasiLayout } from '@/components/BasiLayout'; // 全局 layout 布局
+import { BasicLayout } from '@/components/BasicLayout'; // 全局 layout 布局
 import TabsLayout, { TabsLayoutProps } from '@/components/TabsLayout' // 多标签页配置
 import { getAllLocalesLang } from '@/services/system/internationalization'
 import { getLocalStorageItem, initUserAuthority, setLocalStorageItem } from '@/utils' // 全局工具函数
@@ -70,7 +70,7 @@ export async function getInitialState() {
  * @doc ProLayout 支持的api https://procomponents.ant.design/components/layout
  * @Author: 白雾茫茫丶
  */
-export const layout = BasiLayout
+export const layout = BasicLayout
 
 /**
  * @description: 完全覆盖内置的多 Tabs 组件，需要搭配配置 hasCustomTabs:true 使用。

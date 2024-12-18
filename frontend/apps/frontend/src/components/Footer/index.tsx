@@ -1,10 +1,5 @@
 /*
- * @Description: 公共页脚版权
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-08 11:09:03
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-11-18 13:42:48
+ * @Description: 公共页脚版权信息
  */
 import { DefaultFooter } from '@ant-design/pro-components';
 import { Icon } from '@umijs/max';
@@ -15,12 +10,12 @@ const Footer: React.FC = () => {
   return (
     <DefaultFooter
       style={{ background: 'none' }}
-      copyright={`${currentYear} 白雾茫茫丶 by baiwumm@foxmail.com`}
+      copyright={`${currentYear} 蚂蚁金服体验技术部出品`}
       links={[
         {
-          key: '白雾茫茫丶',
-          title: '白雾茫茫丶',
-          href: 'https://baiwumm.com/',
+          key: '蚂蚁金服',
+          title: '蚂蚁金服',
+          href: 'https://pro.ant.design',
           blankTarget: true,
         },
         {
@@ -31,19 +26,19 @@ const Footer: React.FC = () => {
               style={{ display: 'inline-block', fontSize: 16, verticalAlign: 'middle' }}
             />
           ),
-          href: 'https://github.com/baiwumm/react-admin/',
+          href: 'https://github.com/ant-design/ant-design-pro',
           blankTarget: true,
         },
         {
-          key: 'Vue3 Admin',
-          title: 'Vue3 Admin',
-          href: 'https://github.com/baiwumm/vue3-admin/',
+          key: 'Ant Design',
+          title: 'Ant Design',
+          href: 'https://ant.design',
           blankTarget: true,
         },
         {
-          key: 'Vue2 Admin',
-          title: 'Vue2 Admin',
-          href: 'https://github.com/baiwumm/vue2-admin/',
+          key: 'Ant Design',
+          title: 'Ant Design',
+          href: 'https://procomponents.ant.design/',
           blankTarget: true,
         },
       ]}

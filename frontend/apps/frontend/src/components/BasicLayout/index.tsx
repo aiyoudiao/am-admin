@@ -43,7 +43,7 @@ import {
 
 const { Paragraph } = Typography;
 
-export const BasiLayout: RunTimeLayoutConfig = ({
+export const BasicLayout: RunTimeLayoutConfig = ({
   initialState,
   setInitialState,
 }: InitDataType) => {
@@ -57,7 +57,7 @@ export const BasiLayout: RunTimeLayoutConfig = ({
     useBoolean(false);
 
   // 渲染菜单图标
-  const renderMenuicon = (icon) => <Icon icon={toString(icon)} style={{ fontSize: 16, display: 'flex' }} />;
+  const renderMenuIcon = (icon) => <Icon icon={toString(icon)} style={{ fontSize: 16, display: 'flex' }} />;
   return {
     /* 水印 */
     waterMarkProps: {
@@ -75,7 +75,7 @@ export const BasiLayout: RunTimeLayoutConfig = ({
       if (!ACCESS_TOKEN && !eq(pathname, ROUTES.LOGIN)) {
         history.push(ROUTES.LOGIN);
       }
-      // 中文状态下，绑定 umami 事件
+      // 中文状态下，绑定 埋点 事件
       if (eq(getLocale(), 'zh-CN') && !eq(pathname, '/')) {
         // umami.track(formatMessage({ id: formatPerfix(pathname, '', true) }));
       }
@@ -89,7 +89,7 @@ export const BasiLayout: RunTimeLayoutConfig = ({
         return (
           <Space align='center'>
             <Icon icon={MenuRemixIconMap[route.linkPath as ROUTES]} style={{ display: 'flex' }} />
-            <span>{route.breadcrumbName}</span>
+            <span>{route.title}</span>
           </Space>
         );
       },
@@ -103,7 +103,7 @@ export const BasiLayout: RunTimeLayoutConfig = ({
           <Space size={4}>
             {/* 分组布局不用渲染图标，避免重复 */}
             {pro_layout_parentKeys?.length &&
-              renderMenuicon(icon)}
+              renderMenuIcon(icon)}
             {!isGroup || (isGroup && !isCollapsed) ? (
               <Paragraph ellipsis={{ rows: 1, tooltip: defaultDom }} style={{ marginBottom: 0 }}>
                 {isGroup ? formatMessage({ id: locale as string }) : defaultDom}
@@ -127,14 +127,14 @@ export const BasiLayout: RunTimeLayoutConfig = ({
     subMenuItemRender: ({ icon, path = '' }) => {
       return !initialState?.Collapsed ? (
         <Space size={4}>
-          {renderMenuicon(icon)}
+          {renderMenuIcon(icon)}
           <span>{formatMessage({ id: formatPerfix(path, '', true) })}</span>
         </Space>
       ) : (
         <div
           style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 40 }}
         >
-          {renderMenuicon(icon)}
+          {renderMenuIcon(icon)}
         </div>
       );
     },

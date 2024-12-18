@@ -3,7 +3,7 @@ services:
     container_name: am-admin-mysql
     image: mysql
     ports:
-      - '3306:3306'
+      - '13306:3306'
     env_file:
       - ./docker/mysql/conf/mysql.env
     volumes:

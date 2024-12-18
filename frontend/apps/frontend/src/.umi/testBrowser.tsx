@@ -3,15 +3,15 @@
 // DO NOT CHANGE IT MANUALLY!
 import React, { useEffect, useState } from 'react';
 import { ApplyPluginsType } from 'umi';
-import { renderClient, RenderClientOpts } from 'E:/Code/work/shared/temp/front-end/am-admin/frontend/node_modules/.pnpm/@umijs+renderer-react@4.4.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@umijs/renderer-react';
+import { renderClient, RenderClientOpts } from '/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/node_modules/.pnpm/@umijs+renderer-react@4.4.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@umijs/renderer-react';
 import { createHistory } from './core/history';
 import { createPluginManager } from './core/plugin';
 import { getRoutes } from './core/route';
 import type { Location } from 'history';
 
-import Loading from 'E:/Code/work/shared/temp/front-end/am-admin/frontend/apps/frontend/src/loading.tsx';
+import Loading from '/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/apps/frontend/src/loading.tsx';
 
-import 'E:/Code/work/shared/temp/front-end/am-admin/frontend/apps/frontend/src/global.less';
+import '/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/apps/frontend/src/global.less';
 import 'antd/dist/reset.css';
 const publicPath = '/';
 const runtimePublicPath = false;

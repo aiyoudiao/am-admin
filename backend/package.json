@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "dev": "pnpm exec nx run backend:start:debug",
     "build": "pnpm exec nx run backend:build",
     "e2e": "pnpm exec nx run backend-e2e:e2e",
     "pm2:dev": "pm2 start ecosystem.config.cjs --env development",

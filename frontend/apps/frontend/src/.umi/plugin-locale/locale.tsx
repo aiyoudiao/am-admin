@@ -4,11 +4,11 @@
 import React from 'react';
 import { ConfigProvider } from 'antd';
 
-import moment from 'E:/Code/work/shared/temp/front-end/am-admin/frontend/node_modules/.pnpm/dayjs@1.11.13/node_modules/dayjs';
-import 'E:/Code/work/shared/temp/front-end/am-admin/frontend/node_modules/.pnpm/dayjs@1.11.13/node_modules/dayjs/locale/en';
-import 'E:/Code/work/shared/temp/front-end/am-admin/frontend/node_modules/.pnpm/dayjs@1.11.13/node_modules/dayjs/locale/ja';
-import 'E:/Code/work/shared/temp/front-end/am-admin/frontend/node_modules/.pnpm/dayjs@1.11.13/node_modules/dayjs/locale/zh-cn';
-import 'E:/Code/work/shared/temp/front-end/am-admin/frontend/node_modules/.pnpm/dayjs@1.11.13/node_modules/dayjs/locale/zh-tw';
+import moment from '/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/node_modules/.pnpm/dayjs@1.11.13/node_modules/dayjs';
+import '/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/node_modules/.pnpm/dayjs@1.11.13/node_modules/dayjs/locale/en';
+import '/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/node_modules/.pnpm/dayjs@1.11.13/node_modules/dayjs/locale/ja';
+import '/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/node_modules/.pnpm/dayjs@1.11.13/node_modules/dayjs/locale/zh-cn';
+import '/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/node_modules/.pnpm/dayjs@1.11.13/node_modules/dayjs/locale/zh-tw';
 import { RawIntlProvider, getLocale, getDirection , setIntl, getIntl, localeInfo, event, LANG_CHANGE_EVENT } from './localeExports';
 
 

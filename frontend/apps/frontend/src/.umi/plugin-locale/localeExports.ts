@@ -5,11 +5,11 @@ import {
   createIntl,
   IntlShape,
   MessageDescriptor,
-} from 'E:/Code/work/shared/temp/front-end/am-admin/frontend/node_modules/.pnpm/react-intl@3.12.1_react@18.3.1/node_modules/react-intl';
+} from '/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/node_modules/.pnpm/react-intl@3.12.1_react@18.3.1/node_modules/react-intl';
 import { getPluginManager } from '../core/plugin';
-import EventEmitter from 'E:/Code/work/shared/temp/front-end/am-admin/frontend/node_modules/.pnpm/event-emitter@0.3.5/node_modules/event-emitter';
+import EventEmitter from '/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/node_modules/.pnpm/event-emitter@0.3.5/node_modules/event-emitter';
 // @ts-ignore
-import warning from 'E:/Code/work/shared/temp/front-end/am-admin/frontend/node_modules/.pnpm/warning@4.0.3/node_modules/warning';
+import warning from '/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/node_modules/.pnpm/warning@4.0.3/node_modules/warning';
 
 export {
   createIntl,
@@ -34,7 +34,7 @@ export {
   defineMessages,
   injectIntl,
   useIntl,
-} from 'E:/Code/work/shared/temp/front-end/am-admin/frontend/node_modules/.pnpm/react-intl@3.12.1_react@18.3.1/node_modules/react-intl';
+} from '/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/node_modules/.pnpm/react-intl@3.12.1_react@18.3.1/node_modules/react-intl';
 
 let g_intl: IntlShape;
 
@@ -46,13 +46,13 @@ export const event = new EventEmitter();
 export const LANG_CHANGE_EVENT = Symbol('LANG_CHANGE');
 
 import enUS0 from 'antd/es/locale/en_US';
-import lang_enUS0 from "E:/Code/work/shared/temp/front-end/am-admin/frontend/apps/frontend/src/locales/en-US.ts";
+import lang_enUS0 from "/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/apps/frontend/src/locales/en-US.ts";
 import jaJP0 from 'antd/es/locale/ja_JP';
-import lang_jaJP0 from "E:/Code/work/shared/temp/front-end/am-admin/frontend/apps/frontend/src/locales/ja-JP.ts";
+import lang_jaJP0 from "/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/apps/frontend/src/locales/ja-JP.ts";
 import zhCN0 from 'antd/es/locale/zh_CN';
-import lang_zhCN0 from "E:/Code/work/shared/temp/front-end/am-admin/frontend/apps/frontend/src/locales/zh-CN.ts";
+import lang_zhCN0 from "/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/apps/frontend/src/locales/zh-CN.ts";
 import zhTW0 from 'antd/es/locale/zh_TW';
-import lang_zhTW0 from "E:/Code/work/shared/temp/front-end/am-admin/frontend/apps/frontend/src/locales/zh-TW.ts";
+import lang_zhTW0 from "/Users/zakj/Desktop/work/code/lf/shared/ticket-shared/am-admin/frontend/apps/frontend/src/locales/zh-TW.ts";
 
 const flattenMessages=(
   nestedMessages: Record<string, any>,
