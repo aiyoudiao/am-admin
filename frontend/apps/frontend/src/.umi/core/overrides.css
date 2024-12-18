@@ -1,0 +1,48 @@
+body .ant-layout {
+  min-height: 100vh;
+}
+body .ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+  left: unset;
+}
+body .ant-menu-item .anticon + span {
+  margin-inline-start: 0;
+}
+body .ant-pro-page-container .ant-page-header {
+  padding-inline: 20px;
+  padding-block: 0;
+}
+body .ant-pro-page-container .ant-pro-page-container-children-container {
+  padding-inline: 20px;
+  padding-block: 12px;
+}
+body .ant-menu .ant-menu-item {
+  display: flex !important;
+  align-items: center;
+}
+body .ant-menu-light .ant-menu-item-selected {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+body .ant-pro-setting-drawer-handle {
+  z-index: 99;
+}
+body .rumtime-keep-alive-tabs-layout .ant-tabs-nav {
+  margin: 0 !important;
+}
+@media (max-width: 768px) {
+  body .ant-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+  body .ant-table-thead > tr > th,
+  body .ant-table-tbody > tr > th,
+  body .ant-table-thead > tr > td,
+  body .ant-table-tbody > tr > td {
+    white-space: pre;
+  }
+  body .ant-table-thead > tr > th > span,
+  body .ant-table-tbody > tr > th > span,
+  body .ant-table-thead > tr > td > span,
+  body .ant-table-tbody > tr > td > span {
+    display: block;
+  }
+}

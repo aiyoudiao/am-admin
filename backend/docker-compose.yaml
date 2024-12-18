@@ -1,0 +1,30 @@
+services:
+  am-mysql:
+    container_name: am-admin-mysql
+    image: mysql
+    ports:
+      - '3306:3306'
+    env_file:
+      - ./docker/mysql/conf/mysql.env
+    volumes:
+      - ./docker/mysql/logs:/logs
+      - ./docker/mysql/data:/var/lib/mysql
+      - ./databases/sql:/docker-entrypoint-initdb.d
+    command:
+      [
+        'mysqld',
+        '--innodb-buffer-pool-size=80M',
+        '--character-set-server=utf8mb4',
+        '--collation-server=utf8mb4_unicode_ci',
+        '--default-time-zone=+8:00',
+        '--lower-case-table-names=1',
+      ]
+  am-redis:
+    container_name: am-admin-redis
+    image: redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./docker/redis/data:/data
+      - ./docker/redis/conf/redis.conf:/home/redis/redis.conf
+    command: redis-server /home/redis/redis.conf
