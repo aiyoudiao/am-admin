@@ -3,4 +3,5 @@ packages:
   - 'packages/*'
 hoist-pattern:
   - '!apps/backend/*'
+  - '!apps/drawdb/*'
   - '*'

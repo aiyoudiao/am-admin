@@ -1,14 +1,17 @@
 // https://umijs.org/config/
-import { defineConfig } from '@umijs/max';
-import path from 'path';
+import { defineConfig } from "@umijs/max";
+import path from "path";
+import { resolve } from "path";
 
-import defaultSettings from './defaultSettings';
-import proxy from './proxy';
-import routes from './routes';
+import defaultSettings from "./defaultSettings";
+import icons from "./icons";
+import proxy from "./proxy";
+import routes from "./routes";
 
-const { REACT_APP_ENV = 'dev' } = process.env;
+const { REACT_APP_ENV = "dev" } = process.env;
 
 export default defineConfig({
+  npmClient: "pnpm",
   /**
    * @name 开启 多tab标签页支持
    * @doc https://juejin.cn/post/7153525746751766559
@@ -52,7 +55,7 @@ export default defineConfig({
   theme: {
     // 如果不想要 configProvide 动态设置主题需要把这个设置为 default
     // 只有设置为 variable， 才能使用 configProvide 动态设置主色调
-    'root-entry-name': 'variable',
+    "root-entry-name": "variable",
   },
   /**
    * @name moment 的国际化配置
@@ -99,8 +102,8 @@ export default defineConfig({
    * @doc https://umijs.org/docs/max/moment2dayjs
    */
   moment2dayjs: {
-    preset: 'antd',
-    plugins: ['duration'],
+    preset: "antd",
+    plugins: ["duration"],
   },
   /**
    * @name 国际化插件
@@ -108,7 +111,7 @@ export default defineConfig({
    */
   locale: {
     // default zh-CN
-    default: 'zh-CN',
+    default: "zh-CN",
     antd: true,
     // default true, when it is true, will use `navigator.language` overwrite default
     baseNavigator: true,
@@ -129,7 +132,7 @@ export default defineConfig({
    * @doc https://umijs.org/docs/max/request
    */
   request: {
-    dataField: 'data',
+    dataField: "data",
   },
   /**
    * @name 权限插件
@@ -138,31 +141,40 @@ export default defineConfig({
    */
   access: {},
   // ================ pro 插件配置 =================
-  presets: ['umi-presets-pro'],
+  presets: ["umi-presets-pro"],
   mfsu: {
-    strategy: 'normal',
+    strategy: "normal",
   },
   requestRecord: {},
-  /**
-   * @name <head> 中额外的 script
-   * @description 配置 <head> 中额外的 script
-   */
-  headScripts: [
-    // 解决首次加载时白屏的问题
-    { src: '/scripts/loading.js', async: true },
-    // Umimai 统计
-    // { src: 'https://umami.baiwumm.com/script.js', 'data-website-id': '7e15460c-1124-4f43-9d26-33ecc1e9bd94' },
-  ],
+  // /**
+  //  * @name <head> 中额外的 script
+  //  * @description 配置 <head> 中额外的 script
+  //  */
+  // headScripts: [
+  //   // 解决首次加载时白屏的问题
+  //   { src: '/scripts/loading.js', async: true },
+  //   // Umimai 统计
+  //   // { src: 'https://umami.baiwumm.com/script.js', 'data-website-id': '7e15460c-1124-4f43-9d26-33ecc1e9bd94' },
+  // ],
   // 站点统计
   // analytics: {
   //   ga_v2: 'G-1LVFWQ9FZ7', // google analytics 的 key (GA 4)
   //   baidu: '8be1d11f8b2db2727b2b063e9158161d',
   // },
+  /**
+   * @name 开发插件
+   * @doc https://umijs.org/docs/guides/plugins
+   */
+  plugins: [resolve(__dirname, "./plugins/html")],
+
   // TDK
-  title: 'React Admin',
+  title: "React Admin",
   metas: [
-    { name: 'keywords', content: 'React.js,Umi.js,Antd,Nest.js,后台模板,后台系统' },
-    { name: 'description', content: '基于 React + Nest 全栈开发的后台系统' },
+    {
+      name: "keywords",
+      content: "React.js,Umi.js,Antd,Nest.js,后台模板,后台系统",
+    },
+    { name: "description", content: "基于 React + Nest 全栈开发的后台系统" },
     // { name: 'google-site-verification', content: '4YBtBTmg5H9MGoyvCmvEeJx8viyBPjLnK4INCHT9SQs' },
   ],
   // 启后，可通过 Option+Click/Alt+Click 点击组件跳转至编辑器源码位置，Option+Right-click/Alt+Right-click 可以打开上下文，查看父组件。
@@ -170,89 +182,26 @@ export default defineConfig({
   // 检测未使用的文件和导出，仅在 build 阶段开启。
   deadCode: {},
   // 默认情况下，站点将使用约定 favicon 来创建图标的 meta 头标签。
-  favicons: ['/favicon.ico'],
+  favicons: ["/favicon.ico"],
   // 配置 mock 功能。
   mock: false,
   // 修复 esbuild 压缩器自动引入的全局变量导致的命名冲突问题。
   esbuildMinifyIIFE: true,
   // 设置别名
   alias: {
-    '@public': path.resolve(__dirname, '../public'),
+    "@public": path.resolve(__dirname, "../public"),
   },
-  // 自动安装图标库 https://icones.js.org/
+
+  /**
+   * @name icons 插件
+   * @doc https://umijs.org/docs/api/config#icons
+   * 自动安装图标库 https://icones.js.org/
+   */
   icons: {
     autoInstall: {},
-    include: [
-      'ri:apps-line',
-      'ri:dashboard-2-line',
-      'ri:puzzle-line',
-      'ri:quill-pen-line',
-      'ri:notification-line',
-      'ri:exchange-2-line',
-      'ri:contacts-book-3-line',
-      'ri:shield-user-line',
-      'ri:id-card-line',
-      'ri:user-settings-line',
-      'ri:code-box-line',
-      'ri:reactjs-fill',
-      'local:nest',
-      'local:ant-design',
-      'local:umi',
-      'ri:settings-line',
-      'ri:group-line',
-      'ri:menu-fill',
-      'ri:shield-user-line',
-      'ri:global-line',
-      'ri:draft-line',
-      'local:hi',
-      'ri:refresh-line',
-      'ri:skip-right-line',
-      'ri:skip-left-line',
-      'ri:arrow-left-right-line',
-      'ri:star-line',
-      'ri:eye-line',
-      'ri:git-fork-line',
-      'ri:share-box-line',
-      'ri:vuejs-fill',
-      'local:gitee',
-      'local:juejin',
-      'local:sequelize',
-      'local:mysql',
-      'ri:thumb-up-line',
-      'ri:message-2-line',
-      'ri:flower-line',
-      'ri:terminal-box-line',
-      'ri:arrow-right-double-line',
-      'ri:checkbox-circle-line',
-      'ri:lock-unlock-line',
-      'ri:lock-line',
-      'ri:reset-left-fill',
-      'fa6-solid:chart-gantt',
-      'ri:image-line',
-      'ri:image-add-line',
-      'ri:palette-line',
-      'ri:dropper-line',
-      'ri:flow-chart',
-      'simple-icons:swiper',
-      'ri:file-excel-2-line',
-      'ri:bar-chart-2-line',
-      'ri:reset-left-line',
-      'ri:delete-bin-line',
-      'logos:chrome',
-      'logos:firefox',
-      'logos:safari',
-      'logos:opera',
-      'logos:microsoft-edge',
-      'logos:webkit',
-      'logos:android-icon',
-      'logos:microsoft-windows-icon',
-      'logos:apple',
-      'logos:linux-tux',
-      'logos:android-icon',
-      'logos:apple',
-      'logos:chrome',
-    ],
+    include: icons,
   },
   // 使用 mako 用于编译以显著提高构建速度。 https://makojs.dev/docs/config
   mako: {},
+  tailwindcss: {},
 });

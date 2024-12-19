@@ -12,8 +12,10 @@ import { useRequest } from 'ahooks'
 import { Divider, Form, TreeSelect, Typography } from 'antd';
 import { get, keys } from 'lodash-es';
 import type { FC } from 'react';
+import { AppstoreOutlined } from '@ant-design/icons'
 
 import { ProFormParent, ProFormSort, ProFormStatus } from '@/components/CommonProForm'
+import { IconPicker } from '@/components/Icon'
 import { getInternationalList } from '@/services/system/internationalization'
 import { formatPerfix } from '@/utils'
 import { MenuTypeEnum } from '@/utils/const'
@@ -89,7 +91,15 @@ const FormTemplateItem: FC<Pick<FormTemplateProps, 'treeData'>> = ({ treeData })
 					formatMessage({ id: formatPerfix(ROUTES.MENUMANAGEMENT, 'icon') })
 				}
 				tooltip={formatMessage({ id: formatPerfix(ROUTES.MENUMANAGEMENT, 'icon.tooltip') })}
-				fieldProps={{ showCount: true, maxLength: 50 }}
+				fieldProps={{ showCount: true, maxLength: 50, addonBefore: (
+          <IconPicker
+            onChange={(value) => {
+              form.setFieldValue('icon', value)
+            }}
+          >
+            <AppstoreOutlined />
+          </IconPicker>
+        ), }}
 			/>
 		</>
 	);
