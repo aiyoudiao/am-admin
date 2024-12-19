@@ -1,11 +1,7 @@
 /*
  * @Description: 活动公告详情
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-09-28 09:45:19
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-17 13:58:53
  */
+
 import { useBoolean, useMount, useRequest, useUnmount } from 'ahooks'
 import { Avatar, ConfigProvider, Drawer, List, Typography } from 'antd';
 import { pick } from 'lodash-es'

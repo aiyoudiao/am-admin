@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-21 09:16:00
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-21 13:58:22
  * @Description: Swiper
  */
+
 import 'swiper/css';
 import './index.less'
 

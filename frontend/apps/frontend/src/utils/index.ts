@@ -1,10 +1,7 @@
 /*
  * @Description: 全局公共方法
- * @Version: 2.0
- * @Date: 2022-09-07 16:12:53
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-29 14:32:15
  */
+
 import type { ColumnsState, RequestData } from '@ant-design/pro-components';
 import { history } from '@umijs/max';
 import { message } from 'antd';

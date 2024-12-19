@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-23 16:22:48
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-23 16:34:12
  * @Description: 散点图
  */
+
 import { Scatter, type ScatterConfig } from '@ant-design/charts';
 import { useMount } from 'ahooks';
 import { Spin } from 'antd';

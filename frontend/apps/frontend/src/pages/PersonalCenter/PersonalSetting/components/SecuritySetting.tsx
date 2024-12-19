@@ -1,11 +1,7 @@
 /*
  * @Description: 安全设置
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-01-13 17:33:55
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-21 17:58:06
  */
+
 import { ProList } from '@ant-design/pro-components';
 import { useIntl, useModel } from '@umijs/max'
 import { Button, Tag, Typography } from 'antd'

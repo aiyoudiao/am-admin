@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-22 14:06:53
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-23 15:49:39
  * @Description: 面积图
  */
+
 import { Area, type AreaConfig } from '@ant-design/charts';
 import { useMount } from 'ahooks';
 import { Spin } from 'antd';

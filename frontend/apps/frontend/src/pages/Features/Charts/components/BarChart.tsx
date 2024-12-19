@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-23 10:08:06
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-23 10:52:29
  * @Description: 柱状图
  */
+
 import { Column } from '@ant-design/charts';
 import { useMount } from 'ahooks';
 import { Spin } from 'antd';

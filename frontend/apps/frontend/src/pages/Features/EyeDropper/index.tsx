@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-17 15:43:05
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-17 16:03:56
  * @Description: 系统级取色器
  */
+
 import { PageContainer, PageHeader, ProCard } from '@ant-design/pro-components'
 import { useIntl, useModel } from '@umijs/max';
 import { App, Badge, Button, Card } from 'antd';

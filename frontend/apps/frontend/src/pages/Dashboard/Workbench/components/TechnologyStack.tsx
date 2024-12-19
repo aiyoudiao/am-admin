@@ -1,11 +1,7 @@
 /*
  * @Description: 项目技术栈
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-10-11 09:04:26
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-05 09:28:10
  */
+
 import { CheckCard } from '@ant-design/pro-components';
 import { Icon, useIntl } from '@umijs/max';
 import { Avatar, Card, Col, Row } from 'antd';

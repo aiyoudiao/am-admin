@@ -1,11 +1,7 @@
 /*
  * @Description: 新建表单
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-13 11:33:11
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-21 17:04:50
  */
+
 import { ModalForm } from '@ant-design/pro-components';
 import { useRequest } from 'ahooks'
 import { App, Form } from 'antd';

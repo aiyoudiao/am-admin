@@ -1,11 +1,7 @@
 /*
- * @Description: 自定义操作列表	
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-09-14 14:11:04
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-12 11:30:54
+ * @Description: 自定义操作列表
  */
+
 import { HeaderProps } from '@ant-design/pro-components'
 import { SelectLang } from '@umijs/max'
 

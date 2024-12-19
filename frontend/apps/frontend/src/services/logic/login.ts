@@ -1,11 +1,7 @@
 /*
  * @Description: 用户登录模块 API
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-11-29 16:38:17
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-26 17:24:29
  */
+
 import type { LoginTypes } from '@/utils/types';
 import type { LoginParams } from '@/utils/types/login'
 import { httpRequest } from '@/utils/umiRequest'

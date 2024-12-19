@@ -1,11 +1,7 @@
 /*
  * @Description: 基本设置
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-01-13 09:26:44
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-08 09:11:12
  */
+
 import { ProForm } from '@ant-design/pro-components';
 import { useIntl, useModel } from '@umijs/max'
 import { useRequest } from 'ahooks'

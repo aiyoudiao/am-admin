@@ -1,11 +1,7 @@
 /*
  * @Description: 锁定屏幕弹窗
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-01-11 11:18:51
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-04 11:11:07
  */
+
 import { useIntl, useModel } from '@umijs/max';
 import { useBoolean, useLocalStorageState, useMount } from 'ahooks';
 import { Avatar, Col, Form, Input, Modal, Row, Typography } from 'antd';

@@ -1,11 +1,7 @@
 /*
  * @Description: 睡眠弹窗
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-01-06 16:40:34
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-17 13:46:32
  */
+
 import { useIntl, useModel } from '@umijs/max'
 import { useBoolean, useEventListener, useInterval, useMount } from 'ahooks'
 import { App, Avatar, Button, Col, Form, Input, Modal, Row, Typography } from 'antd'

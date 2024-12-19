@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-16 17:58:16
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-17 11:31:43
  * @Description: 懒加载
  */
+
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { PageContainer, PageHeader, ProCard } from '@ant-design/pro-components'

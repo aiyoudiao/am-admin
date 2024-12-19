@@ -1,11 +1,7 @@
 /*
  * @Description: 锁定屏幕页面
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-01-06 14:20:20
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-17 13:46:15
  */
+
 import { useEmotionCss } from '@ant-design/use-emotion-css';
 import { useIntl, useModel } from '@umijs/max'
 import { useLocalStorageState } from 'ahooks'

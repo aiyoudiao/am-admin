@@ -1,11 +1,7 @@
 /*
  * @Description: 系统设置-操作日志
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-02 14:07:00
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-29 15:09:53
  */
+
 import { ActionType, PageContainer, ProColumns, ProTable } from '@ant-design/pro-components'
 import { Access, Icon, useAccess, useIntl } from '@umijs/max'
 import { useRequest } from 'ahooks'

@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-21 09:47:16
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-21 10:01:24
  * @Description: 方块
  */
+
 import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 

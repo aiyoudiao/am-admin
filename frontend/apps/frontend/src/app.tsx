@@ -1,10 +1,5 @@
 /*
  * @Description: 全局入口文件
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-17 20:33:50
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-24 09:43:51
  */
 
 import { Settings as LayoutSettings } from '@ant-design/pro-components'; // 高级组件

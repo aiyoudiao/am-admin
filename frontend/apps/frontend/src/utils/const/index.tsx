@@ -1,11 +1,7 @@
 /*
  * @Description: 全局常量数据
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-09-06 13:37:18
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-22 14:01:04
  */
+
 import { FormattedMessage } from '@umijs/max';
 import type { Locale } from 'antd/es/locale';
 import enus from 'antd/es/locale/en_US';

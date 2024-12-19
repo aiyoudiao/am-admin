@@ -1,11 +1,7 @@
 /*
  * @Description: 环境依赖
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-08-08 09:20:45
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-11 16:50:50
  */
+
 import { PageContainer } from '@ant-design/pro-components';
 import { useIntl } from '@umijs/max'
 import { Badge, Card, Col, Row, Space, Typography } from 'antd'

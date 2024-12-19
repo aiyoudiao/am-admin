@@ -1,11 +1,7 @@
 /*
  * @Description: 系统设置模块
- * @Version: 2.0
- * @Author: Cyan
- * @Date: 2022-09-08 15:12:38
- * @LastEditors: Cyan
- * @LastEditTime: 2023-03-17 16:50:12
  */
+
 export default {
   path: '/system',
   name: 'system',

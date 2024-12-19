@@ -1,11 +1,7 @@
 /*
  * @Description: 新建表单
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-13 11:33:11
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-08 09:14:38
  */
+
 import { StepsForm } from '@ant-design/pro-components';
 import { useIntl } from '@umijs/max'
 import { useCounter } from 'ahooks'

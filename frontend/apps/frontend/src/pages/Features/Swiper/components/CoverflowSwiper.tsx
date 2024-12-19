@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-21 11:08:12
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-21 11:12:34
  * @Description: 3d 流翻转
  */
+
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 

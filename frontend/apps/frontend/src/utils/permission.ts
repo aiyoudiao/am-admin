@@ -1,10 +1,5 @@
 /*
  * @Description: 组件按钮操作权限集合
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-12-05 15:11:02
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-18 17:36:18
  */
 
 export default {

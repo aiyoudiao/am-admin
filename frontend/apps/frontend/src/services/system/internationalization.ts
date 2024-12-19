@@ -1,11 +1,7 @@
 /*
  * @Description: 系统设置-国际化-API
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-08 18:10:19
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-07 10:10:44
  */
+
 import { ROUTES } from '@/utils/enums'
 import type { CreateInternationalParams, SearchParams } from '@/utils/types/system/internationalization'
 import { httpRequest } from '@/utils/umiRequest'

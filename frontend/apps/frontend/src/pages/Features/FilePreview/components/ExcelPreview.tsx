@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-22 09:12:57
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-22 09:27:17
  * @Description: Excel 文件预览
  */
+
 import '@js-preview/excel/lib/index.css';
 
 import jsPreviewExcel, { JsExcelPreview } from '@js-preview/excel';

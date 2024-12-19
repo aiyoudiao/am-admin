@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-10 13:47:25
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-16 09:52:26
  * @Description: 验证码
  */
+
 import { PageContainer, PageHeader, ProCard } from '@ant-design/pro-components'
 import { useIntl } from '@umijs/max';
 import { App, Button, Card, Col, Input, Row, Space } from 'antd';

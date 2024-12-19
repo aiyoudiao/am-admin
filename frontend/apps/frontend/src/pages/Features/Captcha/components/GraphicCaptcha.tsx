@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-10 16:35:52
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-11 15:19:30
  * @Description: 图形验证码
  */
+
 import { useMount } from 'ahooks';
 import { join, random, times } from 'lodash-es'
 import { FC, RefObject, useEffect, useImperativeHandle, useState } from 'react';

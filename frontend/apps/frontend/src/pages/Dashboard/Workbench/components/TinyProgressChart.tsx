@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-24 09:11:36
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-24 09:38:55
  * @Description: 迷你进度图
  */
+
 import { Tiny } from '@ant-design/charts';
 import { useMount } from 'ahooks';
 import { Spin } from 'antd';

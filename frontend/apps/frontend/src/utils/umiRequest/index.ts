@@ -1,11 +1,7 @@
 /*
  * @Description: umi-Request 请求封装
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-09-06 10:12:49
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-17 09:18:19
  */
+
 import 'nprogress/nprogress.css';
 
 import { AxiosRequestConfig, request, RequestConfig, RequestError, RequestOptions } from '@umijs/max';

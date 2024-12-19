@@ -1,11 +1,7 @@
 /*
  * @Description: 修改密码
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-01-12 16:10:13
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-08 09:11:47
  */
+
 import { ProFormText } from '@ant-design/pro-components';
 import { useIntl, useModel } from '@umijs/max'
 import { useRequest } from 'ahooks'

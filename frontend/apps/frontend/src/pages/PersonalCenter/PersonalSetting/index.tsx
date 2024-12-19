@@ -1,11 +1,7 @@
 /*
  * @Description: 个人设置
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-01-12 15:19:34
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-21 17:50:27
  */
+
 import { PageContainer } from '@ant-design/pro-components'
 import { useIntl } from '@umijs/max'
 import { Card, Tabs } from 'antd';

@@ -1,11 +1,7 @@
 /*
  * @Description: 智能行政-活动公告-API
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-08-25 17:32:45
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-26 17:19:03
  */
+
 import { ROUTES } from '@/utils/enums'
 import type { PageResponse } from '@/utils/types'
 import type {

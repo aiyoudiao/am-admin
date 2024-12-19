@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-22 13:57:42
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-23 16:29:27
  * @Description: 图表
  */
+
 import { PageContainer } from '@ant-design/pro-components'
 import { Icon, useIntl } from '@umijs/max'
 import { Card, Col, Row } from 'antd';

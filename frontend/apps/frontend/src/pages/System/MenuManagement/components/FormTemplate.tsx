@@ -1,10 +1,5 @@
 /*
  * @Description: 新建表单
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-13 11:33:11
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-17 13:50:16
  */
 
 import { DrawerForm } from '@ant-design/pro-components';

@@ -1,11 +1,7 @@
 /*
  * @Description: 指标卡片
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-08-08 14:50:57
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-24 09:27:24
  */
+
 import { StatisticCard } from '@ant-design/pro-components';
 import { Icon, useModel } from '@umijs/max'
 import { useMount, useSetState } from 'ahooks';

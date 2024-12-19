@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-16 13:39:57
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-16 14:09:26
  * @Description: 甘特图
  */
+
 import 'dhtmlx-gantt/codebase/dhtmlxgantt.css';
 
 import { PageContainer } from '@ant-design/pro-components'

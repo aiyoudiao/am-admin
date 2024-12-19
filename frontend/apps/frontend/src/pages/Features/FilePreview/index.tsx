@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-21 14:42:25
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-22 13:50:49
  * @Description: 文件预览
  */
+
 import { PageContainer } from '@ant-design/pro-components'
 import { useIntl } from '@umijs/max';
 import { Card, Tabs, type TabsProps } from 'antd';

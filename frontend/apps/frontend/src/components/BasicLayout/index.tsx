@@ -1,11 +1,7 @@
 /*
  * @Description: 入口文件-全局 layout 配置
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-19 20:39:53
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-21 17:45:47
  */
+
 import {
   ProConfigProvider,
   SettingDrawer,

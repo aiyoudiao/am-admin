@@ -1,11 +1,7 @@
 /*
  * @Description: 最新公告
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-10-11 09:48:13
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-04 10:04:47
  */
+
 import { useIntl } from '@umijs/max';
 import { useRequest } from 'ahooks';
 import { Avatar, Card, List, Tag } from 'antd';

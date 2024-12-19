@@ -1,11 +1,7 @@
 /*
  * @Description: 全局上传图片组件
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-08-30 13:49:17
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-09 17:56:56
  */
+
 import {
   ProFormUploadButton,
   ProFormUploadButtonProps,

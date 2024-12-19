@@ -1,11 +1,7 @@
 /*
  * @Description: 个人中心模块
- * @Version: 2.0
- * @Author: Cyan
- * @Date: 2023-01-12 15:21:05
- * @LastEditors: Cyan
- * @LastEditTime: 2023-01-12 15:23:19
  */
+
 export default {
   path: '/personal-center',
   name: 'personal-center',

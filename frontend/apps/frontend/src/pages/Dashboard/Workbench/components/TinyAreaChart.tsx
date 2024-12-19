@@ -1,11 +1,7 @@
 /*
  * @Description: 迷你面积图
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-08-08 14:55:20
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-24 09:32:34
  */
+
 import { Tiny } from '@ant-design/charts';
 import { useMount } from 'ahooks';
 import { Spin } from 'antd';

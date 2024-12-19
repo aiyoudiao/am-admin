@@ -1,11 +1,7 @@
 /*
  * @Description: ProLayout API
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-09-14 15:16:33
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-14 10:09:26
  */
+
 import { HeaderProps } from '@ant-design/pro-components';
 import { Icon } from '@umijs/max';
 

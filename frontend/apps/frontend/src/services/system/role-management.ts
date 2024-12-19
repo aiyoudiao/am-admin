@@ -1,11 +1,7 @@
 /*
  * @Description: 系统设置-角色管理-API
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-08 18:10:19
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-07 10:17:47
  */
+
 import { ROUTES } from '@/utils/enums'
 import type { PageResponse } from '@/utils/types'
 import type { RoleStatusParams, SearchParams } from '@/utils/types/system/role-management'

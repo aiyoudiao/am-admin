@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-21 13:44:36
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-21 13:44:54
  * @Description: 创意效果
  */
+
 import 'swiper/css/effect-creative';
 import 'swiper/css/pagination';
 

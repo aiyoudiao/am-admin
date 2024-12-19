@@ -1,11 +1,7 @@
 /*
  * @Description: 项目推荐
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-10-19 14:56:08
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-26 17:43:50
  */
+
 import { Icon, useIntl } from '@umijs/max';
 import { useRequest } from 'ahooks';
 import { Avatar, Image, List, Space, Tag, Tooltip, Typography } from 'antd';

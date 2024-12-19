@@ -1,11 +1,7 @@
 /*
  * @Description: 表格操作下拉菜单
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-08-30 17:50:17
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-05 11:06:14
  */
+
 import { Access, Icon, useAccess, useIntl } from '@umijs/max';
 import { App, Button, Dropdown, MenuProps } from 'antd';
 import { filter, get } from 'lodash-es';

@@ -1,11 +1,7 @@
 /*
  * @Description: 表单配置项
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-13 14:05:54
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-26 16:20:24
  */
+
 import {
 	ProFormCascader,
 	ProFormSelect,

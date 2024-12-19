@@ -1,11 +1,7 @@
 /*
  * @Description: 手机号码登录
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-11 14:52:29
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-05 14:08:56
  */
+
 import { ProFormCaptcha, ProFormText } from '@ant-design/pro-components';
 import { Icon, useIntl } from '@umijs/max';
 import { App } from 'antd';

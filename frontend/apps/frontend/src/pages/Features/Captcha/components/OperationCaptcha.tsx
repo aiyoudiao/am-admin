@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-10 17:55:30
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-11 15:24:47
  * @Description: 运算验证码
  */
+
 import { useMount } from 'ahooks';
 import { add, multiply, random, subtract } from 'lodash-es'
 import { FC, RefObject, useImperativeHandle, useState } from 'react';

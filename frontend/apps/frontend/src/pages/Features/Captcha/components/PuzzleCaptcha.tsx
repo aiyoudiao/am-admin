@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-14 17:57:23
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-15 17:54:19
  * @Description: 拼图验证码
  */
+
 import { useEmotionCss } from '@ant-design/use-emotion-css';
 import { Icon } from '@umijs/max';
 import { useMount, useSetState } from 'ahooks';

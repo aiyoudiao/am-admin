@@ -1,11 +1,7 @@
 /*
  * @Description: 左侧个人信息
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-01-17 10:02:38
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-05 09:49:55
  */
+
 import { Icon, useModel } from '@umijs/max';
 import { Avatar, Col, Divider, Space, Typography } from 'antd';
 import { codeToText } from 'element-china-area-data';

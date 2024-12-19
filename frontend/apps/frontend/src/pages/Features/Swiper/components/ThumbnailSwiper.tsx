@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-21 11:13:43
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-21 11:26:10
  * @Description: 缩略图
  */
+
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';

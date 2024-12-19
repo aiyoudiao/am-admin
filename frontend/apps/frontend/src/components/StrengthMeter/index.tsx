@@ -1,11 +1,7 @@
 /*
  * @Description: 密码强度校验组件
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-01-09 17:15:19
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-14 09:40:25
  */
+
 import { ProFormText } from '@ant-design/pro-components';
 import { useIntl } from '@umijs/max'
 import { Col, Form, Progress, Row } from 'antd';

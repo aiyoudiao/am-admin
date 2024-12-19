@@ -1,11 +1,7 @@
 /*
  * @Description: 表单公告项
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-09-19 17:06:11
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-25 13:54:58
  */
+
 import {
   ProFormDigit,
   ProFormDigitProps,

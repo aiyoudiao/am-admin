@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-22 09:12:57
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-29 09:17:36
  * @Description: Docx 文件预览
  */
+
 import '@js-preview/docx/lib/index.css'
 
 import jsPreviewDocx, { JsDocxPreview } from '@js-preview/docx';

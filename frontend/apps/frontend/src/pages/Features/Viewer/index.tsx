@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-16 14:37:59
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-16 15:46:49
  * @Description: 图片预览
  */
+
 import { PageContainer } from '@ant-design/pro-components'
 import { useIntl } from '@umijs/max';
 import { useMount } from 'ahooks';

@@ -1,11 +1,7 @@
 /*
  * @Description: Git 更新日志
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-10-11 09:54:01
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-10 11:27:01
  */
+
 import { useIntl } from '@umijs/max'
 import { useRequest } from 'ahooks'
 import { Card, Space, Timeline, Typography } from 'antd'

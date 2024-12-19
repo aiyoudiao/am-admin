@@ -1,10 +1,5 @@
 /*
  * @Description: 登录页
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-08 11:09:03
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-15 09:29:14
  */
 
 import { LoginForm } from '@ant-design/pro-components';

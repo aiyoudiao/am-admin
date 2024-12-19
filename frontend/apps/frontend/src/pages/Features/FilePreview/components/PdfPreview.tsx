@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-22 09:12:57
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-29 09:19:45
  * @Description: Pdf 文件预览
  */
+
 import jsPreviewPdf, { JsPdfPreview } from '@js-preview/pdf';
 import { useMount } from 'ahooks';
 import { Spin } from 'antd'

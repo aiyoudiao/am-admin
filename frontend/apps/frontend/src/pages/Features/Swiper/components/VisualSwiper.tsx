@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-21 13:52:53
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-21 14:02:43
  * @Description: 横向循环焦点图片展示
  */
+
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 

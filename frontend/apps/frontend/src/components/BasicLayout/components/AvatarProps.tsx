@@ -1,11 +1,7 @@
 /*
  * @Description: 用户头像
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-09-14 14:51:38
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-05 10:55:34
  */
+
 import { HeaderProps } from '@ant-design/pro-components';
 import { history, Icon, useIntl, useModel } from '@umijs/max';
 import { useRequest } from 'ahooks';

@@ -1,11 +1,7 @@
 /*
  * @Description: 消息铃铛
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-10-08 15:26:07
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-05 11:00:29
  */
+
 import { Icon, useIntl } from '@umijs/max';
 import { useMount, useRequest, useUnmount } from 'ahooks';
 import { Avatar, Badge, Card, ConfigProvider, List, Popover, Spin, Tabs } from 'antd';

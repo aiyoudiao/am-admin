@@ -1,11 +1,7 @@
 /*
  * @Description: 顶部布局
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-08-08 14:47:00
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-20 09:09:49
  */
+
 import { useModel } from '@umijs/max'
 import { useRequest } from 'ahooks'
 import { Avatar, Card, Col, Row, Space, Statistic, Typography } from 'antd';

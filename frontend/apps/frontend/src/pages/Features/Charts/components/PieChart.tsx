@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-23 15:46:49
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-23 16:01:36
  * @Description: 饼图
  */
+
 import { Pie, type PieConfig } from '@ant-design/charts';
 import { useMount } from 'ahooks';
 import { Spin } from 'antd';

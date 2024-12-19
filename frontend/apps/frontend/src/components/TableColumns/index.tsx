@@ -1,11 +1,7 @@
 /*
  * @Description: 表格列公共配置项
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-09-18 14:13:44
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-05 11:13:06
  */
+
 import { ProColumns } from '@ant-design/pro-components';
 import { Access, FormattedMessage, Icon, useAccess } from '@umijs/max';
 import { Button, Space, Tag } from 'antd';

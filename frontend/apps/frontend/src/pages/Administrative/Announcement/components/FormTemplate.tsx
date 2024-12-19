@@ -1,11 +1,7 @@
 /*
  * @Description: 新建表单
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-08-29 09:49:55
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-16 10:12:49
  */
+
 import { ModalForm } from '@ant-design/pro-components'; // 高级组件
 import { App, Form } from 'antd'
 import { FC } from 'react'

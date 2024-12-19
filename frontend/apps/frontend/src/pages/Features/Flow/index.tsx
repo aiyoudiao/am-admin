@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-17 17:28:34
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-18 14:50:54
  * @Description: 流程图
  */
+
 import '@xyflow/react/dist/style.css';
 
 import dagre from '@dagrejs/dagre';

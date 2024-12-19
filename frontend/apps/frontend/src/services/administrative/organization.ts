@@ -1,11 +1,7 @@
 /*
  * @Description: 智能行政-组织管理-API
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-08 18:10:19
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-07 09:18:43
  */
+
 import { ROUTES } from '@/utils/enums'
 import type { CreateOrgParams, SearchParams } from '@/utils/types/administrative/organization'
 import { httpRequest } from '@/utils/umiRequest'

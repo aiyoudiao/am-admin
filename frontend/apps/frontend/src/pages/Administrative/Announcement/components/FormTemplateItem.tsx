@@ -1,11 +1,7 @@
 /*
  * @Description: 表单配置项
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-08-29 10:03:35
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-21 15:26:50
  */
+
 import {
   ProFormRadio,
   ProFormSegmented,

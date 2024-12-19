@@ -1,11 +1,7 @@
 /*
  * @Description: 技术文档模块
- * @Version: 2.0
- * @Author: Cyan
- * @Date: 2023-08-11 16:16:16
- * @LastEditors: Cyan
- * @LastEditTime: 2023-08-11 17:43:49
  */
+
 export default {
   path: '/technical-document',
   name: 'technical-document',

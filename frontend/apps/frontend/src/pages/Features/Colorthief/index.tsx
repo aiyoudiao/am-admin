@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-17 13:43:07
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-17 14:39:49
  * @Description: 图片取色盘
  */
+
 import './index.less';
 
 import { PageContainer, PageHeader, ProCard } from '@ant-design/pro-components'

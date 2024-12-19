@@ -1,11 +1,7 @@
 /*
  * @Description: 组织管理-表格列表
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-02 13:54:14
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-05 09:44:08
  */
+
 import { ActionType, ProColumns, ProTable } from '@ant-design/pro-components';
 import { useEmotionCss } from '@ant-design/use-emotion-css';
 import { Icon, useIntl } from '@umijs/max';

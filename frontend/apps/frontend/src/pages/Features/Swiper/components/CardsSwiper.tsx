@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-21 11:03:26
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-21 11:05:30
  * @Description: 卡片特效
  */
+
 import 'swiper/css/effect-cards';
 
 import { map } from 'lodash-es';

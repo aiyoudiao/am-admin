@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-21 10:05:08
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-21 10:05:29
  * @Description: 翻转
  */
+
 import 'swiper/css/effect-flip';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';

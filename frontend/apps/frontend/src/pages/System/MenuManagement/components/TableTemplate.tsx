@@ -1,11 +1,7 @@
 /*
  * @Description: 菜单管理-表格列表
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-09-02 13:54:14
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-04 14:58:15
  */
+
 import { ActionType, ColumnsState, ProColumns, ProTable } from '@ant-design/pro-components';
 import { getLocale, Icon, useIntl } from '@umijs/max';
 import { useBoolean, useRequest } from 'ahooks';

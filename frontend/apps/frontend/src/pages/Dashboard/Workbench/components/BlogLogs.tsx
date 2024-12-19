@@ -1,11 +1,7 @@
 /*
  * @Description: 博客日志
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-10-11 10:02:20
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-08 15:40:42
  */
+
 import { Icon, useIntl } from '@umijs/max';
 import { useMount, useRequest } from 'ahooks';
 import { Avatar, Card, Flex, List, Space, Tag, Tooltip } from 'antd';

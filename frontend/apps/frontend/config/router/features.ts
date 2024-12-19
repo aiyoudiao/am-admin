@@ -1,10 +1,7 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-10 14:11:27
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-22 13:59:31
  * @Description: 功能页模块
  */
+
 export default {
   path: '/features',
   name: 'features',
