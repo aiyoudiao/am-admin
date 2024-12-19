@@ -49,7 +49,6 @@ const FormTemplate: FC<FormTemplateProps> = ({
 
 	/**
 	 * @description: 分步组件对应的组件
-	 * @author: 白雾茫茫丶
 	 */
 	const StepComponents = [
 		// 个人信息

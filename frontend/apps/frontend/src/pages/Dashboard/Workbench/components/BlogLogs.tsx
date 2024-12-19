@@ -22,7 +22,6 @@ const BlogLogs: FC<BlogLogsProps> = ({ renderSecondary }) => {
   const { formatMessage } = useIntl();
   /**
    * @description: 请求掘金文章列表
-   * @author: 白雾茫茫丶
    */
   const {
     data: articleList,

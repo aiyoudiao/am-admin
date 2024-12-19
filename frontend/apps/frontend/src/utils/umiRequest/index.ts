@@ -4,18 +4,23 @@
 
 import 'nprogress/nprogress.css';
 
-import { AxiosRequestConfig, request, RequestConfig, RequestError, RequestOptions } from '@umijs/max';
-import { message, Modal } from 'antd'
+import {
+  AxiosRequestConfig,
+  request,
+  RequestConfig,
+  RequestError,
+  RequestOptions,
+} from '@umijs/max';
+import { message, Modal } from 'antd';
 import { debounce } from 'lodash-es'; // lodash 工具函数
 import Nprogress from 'nprogress';
 
-import { getLocalStorageItem, isSuccess, logoutToLogin } from '@/utils' // 全局工具函数
-import { BASEURL, LOCAL_STORAGE, REQUEST_CODE } from '@/utils/enums'
-import type { Response } from '@/utils/types'
+import { getLocalStorageItem, isSuccess, logoutToLogin } from '@/utils'; // 全局工具函数
+import { BASEURL, LOCAL_STORAGE, REQUEST_CODE } from '@/utils/enums';
+import type { Response } from '@/utils/types';
 
 /**
  * @description: 防抖函数统一处理异常错误
- * @Author: 白雾茫茫丶
  */
 const debounceError = debounce((content: string, duration = 3) => {
   message.error(content, duration);
@@ -24,7 +29,6 @@ const debounceError = debounce((content: string, duration = 3) => {
 /**
  * @description: 运行时配置，封装统一请求
  * @doc https://umijs.org/docs/max/request
- * @author: 白雾茫茫丶
  */
 const umiRequest: RequestConfig = {
   baseURL: BASEURL.API, // 请求前缀
@@ -47,7 +51,7 @@ const umiRequest: RequestConfig = {
       // Axios 的错误
       // 请求成功发出且服务器也响应了状态码，但状态代码超出了 2xx 的范围
       if (response) {
-        const { data } = response
+        const { data } = response;
         switch (data.code) {
           // token令牌校验，如果出现这个返回码则退出登录到登录页面
           case REQUEST_CODE.UNAUTHORIZED:
@@ -57,7 +61,7 @@ const umiRequest: RequestConfig = {
               content: data.msg,
               onOk: () => {
                 // 退出登录返回到登录页
-                logoutToLogin()
+                logoutToLogin();
                 Modal.destroyAll();
               },
             });
@@ -80,10 +84,10 @@ const umiRequest: RequestConfig = {
   requestInterceptors: [
     (config: RequestOptions) => {
       // 获取 ACCESS_TOKEN
-      const ACCESS_TOKEN = getLocalStorageItem<string>(LOCAL_STORAGE.ACCESS_TOKEN)
+      const ACCESS_TOKEN = getLocalStorageItem<string>(LOCAL_STORAGE.ACCESS_TOKEN);
       // 判断是否登录存在token，有就请求头携带token
       if (ACCESS_TOKEN && config?.headers) {
-        config.headers.Authorization = `Bearer ${ACCESS_TOKEN}`
+        config.headers.Authorization = `Bearer ${ACCESS_TOKEN}`;
       }
       // 进度条开始
       Nprogress.start();
@@ -110,7 +114,7 @@ const umiRequest: RequestConfig = {
           // 登录信息失效
           case REQUEST_CODE.UNAUTHORIZED:
             // 退出登录返回到登录页
-            logoutToLogin()
+            logoutToLogin();
             Modal.destroyAll();
             break;
         }
@@ -122,11 +126,11 @@ const umiRequest: RequestConfig = {
       (error: RequestError) => {
         // 进度条结束
         Nprogress.done();
-        return Promise.reject(error)
+        return Promise.reject(error);
       },
     ],
   ],
-}
+};
 
 /**
  * @description: 导出封装的请求方法
@@ -151,6 +155,6 @@ export const httpRequest = {
   patch<T = any>(url: string, data?: object, config?: AxiosRequestConfig): Promise<Response<T>> {
     return request(url, { method: 'PATCH', data, ...config });
   },
-}
+};
 
-export default umiRequest
+export default umiRequest;

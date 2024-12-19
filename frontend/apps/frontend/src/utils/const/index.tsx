@@ -33,7 +33,6 @@ import type { MenuTypes } from '@/utils/types/system/menu-management';
 
 /**
  * @description: 路由菜单对应的 remixicon
- * @author: 白雾茫茫丶
  */
 export const MenuRemixIconMap: Record<string, UmiIcon> = {
   [ROUTES.DASHBOARD]: 'ri:apps-line',
@@ -72,7 +71,6 @@ export const MenuRemixIconMap: Record<string, UmiIcon> = {
 
 /**
  * @description: antd 多语言配置项
- * @author: 白雾茫茫丶
  */
 export const ANTD_LANGS: Record<Langs, { momentLocale: string; antd: Locale }> = {
   [LANGS.CN]: {
@@ -95,7 +93,6 @@ export const ANTD_LANGS: Record<Langs, { momentLocale: string; antd: Locale }> =
 
 /**
  * @description: 状态
- * @author: 白雾茫茫丶
  */
 export const STATUS_OPTS: LabeledValue[] = [
   {
@@ -110,7 +107,6 @@ export const STATUS_OPTS: LabeledValue[] = [
 
 /**
  * @description: 是否
- * @author: 白雾茫茫丶
  */
 export const FLAG_OPTS: LabeledValue[] = [
   {
@@ -125,7 +121,6 @@ export const FLAG_OPTS: LabeledValue[] = [
 
 /**
  * @description: 性别
- * @author: 白雾茫茫丶
  */
 export const SEX_OPTS: LabeledValue[] = [
   {
@@ -144,7 +139,6 @@ export const SEX_OPTS: LabeledValue[] = [
 
 /**
  * @description: 消息类型
- * @author: 白雾茫茫丶
  */
 export const AnnouncementTypeEnum: Record<AnnouncementType, string> = {
   [ANNOUNCEMENT_TYPE.ANNOUNCEMENT]: 'announcement',
@@ -155,7 +149,6 @@ export const AnnouncementTypeEnum: Record<AnnouncementType, string> = {
 
 /**
  * @description: 组织类型
- * @author: 白雾茫茫丶
  */
 export const OrgTypeEnum: Record<OrgTypes, string> = {
   [ORG_TYPE.GROUP]: 'group',
@@ -166,7 +159,6 @@ export const OrgTypeEnum: Record<OrgTypes, string> = {
 
 /**
  * @description: 菜单类型配置项
- * @author: 白雾茫茫丶
  */
 export const MenuTypeEnum: Record<MenuTypes, string> = {
   [MENU_TYPE.DIR]: 'dir',
@@ -176,7 +168,6 @@ export const MenuTypeEnum: Record<MenuTypes, string> = {
 
 /**
  * @description: 窗口打开方式
- * @author: 白雾茫茫丶
  */
 export const TARGET_TYPE_OPTS: LabeledValue[] = keys(TARGET_TYPE).map(
   (key: EnumKeys<typeof TARGET_TYPE>) => ({ value: TARGET_TYPE[key], label: TARGET_TYPE[key] }),
@@ -184,7 +175,6 @@ export const TARGET_TYPE_OPTS: LabeledValue[] = keys(TARGET_TYPE).map(
 
 /**
  * @description: 导航菜单的位置,side 为正常模式，top菜单显示在顶部，mix 两种兼有
- * @author: 白雾茫茫丶
  */
 export const LAYOUT_TYPE_OPTS: LabeledValue[] = keys(LAYOUT_TYPE).map(
   (key: EnumKeys<typeof LAYOUT_TYPE>) => ({
@@ -197,7 +187,6 @@ export const LAYOUT_TYPE_OPTS: LabeledValue[] = keys(LAYOUT_TYPE).map(
 
 /**
  * @description: 导航菜单的主题
- * @author: 白雾茫茫丶
  */
 export const NAV_THEME_OPTS: LabeledValue[] = keys(MENU_THEME).map(
   (key: EnumKeys<typeof MENU_THEME>) => ({

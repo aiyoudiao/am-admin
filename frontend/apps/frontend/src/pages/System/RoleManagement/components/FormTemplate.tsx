@@ -16,7 +16,7 @@ import { isSuccess } from '@/utils'
 import { ROUTES } from '@/utils/enums'
 import type { FormTemplateProps } from '@/utils/types/system/role-management'
 
-import FormTemplateItem from './FormTemplateItem' // 表单组件 
+import FormTemplateItem from './FormTemplateItem' // 表单组件
 
 const FormTemplate: FC<FormTemplateProps> = ({
 	reloadTable,
@@ -34,7 +34,6 @@ const FormTemplate: FC<FormTemplateProps> = ({
 
 	/**
 	 * @description: 获取当前菜单数据
-	 * @author: 白雾茫茫丶
 	 */
 	const { data: menuData } = useRequest(async (params) => get(await getMenuList(params), 'data', []), {
 		defaultParams: [{ isPremission: true }],

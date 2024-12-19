@@ -27,7 +27,6 @@ const TechnologyStack: FC<TechnologyStackProps> = ({ renderSecondary }) => {
   const { formatMessage } = useIntl();
   /**
    * @description: 项目主要技术栈
-   * @author: 白雾茫茫丶
    */
   const technologyStack: TechnologyStackList[] = [
     {

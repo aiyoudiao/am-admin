@@ -22,7 +22,6 @@ export default function AvatarProps(openLockScreen: () => void): HeaderProps['av
   const { initialState, setInitialState } = useModel('@@initialState');
   /**
    * @description: 退出登录，并且将当前的 url 保存
-   * @author: 白雾茫茫丶
    */
   const { run: loginOut } = useRequest(Logout, {
     manual: true,
@@ -41,7 +40,6 @@ export default function AvatarProps(openLockScreen: () => void): HeaderProps['av
   });
   /**
    * @description: 退出登录
-   * @author: 白雾茫茫丶
    */
   const logOutClick = () => {
     modal.confirm({
@@ -71,7 +69,6 @@ export default function AvatarProps(openLockScreen: () => void): HeaderProps['av
   };
   /**
    * @description: 用户下拉菜单
-   * @author: 白雾茫茫丶
    */
   const menuItems: MenuProps['items'] = [
     {

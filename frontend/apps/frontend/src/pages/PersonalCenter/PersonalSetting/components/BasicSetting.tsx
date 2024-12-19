@@ -24,7 +24,6 @@ const BasicSetting: FC = () => {
 
   /**
  * @description: 更新用户信息
- * @author: 白雾茫茫丶
  */
   const { run: runUpdateUser } = useRequest(updateUser, {
     manual: true,

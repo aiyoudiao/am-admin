@@ -50,7 +50,6 @@ const TableTemplate: FC = () => {
 
   /**
    * @description: 获取组织列表
-   * @author: 白雾茫茫丶
    */
   const { data: orgTree, runAsync: fetchOrganizationList } = useRequest(
     async (params) => formatResponse(await getOrganizationList(params)),
@@ -61,7 +60,6 @@ const TableTemplate: FC = () => {
 
   /**
    * @description: proTable columns 配置项
-   * @author: 白雾茫茫丶
    */
   const columns: ProColumns<API.ORGANIZATION>[] = [
     {

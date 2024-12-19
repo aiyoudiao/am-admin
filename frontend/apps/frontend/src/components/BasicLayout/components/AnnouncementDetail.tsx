@@ -21,7 +21,6 @@ const AnnouncementDetail: FC = () => {
   const [open, { setTrue: setOpenDrawerTrue, setFalse: setOpenDrawerFalse }] = useBoolean(false)
   /**
    * @description: 公告已读
-   * @author: 白雾茫茫丶
    */
   const { runAsync: fetchAnnouncementAlready } = useRequest(async (params) => await announcementAlready(params), {
     manual: true,
@@ -29,7 +28,6 @@ const AnnouncementDetail: FC = () => {
 
   /**
    * @description: 查看详情
-   * @author: 白雾茫茫丶
    */
   const handleAnnouncementDetails = async (record: API.ANNOUNCEMENT, callback?: () => void) => {
     setCurrentRecord(record);
@@ -43,7 +41,6 @@ const AnnouncementDetail: FC = () => {
 
   /**
    * @description: 退出详情
-   * @author: 白雾茫茫丶
    */
   const handlerCancel = () => {
     setCurrentRecord(undefined);

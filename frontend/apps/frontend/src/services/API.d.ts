@@ -2,24 +2,26 @@
  * @Description: 接口数据类型定义
  */
 
-import type { CommonTypes, Flag, Langs, RequestMethods, TableTimes } from '@/utils/types'
-import type { AnnouncementType } from '@/utils/types/administrative/announcement'
-import type { OrgTypes } from '@/utils/types/administrative/organization'
-import type { LayoutTypes, MenuTheme, MenuTypes, TargetTypes } from '@/utils/types/system/menu-management'
+import type { CommonTypes, Flag, Langs, RequestMethods, TableTimes } from '@/utils/types';
+import type { AnnouncementType } from '@/utils/types/administrative/announcement';
+import type { OrgTypes } from '@/utils/types/administrative/organization';
+import type {
+  LayoutTypes,
+  MenuTheme,
+  MenuTypes,
+  TargetTypes,
+} from '@/utils/types/system/menu-management';
 
 declare global {
   namespace API {
+    /**
+     * @description: 国际化多语言层级对象
+     */
+    type LOCALESLANGAll = Record<Langs, string>;
 
     /**
-   * @description: 国际化多语言层级对象
-   * @author: 白雾茫茫丶
-   */
-    type LOCALESLANGAll = Record<Langs, string>
-
-    /**
-    * @description: 智能行政-组织管理
-    * @author: 白雾茫茫丶
-    */
+     * @description: 智能行政-组织管理
+     */
     type ORGANIZATION = {
       org_id: string; // 组织id
       org_name: string; // 组织名称
@@ -27,23 +29,22 @@ declare global {
       org_type: OrgTypes; // 组织类型
       org_logo?: string; // 组织 logo
       children?: ORGANIZATION[];
-    } & TableTimes & CommonTypes
+    } & TableTimes &
+      CommonTypes;
 
     /**
      * @description: 智能行政-岗位管理
-     * @author: 白雾茫茫丶
      */
     type JOBSMANAGEMENT = TableTimes & {
       jobs_id: string; // 岗位id
       jobs_name: string; // 岗位名称
       children?: JOBSMANAGEMENT[];
-    } & Pick<ORGANIZATION, 'org_id' | 'org_name' | 'org_logo'>
-      & Omit<CommonTypes, 'status'>;
+    } & Pick<ORGANIZATION, 'org_id' | 'org_name' | 'org_logo'> &
+      Omit<CommonTypes, 'status'>;
 
     /**
-    * @description: 系统设置-菜单管理
-    * @author: 白雾茫茫丶
-    */
+     * @description: 系统设置-菜单管理
+     */
     type MENUMANAGEMENT = {
       menu_id: string; // 菜单id
       name: string; // 国际化对应的name
@@ -69,38 +70,38 @@ declare global {
       fixSiderbar: Flag; // 固定菜单
       routes?: MENUMANAGEMENT[];
       children?: MENUMANAGEMENT[];
-    } & TableTimes & LOCALESLANGAll & Omit<CommonTypes, 'leader' | 'describe'>;
+    } & TableTimes &
+      LOCALESLANGAll &
+      Omit<CommonTypes, 'leader' | 'describe'>;
 
     /**
-    * @description: 权限菜单
-    * @author: 白雾茫茫丶
-    */
+     * @description: 权限菜单
+     */
     type PERMISSION = TableTimes & {
       permission_id: string; // 权限id
       role_id: string; // 角色id
     } & Pick<MENUMANAGEMENT, 'menu_id'>;
 
     /**
-       * @description: 系统设置-角色管理
-       * @author: 白雾茫茫丶
-       */
+     * @description: 系统设置-角色管理
+     */
     type ROLEMANAGEMENT = {
       role_id: string; // 角色id
       role_name: string; // 角色名称
       role_code: string; // 角色编码
       menu_permission: PERMISSION[]; // 菜单权限
-    } & TableTimes & Omit<CommonTypes, 'parent_id' | 'leader'>;
+    } & TableTimes &
+      Omit<CommonTypes, 'parent_id' | 'leader'>;
 
     /**
      * @description: 系统设置-用户管理
-     * @author: 白雾茫茫丶
      */
     type USERMANAGEMENT = TableTimes & {
       user_id: string; // 用户id
       user_name: string; // 用户名称
       work_no: string; // 用户工号
       password: string; // 密码(加密)
-      confirmPassword?: string // 确认密码
+      confirmPassword?: string; // 确认密码
       cn_name: string; // 中文名
       en_name?: string; // 英文名
       age: number; // 年龄
@@ -116,14 +117,13 @@ declare global {
       login_num: number; // 登录次数
       login_last_ip: string; // 最后一次登录ip
       login_last_time: Date; // 最后一次登录时间
-    } & Pick<ORGANIZATION, 'org_id' | 'org_name'>
-      & Pick<JOBSMANAGEMENT, 'jobs_id' | 'jobs_name'>
-      & Pick<ROLEMANAGEMENT, 'role_id' | 'role_name'>
-      & Pick<CommonTypes, 'sort' | 'founder' | 'status'>;
+    } & Pick<ORGANIZATION, 'org_id' | 'org_name'> &
+      Pick<JOBSMANAGEMENT, 'jobs_id' | 'jobs_name'> &
+      Pick<ROLEMANAGEMENT, 'role_id' | 'role_name'> &
+      Pick<CommonTypes, 'sort' | 'founder' | 'status'>;
 
     /**
      * @description: 智能行政-活动公告
-     * @author: 白雾茫茫丶
      */
     type ANNOUNCEMENT = TableTimes & {
       announcement_id: string; // id 主键
@@ -133,30 +133,30 @@ declare global {
       pinned: Flag; // 是否置顶
       read_counts: number; // 阅读次数
       already: Flag; // 是否已读
-    } & Pick<USERMANAGEMENT, 'user_id' | 'avatar_url' | 'cn_name'> & Pick<CommonTypes, 'status'>
+    } & Pick<USERMANAGEMENT, 'user_id' | 'avatar_url' | 'cn_name'> &
+      Pick<CommonTypes, 'status'>;
 
     /**
      * @description: 智能行政-活动公告-已读
-     * @author: 白雾茫茫丶
      */
     type ALREADY = TableTimes & {
       id: string;
-    } & Pick<USERMANAGEMENT, 'user_id'> & Pick<ANNOUNCEMENT, 'announcement_id'>
+    } & Pick<USERMANAGEMENT, 'user_id'> &
+      Pick<ANNOUNCEMENT, 'announcement_id'>;
 
     /**
      * @description: 系统设置-国际化
-     * @author: 白雾茫茫丶
      */
     type INTERNATIONALIZATION = TableTimes & {
       id: string;
       name: string;
       children?: INTERNATIONALIZATION[];
-    } & LOCALESLANGAll & Pick<CommonTypes, 'parent_id' | 'founder' | 'sort'>;
+    } & LOCALESLANGAll &
+      Pick<CommonTypes, 'parent_id' | 'founder' | 'sort'>;
 
     /**
-   * @description: 系统设置-操作日志
-   * @author: 白雾茫茫丶
-   */
+     * @description: 系统设置-操作日志
+     */
     type OPERATIONLOG = TableTimes & {
       log_id: string; // id
       ip: string; // ip

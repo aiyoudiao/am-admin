@@ -32,7 +32,6 @@ const ChangePassword: FC = () => {
 
   /**
  * @description: 退出登录，并且将当前的 url 保存
- * @author: 白雾茫茫丶
  */
   const { run: loginOut } = useRequest(Logout, {
     manual: true,
@@ -50,7 +49,6 @@ const ChangePassword: FC = () => {
 
   /**
  * @description: 更新用户密码
- * @author: 白雾茫茫丶
  */
   const { run: runUpdateUser } = useRequest(updateUser, {
     manual: true,

@@ -48,13 +48,11 @@ const TableTemplate: FC = () => {
 
   /**
    * @description: 获取组织树形数据
-   * @author: 白雾茫茫丶
    */
   const { data: orgTree } = useRequest(async () => get(await getOrganizationList(), 'data', []));
 
   /**
    * @description: 获取岗位列表
-   * @author: 白雾茫茫丶
    */
   const { data: jobsTree, runAsync: fetchJobsList } = useRequest(
     async (params) => formatResponse(await getJobsList(params)),
@@ -65,7 +63,6 @@ const TableTemplate: FC = () => {
 
   /**
    * @description: proTable columns 配置项
-   * @Author: 白雾茫茫丶
    */
   const columns: ProColumns<API.JOBSMANAGEMENT>[] = [
     {

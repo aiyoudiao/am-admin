@@ -53,7 +53,6 @@ const TableTemplate: FC = () => {
 
   /**
    * @description: 获取角色管理列表
-   * @author: 白雾茫茫丶
    */
   const { runAsync: fetchRoleList } = useRequest(
     async (params) => formatResponse(await getRoleList(params)),
@@ -101,7 +100,6 @@ const TableTemplate: FC = () => {
   /**
    * @description: proTable columns 配置项
    * @return {*}
-   * @author: 白雾茫茫丶
    */
   const columns: ProColumns<API.ROLEMANAGEMENT>[] = [
     {

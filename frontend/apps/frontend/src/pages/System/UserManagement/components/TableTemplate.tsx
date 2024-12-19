@@ -63,7 +63,6 @@ const TableTemplate: FC = () => {
 
   /**
    * @description: 获取用户管理列表
-   * @author: 白雾茫茫丶
    */
   const { runAsync: fetchUserList } = useRequest(
     async (params) => formatResponse(await getUserList(params)),
@@ -111,7 +110,6 @@ const TableTemplate: FC = () => {
 
   /**
    * @description: proTable columns 配置项
-   * @author: 白雾茫茫丶
    */
   const columns: ProColumns<API.USERMANAGEMENT>[] = [
     {

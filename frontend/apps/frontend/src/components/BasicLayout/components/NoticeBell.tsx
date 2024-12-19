@@ -28,7 +28,6 @@ const NoticeBell: FC = () => {
 
   /**
    * @description: 获取活动公告列表
-   * @author: 白雾茫茫丶
    */
   const {
     data: announcementList,
@@ -52,7 +51,6 @@ const NoticeBell: FC = () => {
 
   /**
    * @description: 查询不同消息类型的未读条数
-   * @author: 白雾茫茫丶
    */
   const {
     data: unreadyCount,
@@ -67,7 +65,6 @@ const NoticeBell: FC = () => {
 
   /**
    * @description: 消息类型
-   * @author: 白雾茫茫丶
    */
   const renderAnnouncementType = (
     <Tabs
@@ -87,7 +84,6 @@ const NoticeBell: FC = () => {
 
   /**
    * @description: 渲染消息内容
-   * @author: 白雾茫茫丶
    */
   const renderContent = (
     <Card bordered={false} style={{ boxShadow: 'none' }} styles={{ body: { padding: 0 } }}>

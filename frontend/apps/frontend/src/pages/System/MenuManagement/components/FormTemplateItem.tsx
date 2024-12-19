@@ -30,7 +30,6 @@ const FormTemplateItem: FC<Pick<FormTemplateProps, 'treeData'>> = ({ treeData })
 	const { parent_id, name } = form.getFieldsValue(true)
 	/**
 	 * @description: 获取国际化列表
-	 * @author: 白雾茫茫丶
 	 */
 	const { data: internationalData } = useRequest(
 		async () => get(await getInternationalList({ isMenu: true }), 'data', []))

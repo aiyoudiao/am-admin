@@ -25,7 +25,6 @@ const ProjectRecommend: FC = () => {
   const { formatMessage } = useIntl();
   /**
    * @description: 请求开源仓库信息
-   * @author: 白雾茫茫丶
    */
   const { data: repositoryList, loading: repositoryListLoading } = useRequest(async () => {
     const response = await fetch(
@@ -40,7 +39,6 @@ const ProjectRecommend: FC = () => {
 
   /**
    * @description: 底部操作栏
-   * @author: 白雾茫茫丶
    */
   const IconText = ({ icon, text, url, title }: IconTextProps) => (
     <Tooltip title={title}>

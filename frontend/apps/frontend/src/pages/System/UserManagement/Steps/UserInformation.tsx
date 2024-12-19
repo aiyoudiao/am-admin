@@ -31,7 +31,6 @@ const UserInformation: FC<UserInformationProps> = ({
 
 	/**
 	 * @description: 获取角色列表
-	 * @author: 白雾茫茫丶
 	 */
 	const { data: roleList } = useRequest(async (params) => get(await getRoleList(params), 'data.list', []), {
 		defaultParams: [{ current: 1, pageSize: 9999 }],
@@ -39,13 +38,11 @@ const UserInformation: FC<UserInformationProps> = ({
 
 	/**
 	 * @description: 获取岗位列表
-	 * @author: 白雾茫茫丶
 	 */
 	const { data: jobsTree } = useRequest(async () => get(await getJobsList(), 'data', []))
 
 	/**
 	 * @description: 获取组织列表
-	 * @author: 白雾茫茫丶
 	 */
 	const { data: orgTree } = useRequest(async () => get(await getOrganizationList(), 'data', []))
 

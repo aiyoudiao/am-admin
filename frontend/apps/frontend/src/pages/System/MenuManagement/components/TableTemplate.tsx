@@ -31,7 +31,6 @@ import FormTemplate from './FormTemplate'; // 表单组件
 
 /**
  * @description: 默认不显示的 column 项
- * @author: 白雾茫茫丶
  */
 const MENU_CFG = [
   'redirect',
@@ -69,7 +68,6 @@ const TableTemplate: FC = () => {
 
   /**
    * @description: 获取菜单列表
-   * @author: 白雾茫茫丶
    */
   const { data: menuTree, runAsync: fetchMenuList } = useRequest(
     async (params) => formatResponse(await getMenuList(params)),
@@ -80,7 +78,6 @@ const TableTemplate: FC = () => {
 
   /**
    * @description: proTable columns 配置项
-   * @author: 白雾茫茫丶
    */
   const columns: ProColumns<API.MENUMANAGEMENT>[] = [
     /* 菜单名称 */

@@ -80,7 +80,6 @@ const UploadImage: FC<UploadImageProps> = ({
   /**
    * @description: 限制用户上传的图片格式和大小
    * @param {RcFile} file
-   * @author: 白雾茫茫丶
    */
   const beforeUpload = (file: RcFile) => {
     // 获取限制的图片类型，默认全部
@@ -121,7 +120,6 @@ const UploadImage: FC<UploadImageProps> = ({
 
   /**
    * @description: 上传用户头像
-   * @author: 白雾茫茫丶
    */
   const renderUploadAvatar = () => (
     <Upload {...commonProps.fieldProps}>

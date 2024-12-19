@@ -21,7 +21,6 @@ const GitCommitLog: FC = () => {
   dayjs.extend(relativeTime);
   /**
  * @description: 请求项目 commit 日志
- * @author: 白雾茫茫丶
  */
   const { data: commitList, loading: commitLoading } = useRequest(
     async () => {

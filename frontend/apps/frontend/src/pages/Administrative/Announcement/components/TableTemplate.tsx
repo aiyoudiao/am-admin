@@ -66,7 +66,6 @@ const TableTemplate: FC = () => {
 
   /**
    * @description: 获取活动公告列表
-   * @author: 白雾茫茫丶
    */
   const { runAsync: fetchAnnouncementList } = useRequest(
     async (params) => formatResponse(await getAnnouncementList(params)),
@@ -114,7 +113,6 @@ const TableTemplate: FC = () => {
 
   /**
    * @description: 表格配置项
-   * @author: 白雾茫茫丶
    */
   const columns: ProColumns<API.ANNOUNCEMENT>[] = [
     {

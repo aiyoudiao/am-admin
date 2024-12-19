@@ -47,7 +47,6 @@ const TableTemplate: FC = () => {
 
   /**
    * @description: 获取国际化列表
-   * @author: 白雾茫茫丶
    */
   const { data: internationalList, runAsync: fetchInternationalList } = useRequest(
     async (params) => formatResponse(await getInternationalList(params)),
@@ -58,7 +57,6 @@ const TableTemplate: FC = () => {
 
   /**
    * @description: proTable columns 配置项
-   * @author: 白雾茫茫丶
    */
   const columns: ProColumns<API.INTERNATIONALIZATION>[] = [
     {

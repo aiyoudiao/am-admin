@@ -40,7 +40,6 @@ const OperationLog: FC = () => {
 
 	/**
 	 * @description: 获取操作日志列表
-	 * @author: 白雾茫茫丶
 	 */
 	const { runAsync: fetchOperationLogList } = useRequest(
 		async (params) => formatResponse(await getOperationLogList(params)), {
@@ -50,7 +49,6 @@ const OperationLog: FC = () => {
 
 	/**
 	 * @description: 删除日志接口
-	 * @author: 白雾茫茫丶
 	 */
 	const { run: fetchDelLogs, loading: delLogsLoading } = useRequest(delLogs, {
 		manual: true,
@@ -67,7 +65,6 @@ const OperationLog: FC = () => {
 
 	/**
 	 * @description: 删除确认回调
-	 * @author: 白雾茫茫丶
 	 */
 	const handleDelLogs = (log_id: string) => {
 		setCurrentId(log_id);
@@ -77,7 +74,6 @@ const OperationLog: FC = () => {
 
 	/**
 	* @description: proTable columns 配置项
-	* @author: 白雾茫茫丶
 	*/
 	const columns: ProColumns<API.OPERATIONLOG>[] = [
 		{

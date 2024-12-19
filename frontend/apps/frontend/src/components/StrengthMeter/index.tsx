@@ -24,7 +24,6 @@ const StrengthMeter: FC = () => {
   /**
    * @description: 监听密码强度相应变化
    * @param {string} password
-   * @author: 白雾茫茫丶
    */
   const watchStrength = (password: string): number => {
     const analysisValue = zxcvbn(password)

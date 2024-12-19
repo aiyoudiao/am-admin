@@ -19,7 +19,6 @@ const LatestAnnouncement: FC = () => {
   const { formatMessage } = useIntl();
   /**
    * @description: 获取最新公告列表
-   * @author: 白雾茫茫丶
    */
   const { data: announcementList, loading: announcementListLoading } = useRequest(
     async (params) => get(await getAnnouncementList(params), 'data.list', []),
