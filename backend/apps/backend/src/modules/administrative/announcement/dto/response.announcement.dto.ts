@@ -4,8 +4,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import { ResponseDto } from '@/dto/response.dto';
-import { XmwAlready } from '@/models/xmw_already.model'; // xmw_already 实体
-import { XmwAnnouncement } from '@/models/xmw_announcement.model'; // xmw_announcement 实体
+import { AmAlready } from '@/models/am_already.model'; // am_already 实体
+import { AmAnnouncement } from '@/models/am_announcement.model'; // am_announcement 实体
 import type { PageResponse } from '@/utils/types';
 
 /**
@@ -32,7 +32,7 @@ export class ResponseAnnouncementDto extends ResponseDto {
       total: 1,
     },
   })
-  data: PageResponse<XmwAnnouncement>;
+  data: PageResponse<AmAnnouncement>;
 }
 
 /**
@@ -54,7 +54,7 @@ export class CreateAnnouncementDto extends ResponseDto {
       updated_time: '2022-11-09T06:45:01.108Z',
     },
   })
-  data: XmwAnnouncement;
+  data: AmAnnouncement;
 }
 
 /**
@@ -69,5 +69,5 @@ export class CreateAlreadyDto extends ResponseDto {
       user_id: 'bf75a509-f90e-4a29-8bf7-470b581550f6',
     },
   })
-  data: XmwAlready;
+  data: AmAlready;
 }

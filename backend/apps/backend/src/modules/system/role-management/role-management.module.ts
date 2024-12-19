@@ -4,15 +4,18 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { OperationLogsModule } from '@/modules/system/operation-logs/operation-logs.module'; // 系统设置-操作日志
-import { XmwPermission } from '@/models/xmw_permission.model'; // xmw_permission 实体
-import { XmwRole } from '@/models/xmw_role.model'; // xmw_role 实体
+import { AmPermission } from '@/models/am_permission.model'; // am_permission 实体
+import { AmRole } from '@/models/am_role.model'; // am_role 实体
 
 import { RoleManagementController } from './role-management.controller'; // RoleManagement Controller
 import { RoleManagementService } from './role-management.service'; // RoleManagement Service
 
 @Module({
   // 将实体 导入到这个module中，以便你这个module中的其它provider使用
-  imports: [SequelizeModule.forFeature([XmwRole, XmwPermission]), OperationLogsModule],
+  imports: [
+    SequelizeModule.forFeature([AmRole, AmPermission]),
+    OperationLogsModule,
+  ],
   // 由 Nest 注入器实例化的提供者，并且可以至少在整个模块中共享
   controllers: [RoleManagementController],
   // 通过 @Module 装饰器映射 Crotroller
@@ -20,4 +23,4 @@ import { RoleManagementService } from './role-management.service'; // RoleManage
   // 如果你这个模块中的provider 要在别的模块中使用 你必须要在这里声明 导出这些provider
   exports: [RoleManagementService],
 })
-export class RoleManagementModule { }
+export class RoleManagementModule {}

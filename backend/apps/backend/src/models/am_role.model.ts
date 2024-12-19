@@ -1,5 +1,5 @@
 /*
- * @Description: XmwRole Entity
+ * @Description: AmRole Entity
  */
 import {
   Column,
@@ -11,21 +11,21 @@ import {
   Length,
   Model,
   NotEmpty,
-  PrimaryKey,
   Table,
 } from 'sequelize-typescript';
 
-import { XmwPermission } from '@/models/xmw_permission.model';
+import { AmPermission } from '@/models/am_permission.model';
 import type { Status } from '@/utils/types';
 import type { RoleAttributes } from '@/utils/types/system';
-@Table({ tableName: 'xmw_role' })
-export class XmwRole
+@Table({ tableName: 'am_role' })
+export class AmRole
   extends Model<RoleAttributes, RoleAttributes>
-  implements RoleAttributes {
+  implements RoleAttributes
+{
   @IsUUID(4)
-  @PrimaryKey
-  @ForeignKey(() => XmwPermission)
+  @ForeignKey(() => AmPermission)
   @Column({
+    primaryKey: true,
     type: DataType.UUID,
     allowNull: false,
     defaultValue: DataType.UUIDV4,
@@ -69,6 +69,6 @@ export class XmwRole
   })
   status: Status;
 
-  @HasMany(() => XmwPermission, { as: 'menu_permission' })
-  menu_permission: XmwPermission[];
+  @HasMany(() => AmPermission, { as: 'menu_permission' })
+  menu_permission: AmPermission[];
 }

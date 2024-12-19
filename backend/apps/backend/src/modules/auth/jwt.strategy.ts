@@ -4,7 +4,7 @@ import { Request } from 'express';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 
 import App_configuration from '@/config/configuration'; // 全局配置
-import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
+import { AmUser } from '@/models/am_user.model'; // am_user 实体
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -27,7 +27,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
    * @param {Request} req
    * @param {any} payload
    */
-  async validate(req: Request, payload: XmwUser): Promise<XmwUser> {
+  async validate(req: Request, payload: AmUser): Promise<AmUser> {
     // token 校验，用户二次登录
     // if (JSON.parse(cacheToken) !== originToken) {
     //   throw new UnauthorizedException('token令牌非法，请重新登录！');

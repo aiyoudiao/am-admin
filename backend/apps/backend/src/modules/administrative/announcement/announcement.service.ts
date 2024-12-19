@@ -7,9 +7,9 @@ import { Op } from 'sequelize';
 import type { WhereOptions } from 'sequelize/types';
 import { Sequelize } from 'sequelize-typescript';
 
-import { XmwAlready } from '@/models/xmw_already.model'; // xmw_already 实体
-import { XmwAnnouncement } from '@/models/xmw_announcement.model'; // xmw_announcement 实体
-import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
+import { AmAlready } from '@/models/am_already.model'; // am_already 实体
+import { AmAnnouncement } from '@/models/am_announcement.model'; // am_announcement 实体
+import { AmUser } from '@/models/am_user.model'; // am_user 实体
 import { responseMessage } from '@/utils'; // 全局工具函数
 import { ANNOUNCEMENT_TYPE } from '@/utils/enums';
 import type { Flag, PageResponse, Response, SessionTypes } from '@/utils/types';
@@ -25,10 +25,10 @@ import {
 export class AnnouncementService {
   constructor(
     // 使用 InjectModel 注入参数，注册数据库实体
-    @InjectModel(XmwAnnouncement)
-    private readonly announcementModel: typeof XmwAnnouncement,
-    @InjectModel(XmwAlready)
-    private readonly alreadyModel: typeof XmwAlready,
+    @InjectModel(AmAnnouncement)
+    private readonly announcementModel: typeof AmAnnouncement,
+    @InjectModel(AmAlready)
+    private readonly alreadyModel: typeof AmAlready,
     private sequelize: Sequelize,
   ) {}
 
@@ -38,7 +38,7 @@ export class AnnouncementService {
   async getAnnouncementList(
     announcementInfo: ListAnnouncementDto,
     session: SessionTypes,
-  ): Promise<Response<PageResponse<XmwAnnouncement>>> {
+  ): Promise<Response<PageResponse<AmAnnouncement>>> {
     // 解构参数
     const { title, type, status, pinned, pageSize, current, unready } =
       announcementInfo;
@@ -53,7 +53,7 @@ export class AnnouncementService {
     if (unready) {
       where.announcement_id = {
         [Op.notIn]: this.sequelize
-          .literal(`(select announcement_id from xmw_already
+          .literal(`(select announcement_id from am_already
         where user_id='${user_id}')`),
       };
     }
@@ -81,12 +81,12 @@ export class AnnouncementService {
       // 联表查询
       include: [
         {
-          model: XmwUser,
+          model: AmUser,
           as: 'u',
           attributes: [],
         },
         {
-          model: XmwAlready,
+          model: AmAlready,
           as: 'a',
           attributes: [],
         },
@@ -145,7 +145,7 @@ export class AnnouncementService {
     announcement_id: string,
     pinned: Flag,
   ): Promise<Response<number[]>> {
-    // 执行 update 更新 xmw_role 状态
+    // 执行 update 更新 am_role 状态
     const result = await this.announcementModel.update(
       { pinned },
       { where: { announcement_id } },
@@ -179,7 +179,7 @@ export class AnnouncementService {
     const where: WhereOptions = {
       announcement_id: {
         [Op.notIn]: this.sequelize
-          .literal(`(select announcement_id from xmw_already
+          .literal(`(select announcement_id from am_already
         where user_id='${user_id}')`),
       },
     };

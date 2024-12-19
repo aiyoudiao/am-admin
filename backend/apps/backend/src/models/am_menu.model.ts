@@ -1,5 +1,5 @@
 /*
- * @Description: XmwMenu Entity
+ * @Description: AmMenu Entity
  */
 import {
   BelongsTo,
@@ -9,12 +9,11 @@ import {
   IsIn,
   IsUUID,
   Model,
-  PrimaryKey,
   Table,
 } from 'sequelize-typescript';
 
-import { XmwInternational } from '@/models/xmw_international.model'; // 数据库实体
-import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
+import { AmInternational } from '@/models/am_international.model'; // 数据库实体
+import { AmUser } from '@/models/am_user.model'; // am_user 实体
 import type {
   Layouts,
   MenuTheme,
@@ -23,13 +22,14 @@ import type {
   TargetTypes,
 } from '@/utils/types';
 import type { MenuAttributes } from '@/utils/types/system';
-@Table({ tableName: 'xmw_menu', underscored: false })
-export class XmwMenu
+@Table({ tableName: 'am_menu', underscored: false })
+export class AmMenu
   extends Model<MenuAttributes, MenuAttributes>
-  implements MenuAttributes {
+  implements MenuAttributes
+{
   @IsUUID(4)
-  @PrimaryKey
   @Column({
+    primaryKey: true,
     type: DataType.UUID,
     allowNull: false,
     defaultValue: DataType.UUIDV4,
@@ -39,7 +39,7 @@ export class XmwMenu
 
   //国际化对应的name
   @IsUUID(4)
-  @ForeignKey(() => XmwInternational)
+  @ForeignKey(() => AmInternational)
   @Column({
     type: DataType.UUID,
     allowNull: false,
@@ -242,7 +242,7 @@ export class XmwMenu
 
   //创建人
   @IsUUID(4)
-  @ForeignKey(() => XmwUser)
+  @ForeignKey(() => AmUser)
   @Column({ type: DataType.UUID, allowNull: false, comment: '创建人' })
   founder: string;
 
@@ -263,9 +263,9 @@ export class XmwMenu
   })
   status: Status;
 
-  @BelongsTo(() => XmwInternational, { as: 'i' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
-  interInfo: XmwInternational;
+  @BelongsTo(() => AmInternational, { as: 'i' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
+  interInfo: AmInternational;
 
-  @BelongsTo(() => XmwUser, { as: 'u' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
-  userInfo: XmwUser;
+  @BelongsTo(() => AmUser, { as: 'u' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
+  userInfo: AmUser;
 }

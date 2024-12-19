@@ -1,5 +1,5 @@
 /*
- * @Description: xmw_organization Entity
+ * @Description: am_organization Entity
  */
 import {
   Column,
@@ -9,19 +9,18 @@ import {
   Length,
   Model,
   NotEmpty,
-  PrimaryKey,
   Table,
 } from 'sequelize-typescript';
 
 import type { OrgTypes, Status } from '@/utils/types';
 import type { OrgAttributes } from '@/utils/types/administrative';
 
-@Table({ tableName: 'xmw_organization' })
-export class XmwOrganization
+@Table({ tableName: 'am_organization' })
+export class AmOrganization
   extends Model<OrgAttributes, OrgAttributes>
-  implements OrgAttributes {
+  implements OrgAttributes
+{
   @IsUUID(4)
-  @PrimaryKey
   @Column({
     type: DataType.UUID,
     primaryKey: true,

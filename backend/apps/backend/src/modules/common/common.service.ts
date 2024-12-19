@@ -10,14 +10,14 @@ import type { Response } from '@/utils/types';
 
 @Injectable()
 export class CommonService {
-  constructor(private readonly httpService: HttpService) { }
+  constructor(private readonly httpService: HttpService) {}
 
   /**
    * @description: 掘金文章列表
    */
   async juejin(params): Promise<Response> {
     const url = 'https://api.juejin.cn/content_api/v1/article/query_list';
-    const responseData = await lastValueFrom(
+    const responseData = await lastValueFrom<any>(
       this.httpService.post(url, params).pipe(map((res) => res.data)),
     );
     return responseMessage({

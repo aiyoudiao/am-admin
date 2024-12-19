@@ -4,7 +4,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import { ResponseDto } from '@/dto/response.dto';
-import { XmwInternational } from '@/models/xmw_international.model'; // xmw_international 实体
+import { AmInternational } from '@/models/am_international.model'; // am_international 实体
 
 /**
  * @description: 国际化列表响应体结构 Dto
@@ -31,7 +31,7 @@ export class ResponseInternationalDto extends ResponseDto {
       },
     ],
   })
-  data: XmwInternational[];
+  data: AmInternational[];
 }
 
 /**
@@ -48,7 +48,7 @@ export class ResponseLangDto extends ResponseDto {
       'zh-TW': { 'pages.login.success': '登錄成功！' },
     },
   })
-  data: XmwInternational;
+  data: AmInternational;
 }
 
 /**
@@ -73,5 +73,5 @@ export class CreateInternationalDto extends ResponseDto {
       updated_time: '2022-11-09T06:45:01.108Z',
     },
   })
-  data: XmwInternational;
+  data: AmInternational;
 }

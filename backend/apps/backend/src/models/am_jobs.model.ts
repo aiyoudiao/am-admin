@@ -1,5 +1,5 @@
 /*
- * @Description: XmwJobs Entity
+ * @Description: AmJobs Entity
  */
 import {
   BelongsTo,
@@ -10,20 +10,20 @@ import {
   Length,
   Model,
   NotEmpty,
-  PrimaryKey,
   Table,
 } from 'sequelize-typescript';
 
-import { XmwOrganization } from '@/models/xmw_organization.model';
+import { AmOrganization } from '@/models/am_organization.model';
 import type { JobsAttributes } from '@/utils/types/administrative';
 
-@Table({ tableName: 'xmw_jobs' })
-export class XmwJobs
+@Table({ tableName: 'am_jobs' })
+export class AmJobs
   extends Model<JobsAttributes, JobsAttributes>
-  implements JobsAttributes {
+  implements JobsAttributes
+{
   @IsUUID(4)
-  @PrimaryKey
   @Column({
+    primaryKey: true,
     type: DataType.UUID,
     allowNull: false,
     defaultValue: DataType.UUIDV4,
@@ -39,7 +39,7 @@ export class XmwJobs
 
   //所属组织id
   @IsUUID(4)
-  @ForeignKey(() => XmwOrganization)
+  @ForeignKey(() => AmOrganization)
   @Column({ type: DataType.UUID, allowNull: false, comment: '所属组织id' })
   org_id: string;
 
@@ -66,6 +66,6 @@ export class XmwJobs
   @Column({ type: DataType.INTEGER, allowNull: false, comment: '排序' })
   sort: number;
 
-  @BelongsTo(() => XmwOrganization, { as: 'o' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
-  orgInfo: XmwOrganization;
+  @BelongsTo(() => AmOrganization, { as: 'o' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
+  orgInfo: AmOrganization;
 }

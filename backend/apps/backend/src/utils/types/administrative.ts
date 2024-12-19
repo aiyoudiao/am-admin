@@ -12,7 +12,7 @@ import type {
 import { UserAttributes } from './system';
 
 /**
- * @description: xmw_organization Attributes
+ * @description: am_organization Attributes
  */
 export type OrgAttributes = {
   org_id: string; // 组织id
@@ -24,7 +24,7 @@ export type OrgAttributes = {
   CommonTypes;
 
 /**
- * @description: xmw_jobs Attributes
+ * @description: am_jobs Attributes
  */
 export type JobsAttributes = {
   jobs_id: string; // 岗位id
@@ -35,7 +35,7 @@ export type JobsAttributes = {
   Omit<CommonTypes, 'status'>;
 
 /**
- * @description: xmw_announcement Attributes
+ * @description: am_announcement Attributes
  */
 export type AnnouncementAttributes = {
   announcement_id: string; // id 主键
@@ -48,7 +48,7 @@ export type AnnouncementAttributes = {
   Pick<CommonTypes, 'status'>;
 
 /**
- * @description: xmw_already Attributes
+ * @description: am_already Attributes
  */
 export type AlreadyAttributes = {
   id: string; // id 主键

@@ -4,7 +4,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import { ResponseDto } from '@/dto/response.dto';
-import { XmwLogs } from '@/models/xmw_logs.model'; // Xmw_logs 实体
+import { AmLogs } from '@/models/am_logs.model'; // am_logs 实体
 import type { PageResponse } from '@/utils/types';
 
 export class ResponseOperationLogsDto extends ResponseDto {
@@ -37,5 +37,5 @@ export class ResponseOperationLogsDto extends ResponseDto {
       total: 1,
     },
   })
-  data: PageResponse<XmwLogs>;
+  data: PageResponse<AmLogs>;
 }

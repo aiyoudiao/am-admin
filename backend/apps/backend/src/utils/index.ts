@@ -4,7 +4,7 @@
 import { Request } from 'express';
 import * as fs from 'fs';
 
-import { XmwInternational } from '@/models/xmw_international.model'; // 数据库实体
+import { AmInternational } from '@/models/am_international.model'; // 数据库实体
 import { REQUEST_CODE, REQUEST_MSG } from '@/utils/enums';
 import type { Response } from '@/utils/types';
 
@@ -54,7 +54,7 @@ export function initializeTree<T>(
  * @param {string} name
  */
 export const initializeLang = (
-  resource: XmwInternational[],
+  resource: AmInternational[],
   lang: string,
   name = 'name',
 ): Record<string, any> => {
@@ -63,7 +63,7 @@ export const initializeLang = (
   for (let i = 0; i < resource.length; i++) {
     const resourceItem = resource[i];
     // 递归函数
-    function recursive(obj: XmwInternational, serilKey = '') {
+    function recursive(obj: AmInternational, serilKey = '') {
       // 拼接对象名
       let pKey = serilKey;
       pKey += pKey ? `.${obj[name]}` : obj[name];

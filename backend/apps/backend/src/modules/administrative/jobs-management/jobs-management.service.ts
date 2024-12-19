@@ -6,8 +6,8 @@ import { InjectModel } from '@nestjs/sequelize';
 import { Op } from 'sequelize';
 import type { WhereOptions } from 'sequelize/types';
 
-import { XmwJobs } from '@/models/xmw_jobs.model'; // xmw_jobs 实体
-import { XmwOrganization } from '@/models/xmw_organization.model';
+import { AmJobs } from '@/models/am_jobs.model'; // am_jobs 实体
+import { AmOrganization } from '@/models/am_organization.model';
 import { initializeTree, responseMessage } from '@/utils'; // 全局工具函数
 import type { Response, SessionTypes } from '@/utils/types';
 
@@ -17,8 +17,8 @@ import { ListJobsManagementDto, SaveJobsManagementDto } from './dto';
 export class JobsManagementService {
   constructor(
     // 使用 InjectModel 注入参数，注册数据库实体
-    @InjectModel(XmwJobs)
-    private readonly jobsModel: typeof XmwJobs,
+    @InjectModel(AmJobs)
+    private readonly jobsModel: typeof AmJobs,
   ) {}
 
   /**
@@ -26,7 +26,7 @@ export class JobsManagementService {
    */
   async getJobsList(
     jobsInfo: ListJobsManagementDto,
-  ): Promise<Response<XmwJobs[]>> {
+  ): Promise<Response<AmJobs[]>> {
     // 解构参数
     const { jobs_name, org_id, start_time, end_time } = jobsInfo;
     // 拼接查询参数
@@ -43,7 +43,7 @@ export class JobsManagementService {
       // 联表查询
       include: [
         {
-          model: XmwOrganization,
+          model: AmOrganization,
           as: 'o',
           attributes: [],
         },

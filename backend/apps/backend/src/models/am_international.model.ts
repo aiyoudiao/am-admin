@@ -1,5 +1,5 @@
 /*
- * @Description: XmwInternational Entity
+ * @Description: AmInternational Entity
  */
 import {
   BelongsTo,
@@ -9,20 +9,20 @@ import {
   IsUUID,
   Model,
   NotEmpty,
-  PrimaryKey,
   Table,
 } from 'sequelize-typescript';
 
-import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
+import { AmUser } from '@/models/am_user.model'; // am_user 实体
 import type { InternationalAttributes } from '@/utils/types/system';
 
-@Table({ tableName: 'xmw_international', underscored: false })
-export class XmwInternational
+@Table({ tableName: 'am_international', underscored: false })
+export class AmInternational
   extends Model<InternationalAttributes, InternationalAttributes>
-  implements InternationalAttributes {
+  implements InternationalAttributes
+{
   @IsUUID(4)
-  @PrimaryKey
   @Column({
+    primaryKey: true,
     type: DataType.UUID,
     allowNull: false,
     defaultValue: DataType.UUIDV4,
@@ -62,7 +62,7 @@ export class XmwInternational
 
   //创建人
   @IsUUID(4)
-  @ForeignKey(() => XmwUser)
+  @ForeignKey(() => AmUser)
   @Column({ type: DataType.UUID, allowNull: false, comment: '创建人' })
   founder: string;
 
@@ -71,8 +71,8 @@ export class XmwInternational
   sort: number;
 
   //子级
-  children?: XmwInternational[];
+  children?: AmInternational[];
 
-  @BelongsTo(() => XmwUser, { as: 'u' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
-  userInfo: XmwUser;
+  @BelongsTo(() => AmUser, { as: 'u' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
+  userInfo: AmUser;
 }

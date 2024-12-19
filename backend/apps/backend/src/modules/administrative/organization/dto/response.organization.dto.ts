@@ -4,7 +4,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import { ResponseDto } from '@/dto/response.dto';
-import { XmwOrganization } from '@/models/xmw_organization.model'; // xmw_organization 实体
+import { AmOrganization } from '@/models/am_organization.model'; // am_organization 实体
 
 /**
  * @description: 组织管理列表响应体结构 Dto
@@ -33,7 +33,7 @@ export class ResponseOrganizationDto extends ResponseDto {
       },
     ],
   })
-  data: XmwOrganization[];
+  data: AmOrganization[];
 }
 
 /**
@@ -56,5 +56,5 @@ export class CreateOrganizationDto extends ResponseDto {
       updated_time: '2022-11-09T06:45:01.108Z',
     },
   })
-  data: XmwOrganization;
+  data: AmOrganization;
 }

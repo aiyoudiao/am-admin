@@ -4,7 +4,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import { ResponseDto } from '@/dto/response.dto';
-import { XmwMenu } from '@/models/xmw_menu.model'; // xmw_menu 实体
+import { AmMenu } from '@/models/am_menu.model'; // am_menu 实体
 
 /**
  * @description: 菜单列表 Dto
@@ -53,7 +53,7 @@ export class ResponseMenuManagementDto extends ResponseDto {
       },
     ],
   })
-  data: XmwMenu[];
+  data: AmMenu[];
 }
 
 /**
@@ -93,5 +93,5 @@ export class CreateMenuManagementDto extends ResponseDto {
       updated_time: '2022-11-09T06:45:01.108Z',
     },
   })
-  data: XmwMenu;
+  data: AmMenu;
 }

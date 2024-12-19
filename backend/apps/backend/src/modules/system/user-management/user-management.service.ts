@@ -6,10 +6,10 @@ import { InjectModel } from '@nestjs/sequelize';
 import { Op } from 'sequelize';
 import type { WhereOptions } from 'sequelize/types';
 
-import { XmwJobs } from '@/models/xmw_jobs.model';
-import { XmwOrganization } from '@/models/xmw_organization.model';
-import { XmwRole } from '@/models/xmw_role.model';
-import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
+import { AmJobs } from '@/models/am_jobs.model';
+import { AmOrganization } from '@/models/am_organization.model';
+import { AmRole } from '@/models/am_role.model';
+import { AmUser } from '@/models/am_user.model'; // am_user 实体
 import { responseMessage } from '@/utils'; // 全局工具函数
 import type {
   PageResponse,
@@ -24,8 +24,8 @@ import { ListUserManagementDto, SaveUserManagementDto } from './dto';
 export class UserManagementService {
   constructor(
     // 使用 InjectModel 注入参数，注册数据库实体
-    @InjectModel(XmwUser)
-    private readonly userModel: typeof XmwUser,
+    @InjectModel(AmUser)
+    private readonly userModel: typeof AmUser,
   ) {}
 
   /**
@@ -33,7 +33,7 @@ export class UserManagementService {
    */
   async getUserList(
     userInfo: ListUserManagementDto,
-  ): Promise<Response<PageResponse<XmwUser>>> {
+  ): Promise<Response<PageResponse<AmUser>>> {
     // 解构参数
     const { user_name, sex, status, start_time, end_time, pageSize, current } =
       userInfo;
@@ -52,17 +52,17 @@ export class UserManagementService {
       // 联表查询
       include: [
         {
-          model: XmwJobs,
+          model: AmJobs,
           as: 'j',
           attributes: [],
         },
         {
-          model: XmwOrganization,
+          model: AmOrganization,
           as: 'o',
           attributes: [],
         },
         {
-          model: XmwRole,
+          model: AmRole,
           as: 'r',
           attributes: [],
         },
@@ -161,7 +161,7 @@ export class UserManagementService {
     user_id: string,
     status: Status,
   ): Promise<Response<number[]>> {
-    // 执行 update 更新 xmw_role 状态
+    // 执行 update 更新 am_role 状态
     const result = await this.userModel.update(
       { status },
       { where: { user_id } },

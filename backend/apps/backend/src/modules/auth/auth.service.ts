@@ -8,12 +8,12 @@ import { Op } from 'sequelize';
 import type { WhereOptions } from 'sequelize/types';
 import { Sequelize } from 'sequelize-typescript';
 
-import { XmwInternational } from '@/models/xmw_international.model'; // xmw_international 实体
-import { XmwJobs } from '@/models/xmw_jobs.model'; // xmw_jobs 实体
-import { XmwMenu } from '@/models/xmw_menu.model'; // xmw_menu 实体
-import { XmwOrganization } from '@/models/xmw_organization.model'; // xmw_organization 实体
-import { XmwRole } from '@/models/xmw_role.model'; // xmw_role 实体
-import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
+import { AmInternational } from '@/models/am_international.model'; // am_international 实体
+import { AmJobs } from '@/models/am_jobs.model'; // am_jobs 实体
+import { AmMenu } from '@/models/am_menu.model'; // am_menu 实体
+import { AmOrganization } from '@/models/am_organization.model'; // am_organization 实体
+import { AmRole } from '@/models/am_role.model'; // am_role 实体
+import { AmUser } from '@/models/am_user.model'; // am_user 实体
 import { initializeTree, responseMessage } from '@/utils';
 import type { Response, SessionTypes } from '@/utils/types';
 
@@ -25,10 +25,10 @@ type responseResult = Response<Record<string, any>>;
 export class AuthService {
   constructor(
     // 使用 InjectModel 注入参数，注册数据库实体
-    @InjectModel(XmwUser)
-    private readonly userModel: typeof XmwUser,
-    @InjectModel(XmwMenu)
-    private readonly menuModel: typeof XmwMenu,
+    @InjectModel(AmUser)
+    private readonly userModel: typeof AmUser,
+    @InjectModel(AmMenu)
+    private readonly menuModel: typeof AmMenu,
     private readonly jwtService: JwtService,
     private sequelize: Sequelize,
   ) {}
@@ -75,17 +75,17 @@ export class AuthService {
           // 联表查询
           include: [
             {
-              model: XmwJobs,
+              model: AmJobs,
               as: 'j',
               attributes: [],
             },
             {
-              model: XmwOrganization,
+              model: AmOrganization,
               as: 'o',
               attributes: [],
             },
             {
-              model: XmwRole,
+              model: AmRole,
               as: 'r',
               attributes: [],
             },
@@ -181,8 +181,8 @@ export class AuthService {
         attributes: ['permission'],
         where: {
           menu_id: {
-            [Op.in]: this.sequelize.literal(`(select menu_id from xmw_permission
-            where  FIND_IN_SET(role_id,(select role_id from xmw_user where user_id='${user_id}')))`),
+            [Op.in]: this.sequelize.literal(`(select menu_id from am_permission
+            where  FIND_IN_SET(role_id,(select role_id from am_user where user_id='${user_id}')))`),
           },
         },
       });
@@ -196,7 +196,7 @@ export class AuthService {
   /**
    * @description: 获取用户权限菜单
    */
-  async getRoutesMenus(session: SessionTypes): Promise<Response<XmwMenu[]>> {
+  async getRoutesMenus(session: SessionTypes): Promise<Response<AmMenu[]>> {
     // 获取当前用户 id
     const { currentUserInfo } = session;
     if (currentUserInfo?.user_id) {
@@ -210,7 +210,7 @@ export class AuthService {
         // 联表查询
         include: [
           {
-            model: XmwInternational,
+            model: AmInternational,
             as: 'i',
             attributes: [],
           },
@@ -223,8 +223,8 @@ export class AuthService {
             [Op.ne]: '0',
           },
           menu_id: {
-            [Op.in]: this.sequelize.literal(`(select menu_id from xmw_permission
-            where  FIND_IN_SET(role_id,(select role_id from xmw_user where user_id='${user_id}')))`),
+            [Op.in]: this.sequelize.literal(`(select menu_id from am_permission
+            where  FIND_IN_SET(role_id,(select role_id from am_user where user_id='${user_id}')))`),
           },
         },
         order: [['sort', 'desc']], // 排序规则,

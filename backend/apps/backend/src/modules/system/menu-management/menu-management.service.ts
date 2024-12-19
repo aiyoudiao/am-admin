@@ -7,9 +7,9 @@ import { Op } from 'sequelize';
 import type { WhereOptions } from 'sequelize/types';
 import { Sequelize } from 'sequelize-typescript';
 
-import { XmwInternational } from '@/models/xmw_international.model'; // xmw_international 实体
-import { XmwMenu } from '@/models/xmw_menu.model'; // xmw_menu 实体
-import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
+import { AmInternational } from '@/models/am_international.model'; // am_international 实体
+import { AmMenu } from '@/models/am_menu.model'; // am_menu 实体
+import { AmUser } from '@/models/am_user.model'; // am_user 实体
 import { initializeTree, responseMessage } from '@/utils'; // 全局工具函数
 import type { Response, SessionTypes } from '@/utils/types';
 
@@ -19,10 +19,10 @@ import { ListMenuManagementDto, SaveMenuManagementDto } from './dto';
 export class MenuManagementService {
   constructor(
     // 使用 InjectModel 注入参数，注册数据库实体
-    @InjectModel(XmwMenu)
-    private readonly menuModel: typeof XmwMenu,
-    @InjectModel(XmwInternational)
-    private readonly internationaModel: typeof XmwInternational,
+    @InjectModel(AmMenu)
+    private readonly menuModel: typeof AmMenu,
+    @InjectModel(AmInternational)
+    private readonly internationaModel: typeof AmInternational,
     private sequelize: Sequelize,
   ) {}
 
@@ -31,7 +31,7 @@ export class MenuManagementService {
    */
   async getMenuList(
     menuInfo: ListMenuManagementDto,
-  ): Promise<Response<XmwMenu[]>> {
+  ): Promise<Response<AmMenu[]>> {
     // 解构参数
     const { menu_type, status, isPremission, start_time, end_time } = menuInfo;
     // 拼接查询参数
@@ -59,12 +59,12 @@ export class MenuManagementService {
       // 联表查询
       include: [
         {
-          model: XmwUser,
+          model: AmUser,
           as: 'u',
           attributes: [],
         },
         {
-          model: XmwInternational,
+          model: AmInternational,
           as: 'i',
           attributes: [],
         },

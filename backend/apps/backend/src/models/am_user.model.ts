@@ -15,23 +15,23 @@ import {
   Min,
   Model,
   NotEmpty,
-  PrimaryKey,
   Table,
 } from 'sequelize-typescript';
 
-import { XmwJobs } from '@/models/xmw_jobs.model';
-import { XmwOrganization } from '@/models/xmw_organization.model';
-import { XmwRole } from '@/models/xmw_role.model';
+import { AmJobs } from '@/models/am_jobs.model';
+import { AmOrganization } from '@/models/am_organization.model';
+import { AmRole } from '@/models/am_role.model';
 import type { Sex, Status } from '@/utils/types';
 import type { UserAttributes } from '@/utils/types/system';
 
-@Table({ tableName: 'xmw_user' })
-export class XmwUser
+@Table({ tableName: 'am_user' })
+export class AmUser
   extends Model<UserAttributes, UserAttributes>
-  implements UserAttributes {
+  implements UserAttributes
+{
   @IsUUID(4)
-  @PrimaryKey
   @Column({
+    primaryKey: true,
     type: DataType.UUID,
     allowNull: false,
     defaultValue: DataType.UUIDV4,
@@ -155,19 +155,19 @@ export class XmwUser
 
   //岗位id
   @IsUUID(4)
-  @ForeignKey(() => XmwJobs)
+  @ForeignKey(() => AmJobs)
   @Column({ type: DataType.UUID, allowNull: false, comment: '岗位id' })
   jobs_id: string;
 
   //组织id
   @IsUUID(4)
-  @ForeignKey(() => XmwOrganization)
+  @ForeignKey(() => AmOrganization)
   @Column({ type: DataType.UUID, allowNull: false, comment: '组织id' })
   org_id: string;
 
   //角色id
   @IsUUID(4)
-  @ForeignKey(() => XmwRole)
+  @ForeignKey(() => AmRole)
   @Column({ type: DataType.UUID, allowNull: false, comment: '角色id' })
   role_id: string;
 
@@ -201,12 +201,12 @@ export class XmwUser
   })
   login_last_time?: Date;
 
-  @BelongsTo(() => XmwJobs, { as: 'j' })
-  jobsInfo: XmwJobs;
+  @BelongsTo(() => AmJobs, { as: 'j' })
+  jobsInfo: AmJobs;
 
-  @BelongsTo(() => XmwOrganization, { as: 'o' })
-  orgInfo: XmwOrganization;
+  @BelongsTo(() => AmOrganization, { as: 'o' })
+  orgInfo: AmOrganization;
 
-  @BelongsTo(() => XmwRole, { as: 'r' })
-  roleInfo: XmwRole;
+  @BelongsTo(() => AmRole, { as: 'r' })
+  roleInfo: AmRole;
 }

@@ -7,23 +7,23 @@ import {
   IsIn,
   IsUUID,
   Model,
-  PrimaryKey,
   Table,
 } from 'sequelize-typescript';
 
-import { XmwAlready } from '@/models/xmw_already.model';
-import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
+import { AmAlready } from '@/models/am_already.model';
+import { AmUser } from '@/models/am_user.model'; // am_user 实体
 import type { AnnouncementTypes, Status } from '@/utils/types';
 import { AnnouncementAttributes } from '@/utils/types/administrative';
 
-@Table({ tableName: 'xmw_announcement' })
-export class XmwAnnouncement
+@Table({ tableName: 'am_announcement' })
+export class AmAnnouncement
   extends Model<AnnouncementAttributes, AnnouncementAttributes>
-  implements AnnouncementAttributes {
+  implements AnnouncementAttributes
+{
   @IsUUID(4)
-  @PrimaryKey
-  @ForeignKey(() => XmwAlready)
+  @ForeignKey(() => AmAlready)
   @Column({
+    primaryKey: true,
     type: DataType.UUID,
     allowNull: false,
     defaultValue: DataType.UUIDV4,
@@ -33,7 +33,7 @@ export class XmwAnnouncement
 
   // 作者id
   @IsUUID(4)
-  @ForeignKey(() => XmwUser)
+  @ForeignKey(() => AmUser)
   @Column({ type: DataType.UUID, allowNull: false, comment: '作者id' })
   user_id: string;
 
@@ -88,9 +88,9 @@ export class XmwAnnouncement
   })
   pinned: number;
 
-  @BelongsTo(() => XmwUser, { as: 'u' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
-  userInfo: XmwUser;
+  @BelongsTo(() => AmUser, { as: 'u' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
+  userInfo: AmUser;
 
-  @HasOne(() => XmwAlready, { as: 'a' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
-  alreadyInfo: XmwAlready;
+  @HasOne(() => AmAlready, { as: 'a' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
+  alreadyInfo: AmAlready;
 }

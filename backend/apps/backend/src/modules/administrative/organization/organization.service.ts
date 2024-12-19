@@ -6,7 +6,7 @@ import { InjectModel } from '@nestjs/sequelize';
 import { Op } from 'sequelize';
 import type { WhereOptions } from 'sequelize/types';
 
-import { XmwOrganization } from '@/models/xmw_organization.model'; // xmw_organization 实体
+import { AmOrganization } from '@/models/am_organization.model'; // am_organization 实体
 import { initializeTree, responseMessage } from '@/utils'; // 全局工具函数
 import type { Response, SessionTypes } from '@/utils/types';
 
@@ -16,8 +16,8 @@ import { ListOrganizationDto, SaveOrganizationDto } from './dto';
 export class OrganizationService {
   constructor(
     // 使用 InjectModel 注入参数，注册数据库实体
-    @InjectModel(XmwOrganization)
-    private readonly organizationModel: typeof XmwOrganization,
+    @InjectModel(AmOrganization)
+    private readonly organizationModel: typeof AmOrganization,
   ) {}
 
   /**
@@ -25,7 +25,7 @@ export class OrganizationService {
    */
   async getOrganizationList(
     organizationInfo: ListOrganizationDto,
-  ): Promise<Response<XmwOrganization[]>> {
+  ): Promise<Response<AmOrganization[]>> {
     // 解构参数
     const { org_name, org_code, org_type, status, start_time, end_time } =
       organizationInfo;

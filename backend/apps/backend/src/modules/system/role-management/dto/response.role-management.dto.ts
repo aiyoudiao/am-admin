@@ -4,7 +4,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import { ResponseDto } from '@/dto/response.dto';
-import { XmwRole } from '@/models/xmw_role.model'; // xmw_role 实体
+import { AmRole } from '@/models/am_role.model'; // am_role 实体
 import type { PageResponse } from '@/utils/types';
 
 /**
@@ -54,7 +54,7 @@ export class ResponseRoleManagementDto extends ResponseDto {
       total: 1,
     },
   })
-  data: PageResponse<XmwRole>;
+  data: PageResponse<AmRole>;
 }
 
 /**
@@ -76,5 +76,5 @@ export class CreateRoleManagementDto extends ResponseDto {
       updated_time: '2022-11-09T06:45:01.108Z',
     },
   })
-  data: PageResponse<XmwRole>;
+  data: PageResponse<AmRole>;
 }

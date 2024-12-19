@@ -5,20 +5,20 @@ import {
   ForeignKey,
   IsUUID,
   Model,
-  PrimaryKey,
   Table,
 } from 'sequelize-typescript';
 
-import { XmwAnnouncement } from '@/models/xmw_announcement.model';
+import { AmAnnouncement } from '@/models/am_announcement.model';
 import type { AlreadyAttributes } from '@/utils/types/administrative';
 
-@Table({ tableName: 'xmw_already' })
-export class XmwAlready
+@Table({ tableName: 'am_already' })
+export class AmAlready
   extends Model<AlreadyAttributes, AlreadyAttributes>
-  implements AlreadyAttributes {
+  implements AlreadyAttributes
+{
   @IsUUID(4)
-  @PrimaryKey
   @Column({
+    primaryKey: true,
     type: DataType.UUID,
     allowNull: false,
     defaultValue: DataType.UUIDV4,
@@ -28,7 +28,7 @@ export class XmwAlready
 
   // 活动公告 id
   @IsUUID(4)
-  @ForeignKey(() => XmwAnnouncement)
+  @ForeignKey(() => AmAnnouncement)
   @Column({ type: DataType.UUID, allowNull: false, comment: '活动公告 id' })
   announcement_id: string;
 
@@ -37,6 +37,6 @@ export class XmwAlready
   @Column({ type: DataType.UUID, allowNull: false, comment: '用户 id' })
   user_id: string;
 
-  @BelongsTo(() => XmwAnnouncement, { as: 'a' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
-  announcementInfo: XmwAnnouncement;
+  @BelongsTo(() => AmAnnouncement, { as: 'a' }) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
+  announcementInfo: AmAnnouncement;
 }

@@ -4,8 +4,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import { ResponseDto } from '@/dto/response.dto';
-import { XmwMenu } from '@/models/xmw_menu.model'; // xmw_menu 实体
-import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
+import { AmMenu } from '@/models/am_menu.model'; // am_menu 实体
+import { AmUser } from '@/models/am_user.model'; // am_user 实体
 
 /**
  * @description: 登录参数
@@ -77,7 +77,7 @@ export class UserInfoResponseDto extends ResponseDto {
     default: {
       user_id: 'bf75a509-f90e-4a29-8bf7-470b581550f6',
       user_name: 'admin',
-      work_no: 'XMW001',
+      work_no: 'Am001',
       cn_name: '谢明伟',
       en_name: 'Cyan',
       age: 18,
@@ -108,7 +108,7 @@ export class UserInfoResponseDto extends ResponseDto {
       role_name: '超级管理员',
     },
   })
-  data: XmwUser;
+  data: AmUser;
 }
 
 /**
@@ -222,7 +222,7 @@ export class RoutesMenuResponseDto extends ResponseDto {
       },
     ],
   })
-  data: XmwMenu[];
+  data: AmMenu[];
 }
 
 /**

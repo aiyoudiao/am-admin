@@ -1,5 +1,5 @@
 /*
- * @Description: XmwPermission Entity
+ * @Description: AmPermission Entity
  */
 import {
   BelongsTo,
@@ -8,21 +8,21 @@ import {
   ForeignKey,
   IsUUID,
   Model,
-  PrimaryKey,
   Table,
 } from 'sequelize-typescript';
 
-import { XmwMenu } from '@/models/xmw_menu.model';
-import { XmwRole } from '@/models/xmw_role.model';
+import { AmMenu } from '@/models/am_menu.model';
+import { AmRole } from '@/models/am_role.model';
 import type { PermissionAttributes } from '@/utils/types/system';
 
-@Table({ tableName: 'xmw_permission' })
-export class XmwPermission
+@Table({ tableName: 'am_permission' })
+export class AmPermission
   extends Model<PermissionAttributes, PermissionAttributes>
-  implements PermissionAttributes {
+  implements PermissionAttributes
+{
   @IsUUID(4)
-  @PrimaryKey
   @Column({
+    primaryKey: true,
     type: DataType.UUID,
     allowNull: false,
     defaultValue: DataType.UUIDV4,
@@ -32,19 +32,19 @@ export class XmwPermission
 
   //角色id
   @IsUUID(4)
-  @ForeignKey(() => XmwRole)
+  @ForeignKey(() => AmRole)
   @Column({ type: DataType.UUID, comment: '角色id' })
   role_id: string;
 
   //菜单id
   @IsUUID(4)
-  @ForeignKey(() => XmwMenu)
+  @ForeignKey(() => AmMenu)
   @Column({ type: DataType.UUID, comment: '菜单id' })
   menu_id: string;
 
-  @BelongsTo(() => XmwRole)
-  roleInfo: XmwRole;
+  @BelongsTo(() => AmRole)
+  roleInfo: AmRole;
 
-  @BelongsTo(() => XmwMenu)
-  menuInfo: XmwMenu;
+  @BelongsTo(() => AmMenu)
+  menuInfo: AmMenu;
 }

@@ -17,7 +17,7 @@ import type {
 import { JobsAttributes, OrgAttributes } from './administrative';
 
 /**
- * @description: xmw_menu Attributes
+ * @description: am_menu Attributes
  */
 export type MenuAttributes = {
   menu_id: string; // 菜单id
@@ -48,7 +48,7 @@ export type MenuAttributes = {
   Omit<CommonTypes, 'leader' | 'describe'>;
 
 /**
- * @description: xmw_permission Attributes
+ * @description: am_permission Attributes
  */
 export type PermissionAttributes = {
   permission_id: string; // 权限id
@@ -57,7 +57,7 @@ export type PermissionAttributes = {
   Pick<MenuAttributes, 'menu_id'>;
 
 /**
- * @description: xmw_role Attributes
+ * @description: am_role Attributes
  */
 export type RoleAttributes = {
   role_id: string; // 角色id
@@ -68,7 +68,7 @@ export type RoleAttributes = {
   Omit<CommonTypes, 'parent_id' | 'leader'>;
 
 /**
- * @description: xmw_users Attributes
+ * @description: am_users Attributes
  */
 export type UserAttributes = {
   user_id: string; // 用户id
@@ -97,7 +97,7 @@ export type UserAttributes = {
   Pick<CommonTypes, 'sort' | 'founder' | 'status'>;
 
 /**
- * @description: xmw_international Attributes
+ * @description: am_international Attributes
  */
 export type InternationalAttributes = {
   id: string; // id

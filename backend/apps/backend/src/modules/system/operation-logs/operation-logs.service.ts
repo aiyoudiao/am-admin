@@ -12,8 +12,8 @@ import { Op } from 'sequelize';
 import type { WhereOptions } from 'sequelize/types';
 import UAParser from 'ua-parser-js';
 
-import { XmwLogs } from '@/models/xmw_logs.model'; // Xmw_logs 实体
-import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
+import { AmLogs } from '@/models/am_logs.model'; // am_logs 实体
+import { AmUser } from '@/models/am_user.model'; // am_user 实体
 import { getRealIp, responseMessage } from '@/utils'; // 全局工具函数
 import type { PageResponse, Response, SessionTypes } from '@/utils/types';
 import type { LogsAttributes } from '@/utils/types/system';
@@ -25,10 +25,10 @@ export class OperationLogsService {
     @Inject(REQUEST)
     private readonly request: Request & { session: SessionTypes },
     // 使用 InjectModel 注入参数，注册数据库实体
-    @InjectModel(XmwLogs)
-    private readonly logsModel: typeof XmwLogs,
-    @InjectModel(XmwUser)
-    private readonly userModel: typeof XmwUser,
+    @InjectModel(AmLogs)
+    private readonly logsModel: typeof AmLogs,
+    @InjectModel(AmUser)
+    private readonly userModel: typeof AmUser,
     private readonly httpService: HttpService,
   ) {}
 
@@ -37,7 +37,7 @@ export class OperationLogsService {
    */
   async getLocationByIp(ipAddress: string): Promise<any> {
     try {
-      const response = await lastValueFrom(
+      const response = await lastValueFrom<any>(
         this.httpService
           .get(
             `https://restapi.amap.com/v3/ip?key=${process.env.GAODE_MAP_KEY}&ip=${ipAddress}`,
@@ -106,7 +106,7 @@ export class OperationLogsService {
    */
   async getLogsList(
     logsInfo: ListOperationLogsDto,
-  ): Promise<Response<PageResponse<XmwLogs>>> {
+  ): Promise<Response<PageResponse<AmLogs>>> {
     // 解构参数
     const { start_time, end_time, pageSize, current, user_id, method } =
       logsInfo;
@@ -121,7 +121,7 @@ export class OperationLogsService {
       // 联表查询
       include: [
         {
-          model: XmwUser,
+          model: AmUser,
           as: 'userInfo',
         },
       ],

@@ -7,9 +7,9 @@ import { Op } from 'sequelize';
 import type { WhereOptions } from 'sequelize/types';
 import { Sequelize } from 'sequelize-typescript';
 
-import { XmwMenu } from '@/models/xmw_menu.model';
-import { XmwPermission } from '@/models/xmw_permission.model';
-import { XmwRole } from '@/models/xmw_role.model'; // xmw_role 实体
+import { AmMenu } from '@/models/am_menu.model';
+import { AmPermission } from '@/models/am_permission.model';
+import { AmRole } from '@/models/am_role.model'; // am_role 实体
 import { responseMessage } from '@/utils'; // 全局工具函数
 import type {
   PageResponse,
@@ -29,11 +29,11 @@ type permissionModel = {
 export class RoleManagementService {
   constructor(
     // 使用 InjectModel 注入参数，注册数据库实体
-    @InjectModel(XmwRole)
-    private readonly roleModel: typeof XmwRole,
+    @InjectModel(AmRole)
+    private readonly roleModel: typeof AmRole,
 
-    @InjectModel(XmwPermission)
-    private readonly permissionModel: typeof XmwPermission,
+    @InjectModel(AmPermission)
+    private readonly permissionModel: typeof AmPermission,
 
     private sequelize: Sequelize,
   ) {}
@@ -43,7 +43,7 @@ export class RoleManagementService {
    */
   async getRoleList(
     roleInfo: ListRoleManagementDto,
-  ): Promise<Response<PageResponse<XmwRole>>> {
+  ): Promise<Response<PageResponse<AmRole>>> {
     // 解构参数
     const {
       role_name,
@@ -67,15 +67,15 @@ export class RoleManagementService {
       // 联表查询
       include: [
         {
-          model: XmwPermission,
+          model: AmPermission,
           as: 'menu_permission',
           include: [
             {
-              model: XmwRole,
+              model: AmRole,
               as: 'roleInfo',
             },
             {
-              model: XmwMenu,
+              model: AmMenu,
               as: 'menuInfo',
             },
           ],
@@ -113,12 +113,12 @@ export class RoleManagementService {
     // 开始一个事务并将其保存到变量中
     const t = await this.sequelize.transaction();
     try {
-      // 执行 sql insert 语句,插入数据到 xmw_role 表中
+      // 执行 sql insert 语句,插入数据到 am_role 表中
       const result = await this.roleModel.create(
         { ...roleInfo, founder: session.currentUserInfo.user_id },
         { transaction: t },
       );
-      // 再把角色对应的权限插入到 xmw_permission 中
+      // 再把角色对应的权限插入到 am_permission 中
       const permissionData: permissionModel[] = menu_permission.map(
         (menu_id: string) => {
           return { role_id: result.role_id, menu_id };
@@ -164,12 +164,12 @@ export class RoleManagementService {
         where: { role_id },
         transaction: t,
       });
-      // 执行 sql update 语句,更新 xmw_role 表数据
+      // 执行 sql update 语句,更新 am_role 表数据
       const result = await this.roleModel.update(roleInfo, {
         where: { role_id },
         transaction: t,
       });
-      // 再把角色对应的权限插入到 xmw_permission 中
+      // 再把角色对应的权限插入到 am_permission 中
       const permissionData: permissionModel[] = menu_permission.map(
         (menu_id: string) => {
           return { role_id, menu_id };
@@ -193,12 +193,12 @@ export class RoleManagementService {
     // 开始一个事务并将其保存到变量中
     const t = await this.sequelize.transaction();
     try {
-      // 先删除 xmw_permission 表关联的数据
+      // 先删除 am_permission 表关联的数据
       await this.permissionModel.destroy({
         where: { role_id },
         transaction: t,
       });
-      // 再删除 xmw_role 关联的数据
+      // 再删除 am_role 关联的数据
       const result = await this.roleModel.destroy({
         where: { role_id },
         transaction: t,
@@ -220,7 +220,7 @@ export class RoleManagementService {
     role_id: string,
     status: Status,
   ): Promise<Response<number[]>> {
-    // 执行 update 更新 xmw_role 状态
+    // 执行 update 更新 am_role 状态
     const result = await this.roleModel.update(
       { status },
       { where: { role_id } },

@@ -8,8 +8,8 @@ import { Op } from 'sequelize';
 import type { WhereOptions } from 'sequelize/types';
 import { Sequelize } from 'sequelize-typescript';
 
-import { XmwInternational } from '@/models/xmw_international.model'; // xmw_international 实体
-import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
+import { AmInternational } from '@/models/am_international.model'; // am_international 实体
+import { AmUser } from '@/models/am_user.model'; // am_user 实体
 import { initializeLang, initializeTree, responseMessage } from '@/utils'; // 全局工具函数
 import { LANGS } from '@/utils/enums';
 import type { Langs, Response, SessionTypes } from '@/utils/types';
@@ -19,8 +19,8 @@ import { ListInternationalDto, SaveInternationalDto } from './dto';
 export class InternationalService {
   constructor(
     // 使用 InjectModel 注入参数，注册数据库实体
-    @InjectModel(XmwInternational)
-    private readonly internationaModel: typeof XmwInternational,
+    @InjectModel(AmInternational)
+    private readonly internationaModel: typeof AmInternational,
     private sequelize: Sequelize,
   ) {}
 
@@ -50,7 +50,7 @@ export class InternationalService {
    */
   async getInternationalList(
     internationalInfo: ListInternationalDto,
-  ): Promise<Response<XmwInternational[]>> {
+  ): Promise<Response<AmInternational[]>> {
     // 解构参数
     const { name, start_time, end_time, isMenu } = internationalInfo;
     // 拼接查询参数
@@ -66,7 +66,7 @@ export class InternationalService {
       // 联表查询
       include: [
         {
-          model: XmwUser,
+          model: AmUser,
           as: 'u',
           attributes: [],
         },
@@ -83,9 +83,8 @@ export class InternationalService {
     const result = initializeTree(sqlData, 'id', 'parent_id', 'children');
     return responseMessage(
       isMenu
-        ? result.filter(
-            (element: XmwInternational) => element.name == 'menu',
-          )[0].children
+        ? result.filter((element: AmInternational) => element.name == 'menu')[0]
+            .children
         : result,
     );
   }

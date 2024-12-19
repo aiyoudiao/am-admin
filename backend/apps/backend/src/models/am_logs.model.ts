@@ -6,21 +6,21 @@ import {
   IsIP,
   IsUUID,
   Model,
-  PrimaryKey,
   Table,
 } from 'sequelize-typescript';
 
-import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
+import { AmUser } from '@/models/am_user.model'; // am_user 实体
 import type { RequestMethods } from '@/utils/types';
 import type { LogsAttributes } from '@/utils/types/system';
 
-@Table({ tableName: 'xmw_logs' })
-export class XmwLogs
+@Table({ tableName: 'am_logs' })
+export class AmLogs
   extends Model<LogsAttributes, LogsAttributes>
-  implements LogsAttributes {
+  implements LogsAttributes
+{
   @IsUUID(4)
-  @PrimaryKey
   @Column({
+    primaryKey: true,
     type: DataType.UUID,
     allowNull: false,
     defaultValue: DataType.UUIDV4,
@@ -30,7 +30,7 @@ export class XmwLogs
 
   // 用户id
   @IsUUID(4)
-  @ForeignKey(() => XmwUser)
+  @ForeignKey(() => AmUser)
   @Column({ type: DataType.UUID, allowNull: false, comment: '用户id' })
   user_id: string;
 
@@ -71,6 +71,6 @@ export class XmwLogs
   @Column({ type: DataType.STRING(100), allowNull: true, comment: '城市编码' })
   adcode: string;
 
-  @BelongsTo(() => XmwUser) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
-  userInfo: XmwUser;
+  @BelongsTo(() => AmUser) // 定义多对一关系。注意使用BelongsTo是多对一关系的【多】表
+  userInfo: AmUser;
 }

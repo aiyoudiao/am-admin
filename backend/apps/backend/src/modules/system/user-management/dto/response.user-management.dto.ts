@@ -4,7 +4,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import { ResponseDto } from '@/dto/response.dto';
-import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
+import { AmUser } from '@/models/am_user.model'; // am_user 实体
 import type { PageResponse } from '@/utils/types';
 
 /**
@@ -51,7 +51,7 @@ export class ResponseUserManagementDto extends ResponseDto {
       total: 1,
     },
   })
-  data: PageResponse<XmwUser>;
+  data: PageResponse<AmUser>;
 }
 
 /**
@@ -85,5 +85,5 @@ export class CreateUserManagementDto extends ResponseDto {
       created_time: '2022-11-10T06:28:13.581Z',
     },
   })
-  data: PageResponse<XmwUser>;
+  data: PageResponse<AmUser>;
 }

@@ -4,7 +4,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import { ResponseDto } from '@/dto/response.dto';
-import { XmwJobs } from '@/models/xmw_jobs.model'; // xmw_jobs 实体
+import { AmJobs } from '@/models/am_jobs.model'; // am_jobs 实体
 
 /**
  * @description: 岗位管理列表响应体结构 Dto
@@ -30,7 +30,7 @@ export class ResponseJobsDto extends ResponseDto {
       },
     ],
   })
-  data: XmwJobs[];
+  data: AmJobs[];
 }
 
 /**
@@ -51,5 +51,5 @@ export class CreateJobsDto extends ResponseDto {
       updated_time: '2022-11-09T06:45:01.108Z',
     },
   })
-  data: XmwJobs;
+  data: AmJobs;
 }
