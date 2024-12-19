@@ -1,0 +1,8 @@
+{
+  "name": "drawdb",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/drawdb/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {}
+}
