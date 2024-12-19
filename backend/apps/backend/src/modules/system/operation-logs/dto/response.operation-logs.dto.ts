@@ -1,10 +1,5 @@
 /*
  * @Description: 查询列表返回响应体 Dto
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-03-17 16:09:30
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 16:49:32
  */
 import { ApiProperty } from '@nestjs/swagger';
 

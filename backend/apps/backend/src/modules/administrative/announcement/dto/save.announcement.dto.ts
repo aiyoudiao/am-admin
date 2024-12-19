@@ -1,10 +1,5 @@
 /*
  * @Description: 保存活动公告数据 DTO
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-08-25 16:50:16
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 17:15:27
  */
 import { ApiProperty } from '@nestjs/swagger';
 

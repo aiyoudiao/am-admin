@@ -1,10 +1,5 @@
 /*
  * @Description: Organization Service
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-20 16:42:35
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-12 09:09:01
  */
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';

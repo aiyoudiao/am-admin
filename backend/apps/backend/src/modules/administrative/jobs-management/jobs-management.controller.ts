@@ -1,10 +1,5 @@
 /*
  * @Description: JobsManagement Controller
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-19 11:19:47
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 15:41:59
  */
 import {
   Body,

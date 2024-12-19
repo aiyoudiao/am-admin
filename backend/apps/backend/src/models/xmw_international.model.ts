@@ -1,10 +1,5 @@
 /*
  * @Description: XmwInternational Entity
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-15 22:35:00
- * @LastEditors: Cyan
- * @LastEditTime: 2022-11-30 10:51:14
  */
 import {
   BelongsTo,

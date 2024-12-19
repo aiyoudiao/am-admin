@@ -1,10 +1,5 @@
 /*
  * @Description: RoleManagement Service
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-28 17:39:28
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-21 15:26:22
  */
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';

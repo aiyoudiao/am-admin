@@ -1,10 +1,5 @@
 /*
  * @Description: 保存菜单数据 Dto
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-27 14:49:01
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 16:35:34
  */
 import { ApiProperty } from '@nestjs/swagger';
 

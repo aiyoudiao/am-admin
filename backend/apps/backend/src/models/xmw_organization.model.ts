@@ -1,10 +1,5 @@
 /*
  * @Description: xmw_organization Entity
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-16 11:06:36
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 17:24:46
  */
 import {
   Column,

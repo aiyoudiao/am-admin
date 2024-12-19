@@ -1,10 +1,5 @@
 /*
  * @Description: 应用程序的入口文件，它使用核心函数 NestFactory 来创建 Nest 应用程序的实例。
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-12 17:06:37
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-24 14:08:24
  */
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'; // swagger 接口文档

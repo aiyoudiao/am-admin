@@ -1,10 +1,5 @@
 /*
  * @Description: Auth Controller
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-11-25 14:30:19
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-10 11:32:28
  */
 import {
   Body,

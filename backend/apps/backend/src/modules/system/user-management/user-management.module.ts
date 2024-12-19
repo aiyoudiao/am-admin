@@ -1,10 +1,5 @@
 /*
  * @Description: UserManagement Module
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-11-09 17:44:10
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 17:10:49
  */
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';

@@ -1,10 +1,5 @@
 /*
  * @Description: OperationLogs Service
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-12-12 10:11:05
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-28 10:09:28
  */
 import { HttpService } from '@nestjs/axios';
 import { Inject, Injectable, Scope } from '@nestjs/common';

@@ -1,10 +1,5 @@
 /*
  * @Description: 日志收集和记录
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-15 20:50:59
- * @LastEditors: Cyan
- * @LastEditTime: 2022-10-17 15:50:13
  */
 import * as path from 'path';
 const baseLogPath = path.resolve(__dirname, '../../logs'); // 日志要写入哪个目录

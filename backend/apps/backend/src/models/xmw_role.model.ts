@@ -1,10 +1,5 @@
 /*
  * @Description: XmwRole Entity
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-28 16:33:09
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 17:25:09
  */
 import {
   Column,

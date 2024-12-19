@@ -1,11 +1,6 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-10-24 14:00:53
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-24 14:01:46
  * @Description: LoggerInterceptor 日志拦截器
  */
-
 import {
   CallHandler,
   ExecutionContext,

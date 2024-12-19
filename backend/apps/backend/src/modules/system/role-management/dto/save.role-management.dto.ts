@@ -1,10 +1,5 @@
 /*
  * @Description: 保存角色数据 Dto
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-28 18:06:14
- * @LastEditors: Cyan
- * @LastEditTime: 2022-11-09 14:10:09
  */
 import { ApiProperty } from '@nestjs/swagger';
 

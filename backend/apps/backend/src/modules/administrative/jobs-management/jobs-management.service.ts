@@ -1,10 +1,5 @@
 /*
  * @Description: JobsManagement Service
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-19 11:19:47
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-12 09:15:52
  */
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';

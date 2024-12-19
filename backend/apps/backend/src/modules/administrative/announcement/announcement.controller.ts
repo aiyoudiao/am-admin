@@ -1,10 +1,5 @@
 /*
  * @Description: Announcement Controller
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-08-25 16:18:17
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-17 13:56:50
  */
 import {
   Body,

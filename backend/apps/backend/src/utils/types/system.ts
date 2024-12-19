@@ -1,10 +1,5 @@
 /*
  * @Description: System Attributes
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-27 10:10:44
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 17:32:56
  */
 import type {
   CommonTypes,

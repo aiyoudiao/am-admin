@@ -1,10 +1,5 @@
 /*
  * @Description: OperationLogs Controller
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-12-12 10:10:55
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-25 15:32:48
  */
 import {
   Body,

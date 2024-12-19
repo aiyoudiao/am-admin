@@ -1,10 +1,5 @@
 /*
  * @Description: International Service
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-15 22:06:24
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-24 11:06:15
  */
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';

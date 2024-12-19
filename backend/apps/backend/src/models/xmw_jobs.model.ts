@@ -1,10 +1,5 @@
 /*
  * @Description: XmwJobs Entity
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-16 10:57:24
- * @LastEditors: Cyan
- * @LastEditTime: 2022-12-01 17:19:53
  */
 import {
   BelongsTo,

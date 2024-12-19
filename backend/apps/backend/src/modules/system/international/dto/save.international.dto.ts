@@ -1,10 +1,5 @@
 /*
  * @Description: 保存国际化 Dto
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-19 17:14:38
- * @LastEditors: Cyan
- * @LastEditTime: 2022-11-09 14:52:55
  */
 import { ApiProperty } from '@nestjs/swagger';
 /**

@@ -1,10 +1,5 @@
 /*
  * @Description: 请求参数校验
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-16 22:07:40
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 15:21:58
  */
 import {
   ArgumentMetadata,

@@ -1,10 +1,5 @@
 /*
  * @Description: 全局响应拦截器
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-14 09:58:57
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 15:23:17
  */
 import {
   CallHandler,

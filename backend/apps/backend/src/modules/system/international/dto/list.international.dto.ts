@@ -1,10 +1,5 @@
 /*
  * @Description: 查询国际化列表参数 Dto
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-19 17:11:40
- * @LastEditors: Cyan
- * @LastEditTime: 2022-10-20 10:10:26
  */
 import { ApiProperty } from '@nestjs/swagger';
 /**

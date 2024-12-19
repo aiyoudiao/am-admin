@@ -1,10 +1,5 @@
 /*
  * @Description: International Module
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-17 08:54:02
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-24 14:30:10
  */
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';

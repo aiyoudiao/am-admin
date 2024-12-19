@@ -1,10 +1,5 @@
 /*
  * @Description: 查询活动公告列表 DTO
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-08-25 16:33:56
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-08-25 16:36:08
  */
 import { ApiProperty } from '@nestjs/swagger';
 

@@ -1,10 +1,5 @@
 /*
  * @Description: International Controller
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-15 22:06:24
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-24 14:29:02
  */
 import {
   Body,

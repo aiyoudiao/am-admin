@@ -1,12 +1,6 @@
 /*
  * @Description: 枚举类型
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-09-28 14:12:07
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 15:59:19
  */
-
 /**
  * @description: 请求状态码
  * @author: 白雾茫茫丶

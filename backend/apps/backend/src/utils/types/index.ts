@@ -1,10 +1,5 @@
 /*
  * @Description: 类型标注
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2023-09-28 14:10:44
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 17:04:38
  */
 import {
   ANNOUNCEMENT_TYPE,

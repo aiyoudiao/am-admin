@@ -1,10 +1,5 @@
 /*
  * @Description: 登录鉴权 Dto
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-11-25 10:34:23
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 15:50:52
  */
 import { ApiProperty } from '@nestjs/swagger';
 

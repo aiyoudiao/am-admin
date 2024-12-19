@@ -1,8 +1,4 @@
 /*
- * @Author: 白雾茫茫丶<baiwumm.com>
- * @Date: 2024-07-08 14:04:40
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-07-08 14:06:36
  * @Description: Common Module
  */
 import { HttpModule } from '@nestjs/axios';

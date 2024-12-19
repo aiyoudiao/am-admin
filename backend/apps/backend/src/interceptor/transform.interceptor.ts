@@ -1,10 +1,5 @@
 /*
  * @Description: 全局 拦截器 用来收集日志
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-16 22:04:12
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 15:23:36
  */
 import {
   CallHandler,

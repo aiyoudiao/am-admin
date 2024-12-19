@@ -1,10 +1,5 @@
 /*
  * @Description: UserManagement Service
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-11-09 17:44:15
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-10-12 09:21:47
  */
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';

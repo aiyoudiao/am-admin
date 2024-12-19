@@ -1,10 +1,5 @@
 /*
  * @Description: JobsManagement Module
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-19 11:19:47
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-10-24 14:05:39
  */
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';

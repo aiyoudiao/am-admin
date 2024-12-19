@@ -1,10 +1,5 @@
 /*
  * @Description: XmwPermission Entity
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-28 17:23:20
- * @LastEditors: Cyan
- * @LastEditTime: 2022-11-09 16:55:47
  */
 import {
   BelongsTo,

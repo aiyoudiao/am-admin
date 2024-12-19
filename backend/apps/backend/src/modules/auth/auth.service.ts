@@ -1,10 +1,5 @@
 /*
  * @Description: Auth Service
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-11-25 14:29:53
- * @LastEditors: 白雾茫茫丶<baiwumm.com>
- * @LastEditTime: 2024-11-18 11:32:05
  */
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';

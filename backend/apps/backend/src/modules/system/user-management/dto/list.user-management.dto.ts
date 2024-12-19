@@ -1,10 +1,5 @@
 /*
  * @Description: 查询用户管理列表参数 Dto
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-11-09 18:06:19
- * @LastEditors: 白雾茫茫丶
- * @LastEditTime: 2023-09-28 17:02:38
  */
 import { ApiProperty } from '@nestjs/swagger';
 

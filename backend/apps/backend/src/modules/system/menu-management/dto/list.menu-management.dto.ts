@@ -1,10 +1,5 @@
 /*
  * @Description: 查询菜单管理列表参数 Dto
- * @Version: 2.0
- * @Author: 白雾茫茫丶
- * @Date: 2022-10-27 11:33:13
- * @LastEditors: Cyan
- * @LastEditTime: 2022-11-09 09:44:29
  */
 import { ApiProperty } from '@nestjs/swagger';
 
