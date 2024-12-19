@@ -32,44 +32,6 @@ import type { OrgTypes } from '@/utils/types/administrative/organization';
 import type { MenuTypes } from '@/utils/types/system/menu-management';
 
 /**
- * @description: 路由菜单对应的 remixicon
- */
-export const MenuRemixIconMap: Record<string, UmiIcon> = {
-  [ROUTES.DASHBOARD]: 'ri:apps-line',
-  [ROUTES.WORKBENCH]: 'ri:dashboard-2-line',
-  [ROUTES.DEPENDENCE]: 'ri:puzzle-line',
-  [ROUTES.ADMINISTRATIVE]: 'ri:quill-pen-line',
-  [ROUTES.ANNOUNCEMENT]: 'ri:notification-line',
-  [ROUTES.ORGANIZATION]: 'ri:exchange-2-line',
-  [ROUTES.JOBSMANAGEMENT]: 'ri:contacts-book-3-line',
-  [ROUTES.PERSONALCENTER]: 'ri:shield-user-line',
-  [ROUTES.PERSONALINFOMATION]: 'ri:id-card-line',
-  [ROUTES.PERSONALSETTING]: 'ri:user-settings-line',
-  [ROUTES.FEATURES]: 'ri:flower-line',
-  [ROUTES.CAPTCHA]: 'ri:terminal-box-line',
-  [ROUTES.GANTT]: 'fa6-solid:chart-gantt',
-  [ROUTES.VIEWER]: 'ri:image-line',
-  [ROUTES.LAZYLOAD]: 'ri:image-add-line',
-  [ROUTES.COLORTHIEF]: 'ri:palette-line',
-  [ROUTES.EYEDROPPER]: 'ri:dropper-line',
-  [ROUTES.FLOW]: 'ri:flow-chart',
-  [ROUTES.SWIPER]: 'simple-icons:swiper',
-  [ROUTES.FILEPREVIEW]: 'ri:file-excel-2-line',
-  [ROUTES.CHARTS]: 'ri:bar-chart-2-line',
-  [ROUTES.TECHNICALDOCUMENT]: 'ri:code-box-line',
-  [ROUTES.REACT]: 'ri:reactjs-fill',
-  [ROUTES.NEST]: 'local:nest',
-  [ROUTES.ANTDESIGN]: 'local:ant-design',
-  [ROUTES.UMI]: 'local:umi',
-  [ROUTES.SYSTEM]: 'ri:settings-line',
-  [ROUTES.USERMANAGEMENT]: 'ri:group-line',
-  [ROUTES.MENUMANAGEMENT]: 'ri:menu-fill',
-  [ROUTES.ROLEMANAGEMENT]: 'ri:shield-user-line',
-  [ROUTES.INTERNATIONALIZATION]: 'ri:global-line',
-  [ROUTES.OPERATIONLOG]: 'ri:draft-line',
-};
-
-/**
  * @description: antd 多语言配置项
  */
 export const ANTD_LANGS: Record<Langs, { momentLocale: string; antd: Locale }> = {

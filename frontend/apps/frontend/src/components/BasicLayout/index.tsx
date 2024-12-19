@@ -21,8 +21,7 @@ import { Space, Typography } from 'antd';
 import { eq, toString } from 'lodash-es';
 
 import Footer from '@/components/Footer'; // 全局底部版权组件
-import { formatPerfix, getLocalStorageItem, setLocalStorageItem } from '@/utils';
-import { MenuRemixIconMap } from '@/utils/const';
+import { formatPerfix, getLocalStorageItem, getRuleMenuIcon, setLocalStorageItem } from '@/utils';
 import { LOCAL_STORAGE, ROUTES } from '@/utils/enums';
 import type { InitialStateTypes } from '@/utils/types';
 
@@ -82,9 +81,12 @@ export const BasicLayout: RunTimeLayoutConfig = ({
     /* 自定义面包屑 */
     breadcrumbProps: {
       itemRender: (route) => {
+        // 从菜单中获取图标
+        const icon = getRuleMenuIcon(initialState?.RouteMenu, route.linkPath)
+
         return (
           <Space align='center'>
-            <Icon icon={MenuRemixIconMap[route.linkPath as ROUTES]} style={{ display: 'flex' }} />
+            <Icon icon={icon} style={{ display: 'flex' }} />
             <span>{route.title}</span>
           </Space>
         );

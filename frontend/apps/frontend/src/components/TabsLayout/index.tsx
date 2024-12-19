@@ -2,14 +2,14 @@
  * @Description: 自定义多标签页
  */
 
-import { FormattedMessage, Icon, useIntl } from '@umijs/max';
+import { FormattedMessage, Icon, useIntl, useModel } from '@umijs/max';
 import { App, Badge, Dropdown, MenuProps, Space, Tabs, TabsProps } from 'antd';
 import { eq, keys } from 'lodash-es';
 import { FC, MutableRefObject, useCallback } from 'react';
 
-import { MenuRemixIconMap } from '@/utils/const';
 import { TABSLAYOUT } from '@/utils/enums';
 import type { EnumValues, UmiIcon } from '@/utils/types';
+import { getRuleMenuIcon } from '@/utils';
 
 export type TabsLayoutProps = {
   isKeep: boolean;
@@ -35,10 +35,13 @@ const TabsLayout: FC<TabsLayoutProps> = ({
   dropOtherTabs,
   refreshTab,
   activeKey,
+  ...args
 }) => {
   const prefix = 'components.TabsLayout.';
   // 国际化工具
   const { formatMessage } = useIntl();
+  // 全局状态
+  const {initialState} = useModel('@@initialState');
   // hooks 调用
   const { message } = App.useApp();
   /**
@@ -90,13 +93,15 @@ const TabsLayout: FC<TabsLayoutProps> = ({
   const tabsItems: TabsProps['items'] = keys(keepElements.current).map((pathname: string) => {
     // 判断是否当前活跃标签
     const isCurrent = eq(activeKey, pathname);
+    // 从菜单中获取图标
+    const icon = getRuleMenuIcon(initialState?.RouteMenu, pathname)
     // 只有当前活跃的标签页才能操作
     const dom = (
       <Space size={5}>
         {isCurrent && (
           <Badge status="processing" />
         )}
-        <Icon icon={MenuRemixIconMap[pathname]} style={{ display: 'flex' }} />
+        <Icon icon={icon} style={{ display: 'flex' }} />
         <FormattedMessage id={`menu${pathname.replaceAll('/', '.')}`} />
       </Space>
     );

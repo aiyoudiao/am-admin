@@ -348,3 +348,27 @@ export const OsIconMap = (text: string): string | undefined => {
   }
   return undefined;
 };
+
+/** @description: 获取路由菜单图标 */
+export const getRuleMenuIcon = (ruleMenus: API.MENUMANAGEMENT[], path: string) => {
+  /**
+   * 递归查找 path 对应的 icon
+   */
+  const findIcon = (menus: API.MENUMANAGEMENT[], routePath: string): string => {
+    for (let i = 0; i < menus.length; i++) {
+      const menu = menus[i];
+      if (menu.path === routePath) {
+        return menu.icon as string;
+      }
+      if (menu?.routes?.length) {
+        const icon = findIcon(menu.routes, routePath);
+        if (icon) {
+          return icon;
+        }
+      }
+    }
+    return '';
+  };
+
+  return findIcon(ruleMenus, path);
+};

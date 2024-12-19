@@ -54,6 +54,7 @@ export async function getInitialState() {
   // 如果不是登录页面，执行
   if (!eq(location.pathname, ROUTES.LOGIN)) {
     const result = await initUserAuthority()
+
     // 初始化全局状态
     return assign(initialState, result)
   }
