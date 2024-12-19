@@ -25,6 +25,11 @@ import { getPermissions, getRoutesMenus, getUserInfo } from '@/services/logic/lo
 import { LOCAL_STORAGE, REQUEST_CODE, ROUTES } from '@/utils/enums';
 import type { InitialStateTypes, LockSleepTypes, PageResponse, Response } from '@/utils/types';
 
+/** description: 浏览器重定向，强制刷新 */
+export const forceRedirect = (url: string) => {
+  window.location.replace(url);
+};
+
 /**
  * @description: 获取用户信息、菜单和权限
  */
@@ -48,7 +53,7 @@ export const initUserAuthority = async (): Promise<InitialStateTypes> => {
 
     return data;
   } catch (error) {
-    history.push(ROUTES.LOGIN);
+    forceRedirect(ROUTES.LOGIN);
     return {};
   }
 };

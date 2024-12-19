@@ -30,6 +30,7 @@ export default function access(initialState: InitialStateTypes | undefined) {
     operationPermission: (data: string) => (Permissions ? Permissions.includes(data) : false),
     // 判断是否有权限访问菜单
     adminRouteFilter: (route: any) => {
+      debugger;
       const allRouteNames = getRouteNames();
 
       return allRouteNames.includes(route.name);

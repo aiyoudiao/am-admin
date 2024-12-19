@@ -21,7 +21,7 @@ import { Space, Typography } from 'antd';
 import { eq, toString } from 'lodash-es';
 
 import Footer from '@/components/Footer'; // 全局底部版权组件
-import { formatPerfix, getLocalStorageItem, getRuleMenuIcon, setLocalStorageItem } from '@/utils';
+import { forceRedirect, formatPerfix, getLocalStorageItem, getRuleMenuIcon, setLocalStorageItem } from '@/utils';
 import { LOCAL_STORAGE, ROUTES } from '@/utils/enums';
 import type { InitialStateTypes } from '@/utils/types';
 
@@ -68,7 +68,7 @@ export const BasicLayout: RunTimeLayoutConfig = ({
     onPageChange: ({ pathname = '' }) => {
       // 如果没有登录，重定向到 login
       if (!ACCESS_TOKEN && !eq(pathname, ROUTES.LOGIN)) {
-        history.push(ROUTES.LOGIN);
+        forceRedirect(ROUTES.LOGIN);
       }
       // 中文状态下，绑定 埋点 事件
       if (eq(getLocale(), 'zh-CN') && !eq(pathname, '/')) {
@@ -157,7 +157,7 @@ export const BasicLayout: RunTimeLayoutConfig = ({
             {/* 消息通知 */}
             <EventSourceNotice />
             {/* 全局通用按钮 */}
-            <ActionButtons />
+            {/* <ActionButtons /> */}
             {/* 工具栏 */}
             <SettingDrawer
               disableUrlParams

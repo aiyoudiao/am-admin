@@ -15,6 +15,7 @@ import Footer from '@/components/Footer'; // 全局页脚
 import { Login } from '@/services/logic/login'; // 登录相关接口
 import {
   encryptionAesPsd,
+  forceRedirect,
   formatPerfix,
   initUserAuthority,
   isSuccess,
@@ -61,7 +62,7 @@ const LoginPage: FC = () => {
               setTimeout(() => {
                 // 路由跳转
                 const urlParams = new URL(window.location.href).searchParams;
-                history.push(urlParams.get('redirect') || '/');
+                forceRedirect(urlParams.get('redirect') || '/');
                 // 欢迎语
                 notification.success({
                   message: `${timeFix()}，${result?.CurrentUser?.cn_name} 💕`,

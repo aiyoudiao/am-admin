@@ -11,27 +11,38 @@
  * 如想要配置图标为 <StepBackwardOutlined /> 则取值应为 stepBackward 或 StepBackward，如想要配置图标为 <UserOutlined /> 则取值应为 user 或者 User
  * @doc https://umijs.org/docs/guides/routes
  */
-import routerList from './router';
-export default [
-  {
-    path: '/user',
-    layout: false,
-    routes: [
-      {
-        name: 'login',
-        path: '/user/login',
-        component: './User/Login',
-      },
-    ],
-  },
-  ...routerList,
-  {
-    path: '/',
-    redirect: '/dashboard/work-bench',
-  },
-  {
-    path: '*',
-    layout: false,
-    component: './404',
-  },
-];
+// import routerList from './router';
+// export default [
+//   {
+//     path: '/user',
+//     layout: false,
+//     routes: [
+//       {
+//         name: 'login',
+//         path: '/user/login',
+//         component: './User/Login',
+//       },
+//     ],
+//   },
+//   ...routerList,
+//   {
+//     path: '/',
+//     redirect: '/dashboard/work-bench',
+//   },
+//   {
+//     path: '*',
+//     layout: false,
+//     component: './404',
+//   },
+// ];
+
+/** @description: 升级路由，采用约定式路由，直接在运行时读取菜单信息，通过角色权限来控制是否可用～ */
+import { IConfigFromPlugins } from '@@/core/pluginConfig';
+
+/**
+ * @name umi 的路由配置
+ * @doc https://umijs.org/docs/guides/routes
+ */
+const routes: IConfigFromPlugins['routes'] = [];
+
+export default routes;

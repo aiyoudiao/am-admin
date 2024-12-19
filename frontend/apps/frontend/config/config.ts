@@ -1,17 +1,17 @@
 // https://umijs.org/config/
-import { defineConfig } from "@umijs/max";
-import path from "path";
-import { resolve } from "path";
+import { defineConfig } from '@umijs/max';
+import path from 'path';
+import { resolve } from 'path';
 
-import defaultSettings from "./defaultSettings";
-import icons from "./icons";
-import proxy from "./proxy";
-import routes from "./routes";
+import defaultSettings from './defaultSettings';
+import icons from './icons';
+import proxy from './proxy';
+// import routes from './routes';
 
-const { REACT_APP_ENV = "dev" } = process.env;
+const { REACT_APP_ENV = 'dev' } = process.env;
 
 export default defineConfig({
-  npmClient: "pnpm",
+  npmClient: 'pnpm',
   /**
    * @name 开启 多tab标签页支持
    * @doc https://juejin.cn/post/7153525746751766559
@@ -45,7 +45,7 @@ export default defineConfig({
    * @doc https://umijs.org/docs/guides/routes
    */
   // umi routes: https://umijs.org/docs/routing
-  routes,
+  // routes,
   /**
    * @name 主题的配置
    * @description 虽然叫主题，但是其实只是 less 的变量设置
@@ -55,7 +55,7 @@ export default defineConfig({
   theme: {
     // 如果不想要 configProvide 动态设置主题需要把这个设置为 default
     // 只有设置为 variable， 才能使用 configProvide 动态设置主色调
-    "root-entry-name": "variable",
+    'root-entry-name': 'variable',
   },
   /**
    * @name moment 的国际化配置
@@ -102,8 +102,8 @@ export default defineConfig({
    * @doc https://umijs.org/docs/max/moment2dayjs
    */
   moment2dayjs: {
-    preset: "antd",
-    plugins: ["duration"],
+    preset: 'antd',
+    plugins: ['duration'],
   },
   /**
    * @name 国际化插件
@@ -111,7 +111,7 @@ export default defineConfig({
    */
   locale: {
     // default zh-CN
-    default: "zh-CN",
+    default: 'zh-CN',
     antd: true,
     // default true, when it is true, will use `navigator.language` overwrite default
     baseNavigator: true,
@@ -132,7 +132,7 @@ export default defineConfig({
    * @doc https://umijs.org/docs/max/request
    */
   request: {
-    dataField: "data",
+    dataField: 'data',
   },
   /**
    * @name 权限插件
@@ -141,9 +141,9 @@ export default defineConfig({
    */
   access: {},
   // ================ pro 插件配置 =================
-  presets: ["umi-presets-pro"],
+  presets: ['umi-presets-pro'],
   mfsu: {
-    strategy: "normal",
+    strategy: 'normal',
   },
   requestRecord: {},
   // /**
@@ -165,16 +165,16 @@ export default defineConfig({
    * @name 开发插件
    * @doc https://umijs.org/docs/guides/plugins
    */
-  plugins: [resolve(__dirname, "./plugins/html")],
+  plugins: [resolve(__dirname, './plugins/html')],
 
   // TDK
-  title: "React Admin",
+  title: 'React Admin',
   metas: [
     {
-      name: "keywords",
-      content: "React.js,Umi.js,Antd,Nest.js,后台模板,后台系统",
+      name: 'keywords',
+      content: 'React.js,Umi.js,Antd,Nest.js,后台模板,后台系统',
     },
-    { name: "description", content: "基于 React + Nest 全栈开发的后台系统" },
+    { name: 'description', content: '基于 React + Nest 全栈开发的后台系统' },
     // { name: 'google-site-verification', content: '4YBtBTmg5H9MGoyvCmvEeJx8viyBPjLnK4INCHT9SQs' },
   ],
   // 启后，可通过 Option+Click/Alt+Click 点击组件跳转至编辑器源码位置，Option+Right-click/Alt+Right-click 可以打开上下文，查看父组件。
@@ -182,14 +182,14 @@ export default defineConfig({
   // 检测未使用的文件和导出，仅在 build 阶段开启。
   deadCode: {},
   // 默认情况下，站点将使用约定 favicon 来创建图标的 meta 头标签。
-  favicons: ["/favicon.ico"],
+  favicons: ['/favicon.ico'],
   // 配置 mock 功能。
   mock: false,
   // 修复 esbuild 压缩器自动引入的全局变量导致的命名冲突问题。
   esbuildMinifyIIFE: true,
   // 设置别名
   alias: {
-    "@public": path.resolve(__dirname, "../public"),
+    '@public': path.resolve(__dirname, '../public'),
   },
 
   /**
@@ -204,4 +204,12 @@ export default defineConfig({
   // 使用 mako 用于编译以显著提高构建速度。 https://makojs.dev/docs/config
   mako: {},
   tailwindcss: {},
+  /**
+   * @name 约定式路由规则
+   * @doc https://umijs.org/docs/api/config#conventionroutes
+   */
+  conventionRoutes: {
+    base: 'src/pages',
+    exclude: [/\/components\//, /\/models\//],
+  },
 });
