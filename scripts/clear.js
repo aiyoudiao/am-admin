@@ -1,71 +1,59 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-// 要处理的文件夹路径
-const directoryPath = path.join(__dirname, 'your_project_directory');
+// 递归遍历目录，查找所有的文件
+const readDirectory = (dirPath) => {
+  const result = [];
 
-// 处理文件内容
-function processFileContent(content) {
-  const regex =
-    /\/\*\s*\*\s*@Description:.*?\n\s*\*\s*\n\s*\*\s*@Version:.*?\n\s*\*\s*@Author:.*?\n\s*\*\s*@Date:.*?\n\s*\*\s*@LastEditors:.*?\n\s*\*\s*@LastEditTime:.*?\n\s*\*\//gs;
-  return content.replace(regex, (match) => {
-    const descriptionMatch = match.match(/@Description:.*?\n/);
-    return `/*\n * ${descriptionMatch[0].trim()}\n */`;
+  const files = fs.readdirSync(dirPath);
+
+  files.forEach((file) => {
+    const fullPath = path.join(dirPath, file);
+
+    const stat = fs.statSync(fullPath);
+    if (stat.isDirectory()) {
+      result.push(...readDirectory(fullPath)); // 递归子目录
+    } else if (stat.isFile()) {
+      result.push(fullPath);
+    }
   });
-}
 
-// 处理单个文件
-function processFile(filePath) {
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-      console.error(`读取文件出错: ${filePath}`, err);
-      return;
+  return result;
+};
+
+// 替换文件中的注释格式
+const replaceCommentFormat = (filePath) => {
+  let data = fs.readFileSync(filePath, "utf8");
+
+  // 正则匹配注释块并提取 @Description 内容
+  const regex = /\/\*([\s\S]*?)\*\/\s*/g;
+  const newData = data.replace(regex, (match, commentBlock) => {
+    const descriptionMatch = commentBlock.match(
+      /@Description:\s*(.*?)\s*(?:\*\/|\n|$)/
+    );
+
+    if (descriptionMatch) {
+      const description = descriptionMatch[1].trim();
+      return `/*
+ * @Description: ${description}
+ */
+\n`;
     }
 
-    // 检查文件是否已经处理过
-    if (data.includes('/*\n * @Description:')) {
-      console.log(`文件已处理，跳过: ${filePath}`);
-      return;
-    }
-
-    const newContent = processFileContent(data);
-
-    fs.writeFile(filePath, newContent, 'utf8', (err) => {
-      if (err) {
-        console.error(`写入文件出错: ${filePath}`, err);
-      } else {
-        console.log(`处理文件成功: ${filePath}`);
-      }
-    });
+    return match; // 如果没有匹配到 @Description，就保留原样
   });
-}
 
-// 遍历目录
-function traverseDirectory(directory) {
-  fs.readdir(directory, (err, files) => {
-    if (err) {
-      console.error(`读取目录出错: ${directory}`, err);
-      return;
-    }
+  if (newData !== data) {
+    fs.writeFileSync(filePath, newData, "utf8");
+    console.log(`已更新文件: ${filePath}`);
+  }
+};
 
-    files.forEach((file) => {
-      const filePath = path.join(directory, file);
+// 主程序
+const projectPath = "./"; // 替换为你的项目路径
 
-      fs.stat(filePath, (err, stats) => {
-        if (err) {
-          console.error(`获取文件信息出错: ${filePath}`, err);
-          return;
-        }
+const files = readDirectory(projectPath);
 
-        if (stats.isDirectory()) {
-          traverseDirectory(filePath);
-        } else if (stats.isFile() && path.extname(file) === '.ts') {
-          processFile(filePath);
-        }
-      });
-    });
-  });
-}
-
-// 开始处理
-traverseDirectory('./');
+files.forEach((file) => {
+  replaceCommentFormat(file); // 处理每个文件
+});
