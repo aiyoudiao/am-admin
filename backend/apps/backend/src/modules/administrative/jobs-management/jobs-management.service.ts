@@ -19,11 +19,10 @@ export class JobsManagementService {
     // 使用 InjectModel 注入参数，注册数据库实体
     @InjectModel(XmwJobs)
     private readonly jobsModel: typeof XmwJobs,
-  ) { }
+  ) {}
 
   /**
    * @description: 获取国际化列表
-   * @author: 白雾茫茫丶
    */
   async getJobsList(
     jobsInfo: ListJobsManagementDto,
@@ -63,7 +62,6 @@ export class JobsManagementService {
 
   /**
    * @description: 创建岗位数据
-   * @author: 白雾茫茫丶
    */
   async createJobs(
     jobsInfo: SaveJobsManagementDto,
@@ -90,7 +88,6 @@ export class JobsManagementService {
 
   /**
    * @description: 更新岗位数据
-   * @author: 白雾茫茫丶
    */
   async updateJobs(
     jobs_id: string,
@@ -124,7 +121,6 @@ export class JobsManagementService {
 
   /**
    * @description: 删除岗位数据
-   * @author: 白雾茫茫丶
    */
   async deleteJobs(jobs_id: string): Promise<Response<number>> {
     // 判断当前数据是否有子级，如果有数据的parent_id是id，则存在子级

@@ -24,11 +24,10 @@ export class MenuManagementService {
     @InjectModel(XmwInternational)
     private readonly internationaModel: typeof XmwInternational,
     private sequelize: Sequelize,
-  ) { }
+  ) {}
 
   /**
    * @description: 获取菜单列表
-   * @author: 白雾茫茫丶
    */
   async getMenuList(
     menuInfo: ListMenuManagementDto,
@@ -84,7 +83,6 @@ export class MenuManagementService {
 
   /**
    * @description: 创建菜单数据
-   * @author: 白雾茫茫丶
    */
   async createMenu(
     menuInfo: SaveMenuManagementDto,
@@ -121,7 +119,6 @@ export class MenuManagementService {
 
   /**
    * @description: 更新菜单数据
-   * @author: 白雾茫茫丶
    */
   async updateMenu(
     menu_id: string,
@@ -165,7 +162,6 @@ export class MenuManagementService {
 
   /**
    * @description: 删除菜单数据
-   * @author: 白雾茫茫丶
    */
   async deleteMenu(menu_id: string): Promise<Response<number>> {
     // 判断当前数据是否有子级，如果有数据的parent_id是id，则存在子级

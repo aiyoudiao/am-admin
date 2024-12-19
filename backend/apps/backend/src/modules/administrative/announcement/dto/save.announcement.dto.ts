@@ -7,7 +7,6 @@ import type { AnnouncementTypes, Flag, Status } from '@/utils/types';
 
 /**
  * @description: 保存活动公告数据 DTO
- * @author: 白雾茫茫丶
  */
 export class SaveAnnouncementDto {
   @ApiProperty({
@@ -57,7 +56,6 @@ export class SaveAnnouncementDto {
 
 /**
  * @description: 更新是否置顶 Dto
- * @author: 白雾茫茫丶
  */
 export class UpdatePinnedDto {
   @ApiProperty({
@@ -70,7 +68,6 @@ export class UpdatePinnedDto {
 
 /**
  * @description: 已读活动公告数据 DTO
- * @author: 白雾茫茫丶
  */
 export class SaveAlreadyDto {
   @ApiProperty({
@@ -90,7 +87,6 @@ export class SaveAlreadyDto {
 
 /**
  * @description: 未读消息条数
- * @author: 白雾茫茫丶
  */
 export class unAlreadyDto {
   @ApiProperty({

@@ -12,7 +12,7 @@ import {
   Query,
   Session,
   UseGuards,
-  UseInterceptors
+  UseInterceptors,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import {
@@ -46,11 +46,10 @@ import { MenuManagementService } from './menu-management.service'; // MenuManage
 @UseGuards(AuthGuard('jwt'))
 @Controller('system/menu-management')
 export class MenuManagementController {
-  constructor(private readonly menuManagementService: MenuManagementService) { }
+  constructor(private readonly menuManagementService: MenuManagementService) {}
 
   /**
    * @description: 获取菜单管理列表
-   * @author: 白雾茫茫丶
    */
   @Get()
   @ApiOkResponse({ type: ResponseMenuManagementDto })
@@ -62,7 +61,6 @@ export class MenuManagementController {
 
   /**
    * @description: 创建菜单数据
-   * @author: 白雾茫茫丶
    */
   @Post()
   @ApiOkResponse({ type: CreateMenuManagementDto })
@@ -80,7 +78,6 @@ export class MenuManagementController {
 
   /**
    * @description: 更新菜单数据
-   * @author: 白雾茫茫丶
    */
   @Put('/:menu_id')
   @ApiOkResponse({ type: UpdateResponseDto })
@@ -98,7 +95,6 @@ export class MenuManagementController {
 
   /**
    * @description: 删除菜单数据
-   * @author: 白雾茫茫丶
    */
   @Delete('/:menu_id')
   @ApiOkResponse({ type: DeleteResponseDto })

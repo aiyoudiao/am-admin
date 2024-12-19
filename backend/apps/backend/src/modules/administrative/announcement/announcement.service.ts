@@ -30,11 +30,10 @@ export class AnnouncementService {
     @InjectModel(XmwAlready)
     private readonly alreadyModel: typeof XmwAlready,
     private sequelize: Sequelize,
-  ) { }
+  ) {}
 
   /**
    * @description: 获取活动公告列表
-   * @author: 白雾茫茫丶
    */
   async getAnnouncementList(
     announcementInfo: ListAnnouncementDto,
@@ -106,7 +105,6 @@ export class AnnouncementService {
 
   /**
    * @description: 保存活动公告
-   * @author: 白雾茫茫丶
    */
   async saveAnnouncement(
     { announcement_id, ...announcementInfo }: SaveAnnouncementDto,
@@ -117,15 +115,14 @@ export class AnnouncementService {
     // 判断是新增还是更新
     const result = announcement_id
       ? await this.announcementModel.update(announcementInfo, {
-        where: { announcement_id },
-      })
+          where: { announcement_id },
+        })
       : await this.announcementModel.create({ user_id, ...announcementInfo });
     return responseMessage(result);
   }
 
   /**
    * @description: 删除活动公告
-   * @author: 白雾茫茫丶
    */
   async deleteAnnouncement(announcement_id: string): Promise<Response<number>> {
     // 根据主键查找出当前数据
@@ -143,7 +140,6 @@ export class AnnouncementService {
 
   /**
    * @description: 更新是否置顶
-   * @author: 白雾茫茫丶
    */
   async updatePinned(
     announcement_id: string,
@@ -159,7 +155,6 @@ export class AnnouncementService {
 
   /**
    * @description: 创建已读公告
-   * @author: 白雾茫茫丶
    */
   async createAlready(
     announcement_id: string,
@@ -174,7 +169,6 @@ export class AnnouncementService {
 
   /**
    * @description: 查询不同消息类型的未读条数
-   * @author: 白雾茫茫丶
    */
   async queryUnreadyCount(
     session: SessionTypes,

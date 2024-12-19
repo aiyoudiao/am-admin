@@ -8,7 +8,6 @@ import { XmwInternational } from '@/models/xmw_international.model'; // xmw_inte
 
 /**
  * @description: 国际化列表响应体结构 Dto
- * @author: 白雾茫茫丶
  */
 export class ResponseInternationalDto extends ResponseDto {
   @ApiProperty({
@@ -37,7 +36,6 @@ export class ResponseInternationalDto extends ResponseDto {
 
 /**
  * @description: 多语言响应体结构 Dto
- * @author: 白雾茫茫丶
  */
 export class ResponseLangDto extends ResponseDto {
   @ApiProperty({
@@ -55,7 +53,6 @@ export class ResponseLangDto extends ResponseDto {
 
 /**
  * @description: 创建国际化数据 Dto
- * @author: 白雾茫茫丶
  */
 export class CreateInternationalDto extends ResponseDto {
   @ApiProperty({

@@ -4,7 +4,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 /**
  * @description: 查询国际化列表参数 Dto
- * @author: 白雾茫茫丶
  */
 export class ListInternationalDto {
   @ApiProperty({

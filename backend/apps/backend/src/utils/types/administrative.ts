@@ -13,7 +13,6 @@ import { UserAttributes } from './system';
 
 /**
  * @description: xmw_organization Attributes
- * @author: 白雾茫茫丶
  */
 export type OrgAttributes = {
   org_id: string; // 组织id
@@ -26,7 +25,6 @@ export type OrgAttributes = {
 
 /**
  * @description: xmw_jobs Attributes
- * @author: 白雾茫茫丶
  */
 export type JobsAttributes = {
   jobs_id: string; // 岗位id
@@ -38,7 +36,6 @@ export type JobsAttributes = {
 
 /**
  * @description: xmw_announcement Attributes
- * @author: 白雾茫茫丶
  */
 export type AnnouncementAttributes = {
   announcement_id: string; // id 主键
@@ -52,7 +49,6 @@ export type AnnouncementAttributes = {
 
 /**
  * @description: xmw_already Attributes
- * @author: 白雾茫茫丶
  */
 export type AlreadyAttributes = {
   id: string; // id 主键

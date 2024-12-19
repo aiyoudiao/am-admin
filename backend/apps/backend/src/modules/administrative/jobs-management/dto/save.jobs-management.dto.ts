@@ -5,7 +5,6 @@ import { ApiProperty } from '@nestjs/swagger';
 
 /**
  * @description: 保存岗位数据 Dto
- * @author: 白雾茫茫丶
  */
 export class SaveJobsManagementDto {
   @ApiProperty({

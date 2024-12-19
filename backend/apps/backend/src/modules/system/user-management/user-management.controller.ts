@@ -13,7 +13,7 @@ import {
   Query,
   Session,
   UseGuards,
-  UseInterceptors
+  UseInterceptors,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import {
@@ -48,11 +48,10 @@ import { UserManagementService } from './user-management.service'; // UserManage
 @UseGuards(AuthGuard('jwt'))
 @Controller('system/user-management')
 export class UserManagementController {
-  constructor(private readonly userManagementService: UserManagementService) { }
+  constructor(private readonly userManagementService: UserManagementService) {}
 
   /**
    * @description: 获取用户管理列表
-   * @author: 白雾茫茫丶
    */
   @Get()
   @ApiOkResponse({ type: ResponseUserManagementDto })
@@ -64,7 +63,6 @@ export class UserManagementController {
 
   /**
    * @description: 创建用户数据
-   * @author: 白雾茫茫丶
    */
   @Post()
   @ApiOkResponse({ type: CreateUserManagementDto })
@@ -82,7 +80,6 @@ export class UserManagementController {
 
   /**
    * @description: 更新用户数据
-   * @author: 白雾茫茫丶
    */
   @Put('/:user_id')
   @ApiOkResponse({ type: UpdateResponseDto })
@@ -102,7 +99,6 @@ export class UserManagementController {
 
   /**
    * @description: 删除用户数据
-   * @author: 白雾茫茫丶
    */
   @Delete('/:user_id')
   @ApiOkResponse({ type: DeleteResponseDto })
@@ -114,7 +110,6 @@ export class UserManagementController {
 
   /**
    * @description: 更新用户状态
-   * @author: 白雾茫茫丶
    */
   @Patch('/:user_id')
   @ApiOkResponse({ type: UpdateResponseDto })

@@ -8,7 +8,6 @@ import { XmwJobs } from '@/models/xmw_jobs.model'; // xmw_jobs 实体
 
 /**
  * @description: 岗位管理列表响应体结构 Dto
- * @author: 白雾茫茫丶
  */
 export class ResponseJobsDto extends ResponseDto {
   @ApiProperty({
@@ -36,7 +35,6 @@ export class ResponseJobsDto extends ResponseDto {
 
 /**
  * @description: 创建岗位数据 Dto
- * @author: 白雾茫茫丶
  */
 export class CreateJobsDto extends ResponseDto {
   @ApiProperty({

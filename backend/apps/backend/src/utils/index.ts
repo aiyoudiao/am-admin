@@ -10,7 +10,6 @@ import type { Response } from '@/utils/types';
 
 /**
  * @description: 统一返回体
- * @author: 白雾茫茫丶
  */
 export const responseMessage = <T = any>(
   data,
@@ -26,7 +25,6 @@ export const responseMessage = <T = any>(
  * @param {string} id
  * @param {string} parentId
  * @param {string} children
- * @author: 白雾茫茫丶
  */
 export function initializeTree<T>(
   resource: T[],
@@ -54,7 +52,6 @@ export function initializeTree<T>(
  * @param {LangModel} resource
  * @param {string} lang
  * @param {string} name
- * @author: 白雾茫茫丶
  */
 export const initializeLang = (
   resource: XmwInternational[],
@@ -91,7 +88,6 @@ export const initializeLang = (
 /**
  * @description: 生成文件上传文件夹
  * @param {string} filePath
- * @author: 白雾茫茫丶
  */
 export const checkDirAndCreate = (filePath: string): void => {
   const pathArr = filePath.split('/');

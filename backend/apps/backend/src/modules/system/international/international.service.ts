@@ -22,11 +22,10 @@ export class InternationalService {
     @InjectModel(XmwInternational)
     private readonly internationaModel: typeof XmwInternational,
     private sequelize: Sequelize,
-  ) { }
+  ) {}
 
   /**
    * @description: 获取当前语言的国际化数据
-   * @author: 白雾茫茫丶
    */
   async getAllLocalesLang(): Promise<Response<Langs>> {
     const result: Langs = {};
@@ -48,7 +47,6 @@ export class InternationalService {
 
   /**
    * @description: 获取国际化列表
-   * @author: 白雾茫茫丶
    */
   async getInternationalList(
     internationalInfo: ListInternationalDto,
@@ -86,15 +84,14 @@ export class InternationalService {
     return responseMessage(
       isMenu
         ? result.filter(
-          (element: XmwInternational) => element.name == 'menu',
-        )[0].children
+            (element: XmwInternational) => element.name == 'menu',
+          )[0].children
         : result,
     );
   }
 
   /**
    * @description: 创建国际化数据
-   * @author: 白雾茫茫丶
    */
   async createInternational(
     internationalInfo: SaveInternationalDto,
@@ -124,7 +121,6 @@ export class InternationalService {
 
   /**
    * @description: 更新国际化数据
-   * @author: 白雾茫茫丶
    */
   async updateInternational(
     id: string,
@@ -154,7 +150,6 @@ export class InternationalService {
 
   /**
    * @description: 删除国际化数据
-   * @author: 白雾茫茫丶
    */
   async deleteInternational(id: string): Promise<Response<number>> {
     // 判断当前数据是否有子级，如果有数据的parent_id是id，则存在子级

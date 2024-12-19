@@ -7,7 +7,6 @@ import type { PageResponse } from '@/utils/types';
 
 /**
  * @description: 统一响应体 Dto
- * @author: 白雾茫茫丶
  */
 export class ResponseDto {
   @ApiProperty({
@@ -34,7 +33,6 @@ export class ResponseDto {
 
 /**
  * @description: 更新数据 Dto
- * @author: 白雾茫茫丶
  */
 export class UpdateResponseDto extends ResponseDto {
   @ApiProperty({
@@ -47,7 +45,6 @@ export class UpdateResponseDto extends ResponseDto {
 
 /**
  * @description: 删除数据 Dto
- * @author: 白雾茫茫丶
  */
 export class DeleteResponseDto extends ResponseDto {
   @ApiProperty({

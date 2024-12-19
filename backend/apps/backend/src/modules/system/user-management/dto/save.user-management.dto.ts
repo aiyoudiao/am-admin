@@ -7,7 +7,6 @@ import type { Sex, Status } from '@/utils/types';
 
 /**
  * @description: 保存用户数据
- * @author: 白雾茫茫丶
  */
 export class SaveUserManagementDto {
   @ApiProperty({
@@ -153,7 +152,6 @@ export class SaveUserManagementDto {
 
 /**
  * @description: 更新用户状态 Dto
- * @author: 白雾茫茫丶
  */
 export class UpdateUserStatusDto {
   @ApiProperty({

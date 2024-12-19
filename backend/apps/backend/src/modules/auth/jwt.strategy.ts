@@ -26,7 +26,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
    * @description: 调用守卫验证 token
    * @param {Request} req
    * @param {any} payload
-   * @author: 白雾茫茫丶
    */
   async validate(req: Request, payload: XmwUser): Promise<XmwUser> {
     // token 校验，用户二次登录

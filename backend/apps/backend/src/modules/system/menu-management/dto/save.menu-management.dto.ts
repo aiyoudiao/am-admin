@@ -14,7 +14,6 @@ import type {
 
 /**
  * @description: 保存菜单数据 Dto
- * @author: 白雾茫茫丶
  */
 export class SaveMenuManagementDto {
   @ApiProperty({

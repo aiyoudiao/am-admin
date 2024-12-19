@@ -7,7 +7,6 @@ import type { OrgTypes, Status } from '@/utils/types';
 
 /**
  * @description: 保存组织数据 Dto
- * @author: 白雾茫茫丶
  */
 export class SaveOrganizationDto {
   @ApiProperty({

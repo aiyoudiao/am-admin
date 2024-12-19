@@ -34,7 +34,6 @@ export class OperationLogsService {
 
   /**
    * @description: 获取用户真实ip
-   * @author: 白雾茫茫丶
    */
   async getLocationByIp(ipAddress: string): Promise<any> {
     try {
@@ -61,7 +60,6 @@ export class OperationLogsService {
 
   /**
    * @description: 保存操作日志
-   * @author: 白雾茫茫丶
    */
   async logAction() {
     const { originalUrl, method, headers, body, query } = this.request;
@@ -105,7 +103,6 @@ export class OperationLogsService {
 
   /**
    * @description: 获取操作日志列表
-   * @author: 白雾茫茫丶
    */
   async getLogsList(
     logsInfo: ListOperationLogsDto,

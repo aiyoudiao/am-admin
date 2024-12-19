@@ -26,11 +26,10 @@ export class UserManagementService {
     // 使用 InjectModel 注入参数，注册数据库实体
     @InjectModel(XmwUser)
     private readonly userModel: typeof XmwUser,
-  ) { }
+  ) {}
 
   /**
    * @description: 获取用户管理列表
-   * @author: 白雾茫茫丶
    */
   async getUserList(
     userInfo: ListUserManagementDto,
@@ -80,7 +79,6 @@ export class UserManagementService {
 
   /**
    * @description: 创建用户数据
-   * @author: 白雾茫茫丶
    */
   async createUser(
     userInfo: SaveUserManagementDto,
@@ -107,7 +105,6 @@ export class UserManagementService {
 
   /**
    * @description: 更新用户数据
-   * @author: 白雾茫茫丶
    */
   async updateUser(
     user_id: string,
@@ -142,7 +139,6 @@ export class UserManagementService {
 
   /**
    * @description: 删除角色数据
-   * @author: 白雾茫茫丶
    */
   async deleteUser(user_id: string): Promise<Response<number>> {
     // 超级管理员不能删除，即 admin 用户
@@ -160,7 +156,6 @@ export class UserManagementService {
 
   /**
    * @description: 更新用户状态
-   * @author: 白雾茫茫丶
    */
   async updateUserStatus(
     user_id: string,

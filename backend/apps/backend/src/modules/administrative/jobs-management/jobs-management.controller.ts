@@ -47,11 +47,10 @@ import { JobsManagementService } from './jobs-management.service'; // JobsManage
 @UseGuards(AuthGuard('jwt'))
 @Controller('administrative/jobs-management')
 export class JobsManagementController {
-  constructor(private readonly jobsManagementService: JobsManagementService) { }
+  constructor(private readonly jobsManagementService: JobsManagementService) {}
 
   /**
    * @description: 获取岗位管理列表
-   * @author: 白雾茫茫丶
    */
   @Get()
   @ApiOkResponse({ type: ResponseJobsDto })
@@ -63,7 +62,6 @@ export class JobsManagementController {
 
   /**
    * @description: 创建岗位数据
-   * @author: 白雾茫茫丶
    */
   @Post()
   @ApiOkResponse({ type: CreateJobsDto })
@@ -81,7 +79,6 @@ export class JobsManagementController {
 
   /**
    * @description: 更新岗位数据
-   * @author: 白雾茫茫丶
    */
   @Put('/:jobs_id')
   @ApiOkResponse({ type: UpdateResponseDto })
@@ -100,7 +97,6 @@ export class JobsManagementController {
   /**
    * @description: 删除岗位数据
    * @return {*}
-   * @author: 白雾茫茫丶
    */
   @Delete('/:jobs_id')
   @ApiOkResponse({ type: DeleteResponseDto })

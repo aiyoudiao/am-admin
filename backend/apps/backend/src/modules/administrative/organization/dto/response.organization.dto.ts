@@ -8,7 +8,6 @@ import { XmwOrganization } from '@/models/xmw_organization.model'; // xmw_organi
 
 /**
  * @description: 组织管理列表响应体结构 Dto
- * @author: 白雾茫茫丶
  */
 export class ResponseOrganizationDto extends ResponseDto {
   @ApiProperty({
@@ -39,7 +38,6 @@ export class ResponseOrganizationDto extends ResponseDto {
 
 /**
  * @description: 创建组织数据 Dto
- * @author: 白雾茫茫丶
  */
 export class CreateOrganizationDto extends ResponseDto {
   @ApiProperty({

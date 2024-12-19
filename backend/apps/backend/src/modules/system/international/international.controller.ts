@@ -47,10 +47,9 @@ import { InternationalService } from './international.service'; // International
 @UseInterceptors(LoggerInterceptor)
 @Controller('system/internationalization')
 export class InternationalController {
-  constructor(private readonly internationalService: InternationalService) { }
+  constructor(private readonly internationalService: InternationalService) {}
   /**
    * @description: 获取当前语言的国际化数据
-   * @author: 白雾茫茫丶
    */
   @Get('allLocales')
   @ApiOkResponse({ type: ResponseLangDto })
@@ -62,21 +61,20 @@ export class InternationalController {
 
   /**
    * @description: 获取国际化列表
-   * @author: 白雾茫茫丶
    */
   @UseGuards(AuthGuard('jwt'))
   @Get()
   @ApiOkResponse({ type: ResponseInternationalDto })
   @ApiOperation({ summary: '获取国际化列表' })
   async getInternationalList(@Query() internationalInfo: ListInternationalDto) {
-    const response =
-      await this.internationalService.getInternationalList(internationalInfo);
+    const response = await this.internationalService.getInternationalList(
+      internationalInfo,
+    );
     return response;
   }
 
   /**
    * @description: 创建国际化数据
-   * @author: 白雾茫茫丶
    */
   @UseGuards(AuthGuard('jwt'))
   @Post()
@@ -95,7 +93,6 @@ export class InternationalController {
 
   /**
    * @description: 更新国际化数据
-   * @author: 白雾茫茫丶
    */
   @UseGuards(AuthGuard('jwt'))
   @Put('/:id')
@@ -114,7 +111,6 @@ export class InternationalController {
 
   /**
    * @description: 删除国际化数据
-   * @author: 白雾茫茫丶
    */
   @UseGuards(AuthGuard('jwt'))
   @Delete('/:id')

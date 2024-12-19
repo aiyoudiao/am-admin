@@ -18,11 +18,10 @@ export class OrganizationService {
     // 使用 InjectModel 注入参数，注册数据库实体
     @InjectModel(XmwOrganization)
     private readonly organizationModel: typeof XmwOrganization,
-  ) { }
+  ) {}
 
   /**
    * @description: 获取组织管理列表
-   * @author: 白雾茫茫丶
    */
   async getOrganizationList(
     organizationInfo: ListOrganizationDto,
@@ -53,7 +52,6 @@ export class OrganizationService {
 
   /**
    * @description: 创建组织数据
-   * @author: 白雾茫茫丶
    */
   async createOrganization(
     organizationInfo: SaveOrganizationDto,
@@ -80,7 +78,6 @@ export class OrganizationService {
 
   /**
    * @description: 更新组织数据
-   * @author: 白雾茫茫丶
    */
   async updateOrganization(
     org_id: string,
@@ -117,7 +114,6 @@ export class OrganizationService {
 
   /**
    * @description: 删除组织数据
-   * @author: 白雾茫茫丶
    */
   async deleteOrganization(org_id: string): Promise<Response<number>> {
     // 判断当前数据是否有子级，如果有数据的parent_id是id，则存在子级

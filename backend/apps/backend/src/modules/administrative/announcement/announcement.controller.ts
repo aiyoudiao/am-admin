@@ -55,11 +55,10 @@ const eventEmitter = new EventEmitter();
 @UseGuards(AuthGuard('jwt'))
 @Controller('administrative/announcement')
 export class AnnouncementController {
-  constructor(private readonly announcementService: AnnouncementService) { }
+  constructor(private readonly announcementService: AnnouncementService) {}
 
   /**
    * @description: 获取活动公告列表
-   * @author: 白雾茫茫丶
    */
   @Get()
   @ApiOkResponse({ type: ResponseAnnouncementDto })
@@ -77,7 +76,6 @@ export class AnnouncementController {
 
   /**
    * @description: 服务端推送事件
-   * @author: 白雾茫茫丶
    */
   @Sse('sse')
   sse(): Observable<MessageEvent> {
@@ -90,7 +88,6 @@ export class AnnouncementController {
 
   /**
    * @description: 创建活动公告
-   * @author: 白雾茫茫丶
    */
   @Post()
   @ApiOkResponse({ type: CreateAnnouncementDto })
@@ -115,21 +112,20 @@ export class AnnouncementController {
 
   /**
    * @description: 删除活动公告
-   * @author: 白雾茫茫丶
    */
   @Delete('/:announcement_id')
   @ApiOkResponse({ type: DeleteResponseDto })
   @ApiOperation({ summary: '删除活动公告' })
   async deleteAnnouncement(@Param('announcement_id') announcement_id: string) {
-    const response =
-      await this.announcementService.deleteAnnouncement(announcement_id);
+    const response = await this.announcementService.deleteAnnouncement(
+      announcement_id,
+    );
     eventEmitter.emit('send', {});
     return response;
   }
 
   /**
    * @description: 更新是否置顶状态
-   * @author: 白雾茫茫丶
    */
   @Patch('/:announcement_id')
   @ApiOkResponse({ type: UpdateResponseDto })
@@ -147,7 +143,6 @@ export class AnnouncementController {
 
   /**
    * @description: 已读活动公告
-   * @author: 白雾茫茫丶
    */
   @Post('/already')
   @ApiOkResponse({ type: CreateAlreadyDto })
@@ -165,7 +160,6 @@ export class AnnouncementController {
 
   /**
    * @description: 查询不同消息类型的未读条数
-   * @author: 白雾茫茫丶
    */
   @Get('/unready')
   @ApiOkResponse({ type: ResponseAnnouncementDto })

@@ -9,7 +9,6 @@ import { XmwUser } from '@/models/xmw_user.model'; // xmw_user 实体
 
 /**
  * @description: 登录参数
- * @author: 白雾茫茫丶
  */
 export class LoginParamsDto {
   @ApiProperty({
@@ -54,7 +53,6 @@ export class LoginParamsDto {
 
 /**
  * @description: 登录成功返回体
- * @author: 白雾茫茫丶
  */
 export class LoginResponseDto extends ResponseDto {
   @ApiProperty({
@@ -71,7 +69,6 @@ export class LoginResponseDto extends ResponseDto {
 
 /**
  * @description: 用户信息返回体
- * @author: 白雾茫茫丶
  */
 export class UserInfoResponseDto extends ResponseDto {
   @ApiProperty({
@@ -116,7 +113,6 @@ export class UserInfoResponseDto extends ResponseDto {
 
 /**
  * @description: 用户按钮权限 dto
- * @author: 白雾茫茫丶
  */
 export class PermissionResponseDto extends ResponseDto {
   @ApiProperty({
@@ -162,7 +158,6 @@ export class PermissionResponseDto extends ResponseDto {
 
 /**
  * @description: 用户动态菜单 dto
- * @author: 白雾茫茫丶
  */
 export class RoutesMenuResponseDto extends ResponseDto {
   @ApiProperty({
@@ -232,7 +227,6 @@ export class RoutesMenuResponseDto extends ResponseDto {
 
 /**
  * @description: 图形验证码
- * @author: 白雾茫茫丶
  */
 export class VerifyCodeResponseDto extends ResponseDto {
   @ApiProperty({

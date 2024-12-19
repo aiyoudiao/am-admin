@@ -18,7 +18,6 @@ import { JobsAttributes, OrgAttributes } from './administrative';
 
 /**
  * @description: xmw_menu Attributes
- * @author: 白雾茫茫丶
  */
 export type MenuAttributes = {
   menu_id: string; // 菜单id
@@ -50,7 +49,6 @@ export type MenuAttributes = {
 
 /**
  * @description: xmw_permission Attributes
- * @author: 白雾茫茫丶
  */
 export type PermissionAttributes = {
   permission_id: string; // 权限id
@@ -60,7 +58,6 @@ export type PermissionAttributes = {
 
 /**
  * @description: xmw_role Attributes
- * @author: 白雾茫茫丶
  */
 export type RoleAttributes = {
   role_id: string; // 角色id
@@ -72,7 +69,6 @@ export type RoleAttributes = {
 
 /**
  * @description: xmw_users Attributes
- * @author: 白雾茫茫丶
  */
 export type UserAttributes = {
   user_id: string; // 用户id
@@ -102,7 +98,6 @@ export type UserAttributes = {
 
 /**
  * @description: xmw_international Attributes
- * @author: 白雾茫茫丶
  */
 export type InternationalAttributes = {
   id: string; // id
@@ -114,7 +109,6 @@ export type InternationalAttributes = {
 
 /**
  * @description: Logs Attributes
- * @author: 白雾茫茫丶
  */
 export type LogsAttributes = {
   log_id?: string; // id

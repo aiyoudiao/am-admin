@@ -7,7 +7,6 @@ import type { Status } from '@/utils/types';
 
 /**
  * @description: 保存角色数据 Dto
- * @author: 白雾茫茫丶
  */
 export class SaveRoleManagementDto {
   @ApiProperty({
@@ -55,7 +54,6 @@ export class SaveRoleManagementDto {
 
 /**
  * @description: 更新角色状态 Dto
- * @author: 白雾茫茫丶
  */
 export class UpdateRoleStatusDto {
   @ApiProperty({

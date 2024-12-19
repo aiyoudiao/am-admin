@@ -9,7 +9,6 @@ import type { PageResponse } from '@/utils/types';
 
 /**
  * @description: 用户管理列表响应体结构 Dto
- * @author: 白雾茫茫丶
  */
 export class ResponseUserManagementDto extends ResponseDto {
   @ApiProperty({
@@ -57,7 +56,6 @@ export class ResponseUserManagementDto extends ResponseDto {
 
 /**
  * @description: 创建用户数据 Dto
- * @author: 白雾茫茫丶
  */
 export class CreateUserManagementDto extends ResponseDto {
   @ApiProperty({

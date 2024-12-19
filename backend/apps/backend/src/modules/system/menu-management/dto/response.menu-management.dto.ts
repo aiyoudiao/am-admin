@@ -8,7 +8,6 @@ import { XmwMenu } from '@/models/xmw_menu.model'; // xmw_menu 实体
 
 /**
  * @description: 菜单列表 Dto
- * @author: 白雾茫茫丶
  */
 export class ResponseMenuManagementDto extends ResponseDto {
   @ApiProperty({
@@ -59,7 +58,6 @@ export class ResponseMenuManagementDto extends ResponseDto {
 
 /**
  * @description: 创建菜单数据 Dto
- * @author: 白雾茫茫丶
  */
 export class CreateMenuManagementDto extends ResponseDto {
   @ApiProperty({

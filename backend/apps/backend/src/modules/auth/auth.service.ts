@@ -31,11 +31,10 @@ export class AuthService {
     private readonly menuModel: typeof XmwMenu,
     private readonly jwtService: JwtService,
     private sequelize: Sequelize,
-  ) { }
+  ) {}
 
   /**
    * @description: 用户登录
-   * @author: 白雾茫茫丶
    */
   async loginSingToken(
     loginParams: LoginParamsDto,
@@ -110,7 +109,6 @@ export class AuthService {
   /**
    * @description: 校验用户信息
    * @param {LoginParamsDto} loginParams
-   * @author: 白雾茫茫丶
    */
   async validateUser(
     loginParams: LoginParamsDto,
@@ -153,7 +151,6 @@ export class AuthService {
 
   /**
    * @description: 用户退出当前登录
-   * @author: 白雾茫茫丶
    */
   async logout(session: SessionTypes): Promise<responseResult> {
     const { currentUserInfo } = session;
@@ -173,7 +170,6 @@ export class AuthService {
 
   /**
    * @description: 获取用户按钮权限
-   * @author: 白雾茫茫丶
    */
   async getPermissions(session: SessionTypes): Promise<Response<string[]>> {
     // 获取当前用户 id
@@ -199,7 +195,6 @@ export class AuthService {
 
   /**
    * @description: 获取用户权限菜单
-   * @author: 白雾茫茫丶
    */
   async getRoutesMenus(session: SessionTypes): Promise<Response<XmwMenu[]>> {
     // 获取当前用户 id

@@ -10,7 +10,6 @@ import type { PageResponse } from '@/utils/types';
 
 /**
  * @description: 活动公告列表响应体结构 Dto
- * @author: 白雾茫茫丶
  */
 export class ResponseAnnouncementDto extends ResponseDto {
   @ApiProperty({
@@ -38,7 +37,6 @@ export class ResponseAnnouncementDto extends ResponseDto {
 
 /**
  * @description: 创建活动公告 Dto
- * @author: 白雾茫茫丶
  */
 export class CreateAnnouncementDto extends ResponseDto {
   @ApiProperty({
@@ -61,7 +59,6 @@ export class CreateAnnouncementDto extends ResponseDto {
 
 /**
  * @description: 已读活动公告 Dto
- * @author: 白雾茫茫丶
  */
 export class CreateAlreadyDto extends ResponseDto {
   @ApiProperty({

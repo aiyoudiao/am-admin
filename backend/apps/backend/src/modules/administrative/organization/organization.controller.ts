@@ -47,24 +47,23 @@ import { OrganizationService } from './organization.service'; // Organization Se
 @UseGuards(AuthGuard('jwt'))
 @Controller('administrative/organization')
 export class OrganizationController {
-  constructor(private readonly organizationService: OrganizationService) { }
+  constructor(private readonly organizationService: OrganizationService) {}
 
   /**
    * @description: 获取组织管理列表
-   * @author: 白雾茫茫丶
    */
   @Get()
   @ApiOkResponse({ type: ResponseOrganizationDto })
   @ApiOperation({ summary: '获取组织管理列表' })
   async getOrganizationList(@Query() organizationInfo: ListOrganizationDto) {
-    const response =
-      await this.organizationService.getOrganizationList(organizationInfo);
+    const response = await this.organizationService.getOrganizationList(
+      organizationInfo,
+    );
     return response;
   }
 
   /**
    * @description: 创建组织数据
-   * @author: 白雾茫茫丶
    */
   @Post()
   @ApiOkResponse({ type: CreateOrganizationDto })
@@ -82,7 +81,6 @@ export class OrganizationController {
 
   /**
    * @description: 更新组织数据
-   * @author: 白雾茫茫丶
    */
   @Put('/:org_id')
   @ApiOkResponse({ type: UpdateResponseDto })
@@ -100,7 +98,6 @@ export class OrganizationController {
 
   /**
    * @description: 删除组织数据
-   * @author: 白雾茫茫丶
    */
   @Delete('/:org_id')
   @ApiOkResponse({ type: DeleteResponseDto })

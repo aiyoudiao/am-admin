@@ -47,7 +47,6 @@ export class FilesController {
 
   /**
    * @description: 上传单个文件
-   * @author: 白雾茫茫丶
    */
   @UseGuards(AuthGuard('jwt'))
   @UseInterceptors(FileInterceptor('file'))
@@ -68,7 +67,6 @@ export class FilesController {
 
   /**
    * @description: 阿里云 oss 上传
-   * @author: 白雾茫茫丶
    */
   @UseGuards(AuthGuard('jwt'))
   @Post('single-file-oss')

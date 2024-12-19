@@ -23,10 +23,9 @@ import { OperationLogsService } from './operation-logs.service'; // OperationLog
 
 @Controller('system/operation-log')
 export class OperationLogsController {
-  constructor(private readonly operationLogsService: OperationLogsService) { }
+  constructor(private readonly operationLogsService: OperationLogsService) {}
   /**
    * @description: 获取操作日志列表
-   * @author: 白雾茫茫丶
    */
   @UseGuards(AuthGuard('jwt'))
   @Get()
@@ -39,7 +38,6 @@ export class OperationLogsController {
 
   /**
    * @description: 删除操作日志
-   * @author: 白雾茫茫丶
    */
   @Delete()
   @ApiOkResponse({ type: DeleteResponseDto })
