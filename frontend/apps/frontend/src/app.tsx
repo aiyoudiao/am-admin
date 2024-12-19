@@ -28,13 +28,13 @@ export async function getInitialState() {
   // 存储到 localstorage
   setLocalStorageItem(LOCAL_STORAGE.LAYOUT, Layout_Settings)
   // 初始化多语言
-  // const Locales = get(await getAllLocalesLang(), 'data', {})
-  // // 动态添加多语言
-  // if (!isEmpty(Locales) && !isNil(Locales)) {
-  //   forEach(Locales, (value: Record<string, string>, key: Langs) => {
-  //     addLocale(key, value, ANTD_LANGS[key]);
-  //   })
-  // }
+  const Locales = get(await getAllLocalesLang(), 'data', {})
+  // 动态添加多语言
+  if (!isEmpty(Locales) && !isNil(Locales)) {
+    forEach(Locales, (value: Record<string, string>, key: Langs) => {
+      addLocale(key, value, ANTD_LANGS[key]);
+    })
+  }
   // 初始化数据
   const initialState: InitialStateTypes = {
     // Locales,
