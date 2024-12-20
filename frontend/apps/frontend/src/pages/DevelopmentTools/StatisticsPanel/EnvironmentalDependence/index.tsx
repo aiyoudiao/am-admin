@@ -11,7 +11,7 @@ import { FC } from 'react'
 import { formatPerfix } from '@/utils'
 import { ROUTES } from '@/utils/enums'
 
-import pckJson from '../../../../package.json';
+import pckJson from '@/../package.json';
 
 const { Text } = Typography;
 

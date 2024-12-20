@@ -63,8 +63,8 @@ const TableTemplate: FC = () => {
       title: formatMessage({ id: formatPerfix(ROUTES.INTERNATIONALIZATION, 'name') }),
       dataIndex: 'name',
       ellipsis: true,
-      width: 140,
       align: 'center',
+      fixed: true,
       render: (text) => (
         <Tag>
           <Space size={4}>

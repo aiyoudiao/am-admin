@@ -377,3 +377,29 @@ export const getRuleMenuIcon = (ruleMenus: API.MENUMANAGEMENT[], path: string) =
 
   return findIcon(ruleMenus, path);
 };
+
+interface TreeNode {
+  id: string;
+  name: string;
+  children?: TreeNode[];
+}
+/** 从国际化列表中查询到对应菜单的路由路径 */
+export const findNodePath = (tree: TreeNode[], targetId: string): string | null => {
+  const helper = (nodes: TreeNode[], path: string[]): string | null => {
+    for (const node of nodes) {
+      const currentPath = [...path, node.name];
+      if (node.id === targetId) {
+        return '/' + currentPath.join('/');
+      }
+      if (node.children) {
+        const result = helper(node.children, currentPath);
+        if (result) {
+          return result;
+        }
+      }
+    }
+    return null;
+  };
+
+  return helper(tree, []);
+};

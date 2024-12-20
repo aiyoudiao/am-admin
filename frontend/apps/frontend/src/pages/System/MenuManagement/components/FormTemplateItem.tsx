@@ -6,14 +6,14 @@ import { ProFormDependency, ProFormRadio, ProFormText, ProFormTreeSelect } from 
 import { getLocale, useIntl } from '@umijs/max';
 import { useRequest } from 'ahooks'
 import { Button, Divider, Form, Space, Tooltip, TreeSelect, Typography } from 'antd';
-import { get, keys, upperFirst, camelCase, kebabCase } from 'lodash-es';
+import { get, keys, upperFirst, camelCase, kebabCase, toString } from 'lodash-es';
 import type { FC } from 'react';
-import { AppstoreOutlined } from '@ant-design/icons'
+import Icon, { AppstoreOutlined } from '@ant-design/icons'
 
 import { ProFormParent, ProFormSort, ProFormStatus } from '@/components/CommonProForm'
 import { IconPicker } from '@/components/Icon'
 import { getInternationalList } from '@/services/system/internationalization'
-import { formatPerfix } from '@/utils'
+import { findNodePath, formatPerfix } from '@/utils'
 import { MenuTypeEnum } from '@/utils/const'
 import { INTERNATION, MENU_TYPE, ROUTES } from '@/utils/enums'
 import type { FormTemplateProps } from '@/utils/types/system/menu-management';
@@ -33,6 +33,9 @@ const FormTemplateItem: FC<Pick<FormTemplateProps, 'treeData'>> = ({ treeData })
    */
   const { data: internationalData } = useRequest(
     async () => get(await getInternationalList({ isMenu: true }), 'data', []))
+
+
+  console.log('internationalData', internationalData)
 
   // 是按钮就显示
   const isMenuRender = (
@@ -89,11 +92,12 @@ const FormTemplateItem: FC<Pick<FormTemplateProps, 'treeData'>> = ({ treeData })
         fieldProps={{
           showCount: true, maxLength: 50, addonBefore: (
             <IconPicker
+              icon={form.getFieldValue('icon')}
               onChange={(value) => {
                 form.setFieldValue('icon', value)
               }}
             >
-              <AppstoreOutlined />
+             <AppstoreOutlined />
             </IconPicker>
           ),
         }}
@@ -208,10 +212,19 @@ const FormTemplateItem: FC<Pick<FormTemplateProps, 'treeData'>> = ({ treeData })
         colProps={{ span: 12 }}
         tooltip={formatMessage({ id: formatPerfix(ROUTES.MENUMANAGEMENT, 'name.tooltip') })}
         fieldProps={{
+          showSearch: true,
+          treeNodeFilterProp: getLocale(),
           treeData: internationalData,
           fieldNames: {
             label: getLocale(),
             value: 'id',
+          },
+          onSelect: (value) => {
+            if (!form.getFieldValue('path')) {
+              const routePath = findNodePath(internationalData, value)
+              form.setFieldValue('path', routePath);
+              intelligentCompletion();
+            }
           },
           treeDefaultExpandAll: true,
           showCheckedStrategy: TreeSelect.SHOW_PARENT,
