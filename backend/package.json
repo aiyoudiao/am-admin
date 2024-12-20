@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "init": "pnpm run docker:base && pnpm run dev",
     "db": "pnpm exec nx run drawdb:dev",
     "dev": "pnpm exec nx run backend:start:debug",
     "build": "pnpm exec nx run backend:build",

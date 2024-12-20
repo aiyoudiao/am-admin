@@ -38,8 +38,10 @@ const FormTemplate: FC<FormTemplateProps> = ({
 		form.resetFields();
 	}
 
+
 	// 提交表单
 	const handlerSubmit = async (values: API.MENUMANAGEMENT): Promise<void> => {
+
 		// 请求接口
 		await (menu_id ? updateMenu : createMenu)({ ...values, menu_id }).then(({ code, msg }) => {
 			if (isSuccess(code)) {

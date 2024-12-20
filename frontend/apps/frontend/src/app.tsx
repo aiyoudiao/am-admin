@@ -104,6 +104,7 @@ export const render: RuntimeConfig['render'] = (oldRender) => {
         dynamicRoutes = get(routeMenuInfo, 'data', [])
       })
       .catch(() => {
+        dynamicRoutes = [];
         removeLocalStorageItem(ACCESS_TOKEN)
         forceRedirect(ROUTES.LOGIN);
       })

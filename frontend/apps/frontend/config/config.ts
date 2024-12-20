@@ -11,6 +11,10 @@ import proxy from './proxy';
 const { REACT_APP_ENV = 'dev' } = process.env;
 
 export default defineConfig({
+  define: {
+    isAppDevelopment: REACT_APP_ENV === 'dev',
+    REACT_APP_ENV: REACT_APP_ENV,
+  },
   npmClient: 'pnpm',
   /**
    * @name 开启 多tab标签页支持
