@@ -172,7 +172,7 @@ export default defineConfig({
   plugins: [resolve(__dirname, './plugins/html')],
 
   // TDK
-  title: 'React Admin',
+  title: 'AM Admin',
   metas: [
     {
       name: 'keywords',

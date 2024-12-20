@@ -19,7 +19,7 @@ const Settings: LayoutSettings & {
   fixedHeader: true,
   fixSiderbar: true,
   colorWeak: false,
-  title: 'React Admin',
+  title: 'AM Admin',
   pwa: false,
   logo: '/logo.svg',
   iconfontUrl: '/favicon.ico',

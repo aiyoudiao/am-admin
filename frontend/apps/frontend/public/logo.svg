@@ -1,1 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M21.22 0v21.66a4.19 4.19 0 0 1-2.11 3.64L.36 36.12A8.52 8.52 0 0 1 0 33.66V16.72a8.48 8.48 0 0 1 1.13-4.23 8.59 8.59 0 0 1 3.11-3.11L18.9.91A8.75 8.75 0 0 1 21.22 0z" fill="#2a3294"></path><path d="M44 39.45A8.7 8.7 0 0 1 42 41l-14.62 8.46a8.6 8.6 0 0 1-8.48 0L4.24 41a8.42 8.42 0 0 1-1.95-1.56L21 28.63a4.17 4.17 0 0 1 4.21 0z" fill="#ff006f"></path><path d="M46.28 16.72v16.94a8.52 8.52 0 0 1-.37 2.46L27.16 25.3a4.23 4.23 0 0 1-2.1-3.65V0a8.89 8.89 0 0 1 2.32.91L42 9.38a8.52 8.52 0 0 1 4.24 7.34z" fill="#0087ff"></path></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" color-interpolation-filters="sRGB" style="margin:auto; width: 100%; height: auto;" version="1.0" viewBox="0 0 360 360">
+  <defs>
+    <path id="c" fill="none" stroke="#202121" stroke-miterlimit="10" stroke-width="4" d="M2 83.9 33.2 30 47 45.1 62.2 5.5l31.2 78.4M2 83.9h91.3V13.6L47.7 59.3 2 13.6v70.3z"/>
+  </defs>
+  <g fill="#6e45e2" class="mojosvg mojo-g" style="transform: scale(3.2) translate(8px, 55px);transform-origin: center;">
+    <g class="iconsvg-imagesvg" mask="url(#a)" transform="translate(136.8 74.11113)">
+      <path fill="none" d="M0 0h74.4v63.81774H0z" class="image-rect"/>
+      <svg width="74.4" height="63.81774" class="image-svg-svg primary" filter="url(#b)" overflow="visible">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3.5 95.4 82.4">
+          <use xlink:href="#c" stroke-miterlimit="10" stroke-width="4"/>
+        </svg>
+      </svg>
+      <defs>
+        <filter id="b">
+          <feColorMatrix class="icon-fecolormatrix" values="0 0 0 0 0.4296875 0 0 0 0 0.26953125 0 0 0 0 0.8828125 0 0 0 1 0"/>
+        </filter>
+      </defs>
+      <path fill="url(#d)" d="M0 0h86.4v75.81774H0z" pointer-events="none" transform="translate(-6 -6)"/>
+    </g>
+    <path fill="url(#e)" d="m6.55615 4.8.66 1.08c.3.48.42.96.24 1.56l-7.38 27.48c-.3 1.2.3 2.04 1.56 2.04h6.12c1.02 0 1.68-.48 1.98-1.5l1.98-6.72c.18-.72.66-1.02 1.32-1.02h12.3c.72 0 1.2.3 1.38 1.02l1.8 6.66c.3 1.08.96 1.56 1.98 1.56h6.66c1.26 0 1.92-.84 1.56-2.04l-8.4-30.42c-.3-1.08-.96-1.5-1.98-1.5h-20.34c-1.44 0-2.1.78-1.44 1.8Zm15.24 4.98 2.94 10.86c.24.78-.18 1.32-1.02 1.32h-8.7c-.84 0-1.26-.6-1.02-1.38l3.18-10.8c.18-.72.66-1.02 1.32-1.02h1.92c.72 0 1.2.3 1.38 1.02Zm24.2744-4.98.72 1.14c.3.54.42.9.42 1.44v27.78c0 1.14.66 1.8 1.8 1.8h6.6c1.14 0 1.8-.66 1.8-1.8v-12c0-1.2.9-1.44 1.38-.3l4.62 10.44c.42.9 1.08 1.38 2.1 1.38h6.24c1.02 0 1.68-.48 2.1-1.38l4.86-11.04c.48-1.14 1.38-.9 1.38.3v12.6c0 1.14.66 1.8 1.8 1.8h6.54c1.14 0 1.8-.66 1.8-1.8V4.8c0-1.14-.66-1.8-1.8-1.8h-8.94c-1.02 0-1.68.48-2.1 1.38l-7.68 18.06c-.42 1.02-1.2 1.02-1.62 0l-7.92-18.06c-.42-.9-1.08-1.38-2.1-1.38h-10.56c-1.44 0-2.1.78-1.44 1.8Z" class="tp-name" data-gra="path-name" transform="translate(124.88472 138.92887)"/>
+  </g>
+  <defs>
+    <linearGradient id="e" x1="0" x2="0" y1="1" y2="0">
+      <stop offset="0%" stop-color="#6e45e2"/>
+      <stop offset="100%" stop-color="#88d3ce"/>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="d" x1="0" x2="0" y1="1" y2="0">
+      <stop offset="0%" stop-color="#6e45e2"/>
+      <stop offset="100%" stop-color="#88d3ce"/>
+    </linearGradient>
+    <filter id="f" filterUnits="userSpaceOnUse">
+      <feColorMatrix values="0 0 0 0 0.99609375 0 0 0 0 0.99609375 0 0 0 0 0.99609375 0 0 0 1 0"/>
+    </filter>
+  </defs>
+  <mask id="a">
+    <g class="iconsvg-imagesvg" filter="url(#f)">
+      <path fill="#6e45e2" fill-opacity="0" stroke-width="2" d="M0 0h74.4v63.81774H0z" class="image-rect"/>
+      <svg width="74.4" height="63.81774" class="image-svg-svg primary" overflow="visible">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3.5 95.4 82.4">
+          <use xlink:href="#c" stroke-miterlimit="10" stroke-width="4"/>
+        </svg>
+      </svg>
+    </g>
+  </mask>
+</svg>
