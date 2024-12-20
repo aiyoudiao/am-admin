@@ -1,5 +1,3 @@
-# am-admin
-
 <h1 align="center">Welcome to am-admin</h1>
 
 <p align="center">
