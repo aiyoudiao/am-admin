@@ -25,7 +25,7 @@ import { OPERATION, REQUEST_METHODS, ROUTES } from '@/utils/enums'
 import permissions from '@/utils/permission';
 import type { SearchTimes } from '@/utils/types'
 
-const OperationLog: FC = () => {
+const OperationLogs: FC = () => {
 	const { formatMessage } = useIntl();
 	// 权限定义集合
 	const access = useAccess();
@@ -283,4 +283,4 @@ const OperationLog: FC = () => {
 		</PageContainer>
 	)
 }
-export default OperationLog
+export default OperationLogs

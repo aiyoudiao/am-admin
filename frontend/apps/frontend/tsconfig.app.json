@@ -15,5 +15,12 @@
     "src/**/*.test.jsx",
     "jest.config.ts"
   ],
-  "include": ["./**/*.d.ts", "src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"]
+  "include": [
+    "./**/*.d.ts",
+    "src/**/*.js",
+    "src/**/*.jsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "config/icons/icon.data.ts"
+  ]
 }

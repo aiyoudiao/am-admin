@@ -90,7 +90,9 @@ const FormTemplateItem: FC<Pick<FormTemplateProps, 'treeData'>> = ({ treeData })
         }
         tooltip={formatMessage({ id: formatPerfix(ROUTES.MENUMANAGEMENT, 'icon.tooltip') })}
         fieldProps={{
-          showCount: true, maxLength: 50, addonBefore: (
+          showCount: true,
+          maxLength: 80,
+          addonBefore: (
             <IconPicker
               icon={form.getFieldValue('icon')}
               onChange={(value) => {

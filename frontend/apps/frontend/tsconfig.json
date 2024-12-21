@@ -1,18 +1,23 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es5",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "jsx": "preserve",
-    "esModuleInterop": true,
     "sourceMap": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
+
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "strict": true,
-    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "allowJs": true,
     "paths": {
       "@root/*": ["./*"],
       "@/*": ["./src/*"],
@@ -22,6 +27,7 @@
   },
   "files": [],
   "include": [],
+  "exclude": ["node_modules", "dist", "**/*.js", "**/*.md", "src/**/*.md"],
   "references": [
     {
       "path": "./tsconfig.app.json"
