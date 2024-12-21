@@ -15,7 +15,7 @@ const finalIconMap = isDevelopment
     }
   : tempIconMap;
 
-const finalIconData = isDevelopment ? [...ant, ...ion, ...ri] : iconData;
+const finalIconData = isDevelopment ? [...ant, ...ion, ...ri] : iconData.concat(ion).concat(ri);
 
 console.log('icon count ===>', finalIconData.length);
 

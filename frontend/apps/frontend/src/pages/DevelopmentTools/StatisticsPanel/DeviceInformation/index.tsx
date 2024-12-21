@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Descriptions, Badge } from 'antd';
+import { Descriptions, Badge, Card } from 'antd';
 import { useModel } from '@umijs/max';
 
 import BrowserType from '@/utils/browser/browser-type';
@@ -44,22 +44,22 @@ const DashboardWelcome: React.FC = () => {
 
   return (
     <PageContainer header={{ title: null }}>
-      <section className="bg-white flex flex-col w-full h-[calc(100vh-220px)] p-8 shadow-lg rounded-lg">
-        <img src="/logo.svg" alt="logo" className="w-[180px] h-[180px] mx-auto" />
-        <Descriptions title="系统信息" bordered>
-          <Descriptions.Item key="IP" label="IP">
-            {loginIp}
-          </Descriptions.Item>
-          {Object.entries(browserInfo).map(([key, value]) => (
-            <Descriptions.Item key={key} label={key}>
-              {value}
+      <Card title={null} hoverable className="shadow-lg">
+          <img src="/logo.svg" alt="logo" className="w-[180px] h-[180px] mx-auto" />
+          <Descriptions title="系统信息" bordered>
+            <Descriptions.Item key="IP" label="IP">
+              {loginIp}
             </Descriptions.Item>
-          ))}
-          <Descriptions.Item label="网络状态">
-            <Badge status={online ? 'processing' : 'default'} text={online ? '在线' : '离线'} />
-          </Descriptions.Item>
-        </Descriptions>
-      </section>
+            {Object.entries(browserInfo).map(([key, value]) => (
+              <Descriptions.Item key={key} label={key}>
+                {value}
+              </Descriptions.Item>
+            ))}
+            <Descriptions.Item label="网络状态">
+              <Badge status={online ? 'processing' : 'default'} text={online ? '在线' : '离线'} />
+            </Descriptions.Item>
+          </Descriptions>
+      </Card>
     </PageContainer>
   );
 };
