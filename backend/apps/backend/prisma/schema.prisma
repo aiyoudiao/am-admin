@@ -1,0 +1,366 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator comments {
+  provider = "prisma-db-comments-generator"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model am_already {
+  /// 主键id
+  id              String          @id @db.Char(36)
+  /// 活动公告 id
+  announcement_id String          @db.Char(36)
+  /// 用户 id
+  user_id         String          @db.Char(36)
+  created_time    DateTime        @db.DateTime(0)
+  updated_time    DateTime        @db.DateTime(0)
+  am_announcement am_announcement @relation(fields: [announcement_id], references: [announcement_id], map: "am_already_ibfk_1")
+
+  @@index([announcement_id], map: "announcement_id")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model am_announcement {
+  /// 活动公告id
+  announcement_id String               @id @db.Char(36)
+  /// 作者id
+  user_id         String               @db.Char(36)
+  /// 标题
+  title           String               @db.VarChar(100)
+  /// 内容
+  content         String               @db.Text
+  /// 类型(1:公告,2:活动,3:消息,4:通知)
+  type            am_announcement_type
+  /// 状态（0:禁用，1：开启）
+  status          Int                  @default(1)
+  /// 是否置顶（0:否，1：是）
+  pinned          Int                  @default(1)
+  created_time    DateTime             @db.DateTime(0)
+  updated_time    DateTime             @db.DateTime(0)
+  am_already      am_already[]
+  am_user         am_user              @relation(fields: [user_id], references: [user_id], map: "am_announcement_ibfk_1")
+
+  @@index([user_id], map: "user_id")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model am_international {
+  /// 国际化id
+  id           String   @id @db.Char(36)
+  /// 国际化字段
+  name         String   @db.VarChar(32)
+  /// 父级id
+  parent_id    String?  @db.Char(36)
+  zh_CN        String?  @map("zh-CN") @db.VarChar(200)
+  en_US        String?  @map("en-US") @db.VarChar(500)
+  ja_JP        String?  @map("ja-JP") @db.VarChar(200)
+  zh_TW        String?  @map("zh-TW") @db.VarChar(200)
+  /// 创建人
+  founder      String   @db.Char(36)
+  /// 排序
+  sort         Int
+  /// 创建时间
+  created_time DateTime @default(now()) @db.DateTime(0)
+  /// 最后一次更新时间
+  updated_time DateTime @default(now()) @db.DateTime(0)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model am_jobs {
+  /// 岗位id
+  jobs_id         String          @id @db.Char(36)
+  /// 岗位名称
+  jobs_name       String          @db.VarChar(20)
+  /// 组织id
+  org_id          String          @db.Char(36)
+  /// 父级id
+  parent_id       String?         @db.Char(36)
+  /// 岗位描述
+  describe        String          @db.VarChar(200)
+  /// 排序
+  sort            Int
+  /// 岗位负责人
+  leader          String          @db.Char(36)
+  /// 创建人
+  founder         String          @db.Char(36)
+  created_time    DateTime        @db.DateTime(0)
+  updated_time    DateTime        @db.DateTime(0)
+  am_organization am_organization @relation(fields: [org_id], references: [org_id], map: "am_jobs_ibfk_1")
+
+  @@index([org_id], map: "org_id")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model am_logs {
+  /// 日志id
+  log_id       String   @id @db.Char(36)
+  /// 用户id
+  user_id      String   @db.Char(36)
+  /// ip
+  ip           String   @db.VarChar(50)
+  /// 操作系统
+  os           String   @db.VarChar(200)
+  /// 请求参数
+  params       Json
+  /// 请求方式
+  method       String   @db.VarChar(20)
+  /// 请求地址
+  api_url      String   @db.VarChar(100)
+  created_time DateTime @db.DateTime(0)
+  updated_time DateTime @db.DateTime(0)
+  /// 浏览器
+  browser      String   @db.VarChar(200)
+  /// 所在省份
+  province     String?  @db.VarChar(100)
+  /// 所在城市
+  city         String?  @db.VarChar(100)
+  /// 城市编码
+  adcode       String?  @db.VarChar(100)
+  am_user      am_user  @relation(fields: [user_id], references: [user_id], map: "am_logs_ibfk_1")
+
+  @@index([user_id], map: "user_id")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model am_menu {
+  /// 菜单id
+  menu_id            String               @id @db.Char(36)
+  /// 国际化对应的name
+  name               String               @db.Char(36)
+  /// 菜单类型（dir:目录，menu:菜单,button:按钮）
+  menu_type          am_menu_menu_type
+  /// 路由url
+  path               String?              @db.VarChar(100)
+  /// 菜单图标
+  icon               String?              @db.VarChar(50)
+  /// 菜单对应的文件路径
+  component          String?              @db.VarChar(200)
+  /// 路由重定向地址
+  redirect           String?              @db.VarChar(100)
+  /// 父级id
+  parent_id          String?              @db.Char(36)
+  /// 当path是一个url，点击新窗口打开
+  target             am_menu_target?
+  /// 菜单标识(页面按钮权限控制)
+  permission         String?              @db.VarChar(100)
+  /// 是否显示layout布局（side:侧边菜单，top:顶部菜单,mix:混合菜单）
+  layout             am_menu_layout?
+  /// 导航菜单的主题（dark:暗黑风格，light:亮色风格）
+  navTheme           am_menu_navTheme?
+  /// 顶部导航的主题，mix 模式生效（dark:暗黑风格，light:亮色风格）
+  headerTheme        am_menu_headerTheme?
+  /// 是否隐藏子路由
+  hideChildrenInMenu Int?
+  /// 是否隐藏菜单，包括子路由
+  hideInMenu         Int?
+  /// 是否在面包屑中隐藏
+  hideInBreadcrumb   Int?
+  /// 是否显示顶栏
+  headerRender       Int?
+  /// 是否显示页脚
+  footerRender       Int?
+  /// 当前路由是否展示菜单
+  menuRender         Int?
+  /// 当前路由是否展示菜单顶栏
+  menuHeaderRender   Int?
+  /// 子项往上提，只是不展示父菜单
+  flatMenu           Int?
+  /// 固定顶栏
+  fixedHeader        Int?
+  /// 固定菜单
+  fixSiderbar        Int?
+  /// 创建人
+  founder            String               @db.Char(36)
+  /// 排序
+  sort               Int
+  /// 菜单状态（0:禁用，1：正常）
+  status             Int
+  created_time       DateTime             @db.DateTime(0)
+  updated_time       DateTime             @db.DateTime(0)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model am_organization {
+  /// 组织id
+  org_id       String                   @id @db.Char(36)
+  /// 组织名称
+  org_name     String                   @db.VarChar(20)
+  /// 父级id
+  parent_id    String?                  @db.Char(36)
+  /// 组织编码
+  org_code     String                   @db.VarChar(32)
+  /// 组织类型（group:集团,company:公司,unit:单位,department:部门）
+  org_type     am_organization_org_type
+  /// 组织logo
+  org_logo     String?                  @db.VarChar(200)
+  /// 组织负责人
+  leader       String                   @db.Char(36)
+  /// 创建人
+  founder      String                   @db.Char(36)
+  /// 组织状态（0:禁用，1：正常）
+  status       Int                      @default(1)
+  /// 排序
+  sort         Int
+  /// 组织描述
+  describe     String                   @db.VarChar(200)
+  created_time DateTime                 @db.DateTime(0)
+  updated_time DateTime                 @db.DateTime(0)
+  am_jobs      am_jobs[]
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model am_permission {
+  /// 权限id
+  permission_id String   @id @db.Char(36)
+  /// 角色id
+  role_id       String?  @db.Char(36)
+  /// 菜单id
+  menu_id       String?  @db.Char(36)
+  created_time  DateTime @db.DateTime(0)
+  updated_time  DateTime @db.DateTime(0)
+  am_role       am_role? @relation(fields: [role_id], references: [role_id], onDelete: Cascade, map: "am_permission_ibfk_1")
+
+  @@index([role_id], map: "role_id")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model am_role {
+  /// 角色id
+  role_id       String          @id @db.Char(36)
+  /// 角色名称
+  role_name     String          @db.VarChar(20)
+  /// 角色编码
+  role_code     String          @db.VarChar(20)
+  /// 角色描述
+  describe      String          @db.VarChar(200)
+  /// 创建人
+  founder       String          @db.Char(36)
+  /// 排序
+  sort          Int
+  /// 角色状态（0:禁用，1：正常）
+  status        Int
+  created_time  DateTime        @db.DateTime(0)
+  updated_time  DateTime        @db.DateTime(0)
+  am_permission am_permission[]
+  am_user       am_user[]
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model am_user {
+  /// 用户id
+  user_id         String            @id @db.Char(36)
+  /// 用户名称
+  user_name       String            @db.VarChar(20)
+  /// 用户工号
+  work_no         String            @db.VarChar(20)
+  /// 密码(加密)
+  password        String            @db.VarChar(50)
+  /// 中文名
+  cn_name         String            @db.VarChar(20)
+  /// 英文名
+  en_name         String?           @db.VarChar(20)
+  /// 年龄
+  age             Int
+  /// 电子邮箱
+  email           String?           @db.VarChar(50)
+  /// 电话号码
+  phone           String            @db.VarChar(11)
+  /// 用户头像
+  avatar_url      String?           @db.VarChar(200)
+  /// 用户性别(0:女,1:男,2:隐私)
+  sex             am_user_sex
+  /// 排序
+  sort            Int
+  /// 用户状态（0:禁用，1：正常）
+  status          Int               @default(1)
+  /// token
+  token           Bytes?            @db.Blob
+  /// 座右铭
+  motto           String?           @db.VarChar(50)
+  /// 人物标签
+  tags            Json?
+  /// 所属城市
+  city            Json?
+  /// 详细地址
+  address         String?           @db.VarChar(200)
+  /// 岗位id
+  jobs_id         String            @db.Char(36)
+  /// 组织id
+  org_id          String            @db.Char(36)
+  /// 角色id
+  role_id         String            @db.Char(36)
+  /// 创建人
+  founder         String            @db.Char(36)
+  /// 登录次数
+  login_num       Int               @default(0)
+  /// 最后一次登录ip
+  login_last_ip   String?           @db.VarChar(20)
+  /// 最后一次登录时间
+  login_last_time DateTime?         @db.DateTime(0)
+  created_time    DateTime          @db.DateTime(0)
+  updated_time    DateTime          @db.DateTime(0)
+  am_announcement am_announcement[]
+  am_logs         am_logs[]
+  am_user         am_user           @relation("am_userToam_user", fields: [founder], references: [user_id], map: "am_user_ibfk_8")
+  other_am_user   am_user[]         @relation("am_userToam_user")
+  am_role         am_role           @relation(fields: [role_id], references: [role_id], onDelete: Cascade, map: "am_user_ibfk_9")
+
+  @@index([founder], map: "founder")
+  @@index([role_id], map: "role_id")
+}
+
+enum am_menu_menu_type {
+  dir
+  menu
+  button
+}
+
+enum am_announcement_type {
+  t1 @map("1")
+  t2 @map("2")
+  t3 @map("3")
+  t4 @map("4")
+}
+
+enum am_organization_org_type {
+  group
+  company
+  unit
+  department
+}
+
+enum am_menu_target {
+  blank  @map("_blank")
+  self   @map("_self")
+  parent @map("_parent")
+  top    @map("_top")
+}
+
+enum am_menu_layout {
+  side
+  top
+  mix
+}
+
+enum am_user_sex {
+  s0 @map("0")
+  s1 @map("1")
+  s2 @map("2")
+}
+
+enum am_menu_navTheme {
+  dark
+  light
+}
+
+enum am_menu_headerTheme {
+  dark
+  light
+}
