@@ -22,12 +22,12 @@ export class HttpReqTransformInterceptor<T>
     next: CallHandler,
   ): Observable<Response> {
     return next.handle().pipe(
-      map(({ data, msg, code }) => {
+      map(({ data, message, code }) => {
         /**
          * @description: response 将返回一个对象
          * @description: 报装返回体，设计返回的逻辑
          */
-        return responseMessage(data, msg, code);
+        return responseMessage(data, message, code);
       }),
     );
   }

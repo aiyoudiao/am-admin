@@ -13,10 +13,10 @@ import type { Response } from '@/utils/types';
  */
 export const responseMessage = <T = any>(
   data,
-  msg: string = REQUEST_MSG.SUCCESS,
+  message: string = REQUEST_MSG.SUCCESS,
   code: number = REQUEST_CODE.SUCCESS,
 ): Response<T> => {
-  return { data, msg, code };
+  return { data, message, code };
 };
 
 /**

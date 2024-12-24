@@ -23,10 +23,10 @@ export class ValidationPipe implements PipeTransform {
     const object = plainToClass(metatype, value);
     const errors = await validate(object);
     if (errors.length > 0) {
-      const msg = Object.values(errors[0].constraints)[0]; // 只需要取第一个错误信息并返回即可
-      Logger.error(`参数校验失败: ${msg}`);
+      const message = Object.values(errors[0].constraints)[0]; // 只需要取第一个错误信息并返回即可
+      Logger.error(`参数校验失败: ${message}`);
       // 自定义校验返回格式
-      throw new BadRequestException(`参数校验失败: ${msg}`);
+      throw new BadRequestException(`参数校验失败: ${message}`);
     }
     return value;
   }

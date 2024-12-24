@@ -21,7 +21,7 @@ export class ResponseDto {
     description: '响应信息',
     default: '操作成功！',
   })
-  msg: string;
+  message: string;
 
   @ApiProperty({
     type: Number,

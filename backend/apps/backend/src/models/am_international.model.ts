@@ -31,7 +31,7 @@ export class AmInternational
   id: string;
 
   //国际化字段
-  @NotEmpty({ msg: '国际化字段不能为空' })
+  @NotEmpty({ message: '国际化字段不能为空' })
   @Column({
     type: DataType.STRING(32),
     allowNull: false,

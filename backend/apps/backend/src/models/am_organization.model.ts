@@ -30,8 +30,8 @@ export class AmOrganization
   org_id: string;
 
   //组织名称
-  @NotEmpty({ msg: '组织名称不能为空' })
-  @Length({ min: 2, max: 32, msg: '组织名称的长度在2-36个字符' })
+  @NotEmpty({ message: '组织名称不能为空' })
+  @Length({ min: 2, max: 32, message: '组织名称的长度在2-36个字符' })
   @Column({ type: DataType.STRING(20), allowNull: false, comment: '组织名称' })
   org_name: string;
 
@@ -42,7 +42,7 @@ export class AmOrganization
   //组织类型
   @IsIn({
     args: [['group', 'company', 'unit', 'department']],
-    msg: '组织类型：org_type 字段值错误',
+    message: '组织类型：org_type 字段值错误',
   })
   @Column({
     type: DataType.ENUM,
@@ -82,7 +82,7 @@ export class AmOrganization
   //组织状态
   @IsIn({
     args: [[0, 1]],
-    msg: 'status 字段值错误',
+    message: 'status 字段值错误',
   })
   @Column({
     type: DataType.INTEGER,

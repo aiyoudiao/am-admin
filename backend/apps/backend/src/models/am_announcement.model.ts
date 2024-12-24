@@ -52,7 +52,7 @@ export class AmAnnouncement
   // 类型
   @IsIn({
     args: [['1', '2', '3', '4']],
-    msg: '活动公告类型: type 字段值错误',
+    message: '活动公告类型: type 字段值错误',
   })
   @Column({
     type: DataType.ENUM,
@@ -65,7 +65,7 @@ export class AmAnnouncement
   // 状态
   @IsIn({
     args: [[0, 1]],
-    msg: 'status 字段值错误',
+    message: 'status 字段值错误',
   })
   @Column({
     type: DataType.INTEGER,
@@ -78,7 +78,7 @@ export class AmAnnouncement
   // 是否置顶
   @IsIn({
     args: [[0, 1]],
-    msg: 'pinned 字段值错误',
+    message: 'pinned 字段值错误',
   })
   @Column({
     type: DataType.INTEGER,

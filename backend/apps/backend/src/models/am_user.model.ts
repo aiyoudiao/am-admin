@@ -40,8 +40,8 @@ export class AmUser
   user_id: string;
 
   //用户名称
-  @NotEmpty({ msg: '用户名称不能为空' })
-  @Length({ min: 2, max: 32, msg: '用户名称的长度在2-36个字符' })
+  @NotEmpty({ message: '用户名称不能为空' })
+  @Length({ min: 2, max: 32, message: '用户名称的长度在2-36个字符' })
   @Column({ type: DataType.STRING(20), allowNull: false, comment: '用户名称' })
   user_name: string;
 
@@ -84,7 +84,7 @@ export class AmUser
   email?: string;
 
   //电话号码
-  @Is({ args: /^1\d{10}$/, msg: '电话号码格式不正确' })
+  @Is({ args: /^1\d{10}$/, message: '电话号码格式不正确' })
   @Column({
     type: DataType.STRING(11),
     allowNull: false,
@@ -100,7 +100,7 @@ export class AmUser
   //用户性别
   @IsIn({
     args: [['0', '1', '2']],
-    msg: '用户性别: sex 字段值错误',
+    message: '用户性别: sex 字段值错误',
   })
   @Column({
     type: DataType.ENUM,
@@ -117,7 +117,7 @@ export class AmUser
   //用户状态
   @IsIn({
     args: [[0, 1]],
-    msg: 'status 字段值错误',
+    message: 'status 字段值错误',
   })
   @Column({
     type: DataType.INTEGER,

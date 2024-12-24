@@ -15,6 +15,6 @@ export function requestMiddleware(
   ) {
     next();
   } else {
-    res.send({ code: -1, msg: '演示系统,禁止操作!', data: null });
+    res.send({ code: -1, message: '演示系统,禁止操作!', data: null });
   }
 }

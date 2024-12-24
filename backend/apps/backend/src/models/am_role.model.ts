@@ -34,8 +34,8 @@ export class AmRole
   role_id: string;
 
   //角色名称
-  @NotEmpty({ msg: '角色名称不能为空' })
-  @Length({ min: 2, max: 32, msg: '角色名称的长度在2-36个字符' })
+  @NotEmpty({ message: '角色名称不能为空' })
+  @Length({ min: 2, max: 32, message: '角色名称的长度在2-36个字符' })
   @Column({ type: DataType.STRING(20), allowNull: false, comment: '角色名称' })
   role_name: string;
 
@@ -59,7 +59,7 @@ export class AmRole
   //角色状态
   @IsIn({
     args: [[0, 1]],
-    msg: 'status 字段值错误',
+    message: 'status 字段值错误',
   })
   @Column({
     type: DataType.INTEGER,

@@ -52,7 +52,7 @@ export type EnumValues<T> = T[EnumKeys<T>];
 export type Response<T = any> = {
   code?: number;
   data: T;
-  msg?: string;
+  message?: string;
 };
 
 /**

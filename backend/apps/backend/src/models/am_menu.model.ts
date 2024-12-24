@@ -50,7 +50,7 @@ export class AmMenu
   //菜单类型
   @IsIn({
     args: [['dir', 'menu', 'button']],
-    msg: '菜单类型：menu_type 字段值错误',
+    message: '菜单类型：menu_type 字段值错误',
   })
   @Column({
     type: DataType.ENUM,
@@ -84,7 +84,7 @@ export class AmMenu
   //当path是一个url，点击新窗口打开
   @IsIn({
     args: [['_blank', '_self', '_parent', '_top']],
-    msg: 'target 字段值错误',
+    message: 'target 字段值错误',
   })
   @Column({
     type: DataType.ENUM,
@@ -100,7 +100,7 @@ export class AmMenu
   //是否显示layout布局
   @IsIn({
     args: [['side', 'top', 'mix']],
-    msg: 'layout 字段值错误',
+    message: 'layout 字段值错误',
   })
   @Column({
     type: DataType.ENUM,
@@ -112,7 +112,7 @@ export class AmMenu
   //导航菜单的主题
   @IsIn({
     args: [['dark', 'light']],
-    msg: 'navTheme 字段值错误',
+    message: 'navTheme 字段值错误',
   })
   @Column({
     type: DataType.ENUM,
@@ -124,7 +124,7 @@ export class AmMenu
   //顶部导航的主题，mix 模式生效
   @IsIn({
     args: [['dark', 'light']],
-    msg: 'headerTheme 字段值错误',
+    message: 'headerTheme 字段值错误',
   })
   @Column({
     type: DataType.ENUM,
@@ -253,7 +253,7 @@ export class AmMenu
   //菜单状态
   @IsIn({
     args: [[0, 1]],
-    msg: 'status 字段值错误',
+    message: 'status 字段值错误',
   })
   @Column({
     type: DataType.INTEGER,

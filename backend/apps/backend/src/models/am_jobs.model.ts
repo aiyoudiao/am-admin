@@ -32,8 +32,8 @@ export class AmJobs
   jobs_id: string;
 
   //岗位名称
-  @NotEmpty({ msg: '岗位名称不能为空' })
-  @Length({ min: 2, max: 32, msg: '岗位名称的长度在2-36个字符' })
+  @NotEmpty({ message: '岗位名称不能为空' })
+  @Length({ min: 2, max: 32, message: '岗位名称的长度在2-36个字符' })
   @Column({ type: DataType.STRING(20), allowNull: false, comment: '岗位名称' })
   jobs_name: string;
 
