@@ -1,0 +1,732 @@
+{
+  "am_already": {
+    "table": {
+      "tableName": "am_already",
+      "comment": "This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments"
+    },
+    "columns": [
+      {
+        "tableName": "am_already",
+        "columnName": "id",
+        "comment": "主键id"
+      },
+      {
+        "tableName": "am_already",
+        "columnName": "announcement_id",
+        "comment": "活动公告 id"
+      },
+      {
+        "tableName": "am_already",
+        "columnName": "user_id",
+        "comment": "用户 id"
+      },
+      {
+        "tableName": "am_already",
+        "columnName": "created_time",
+        "comment": ""
+      },
+      {
+        "tableName": "am_already",
+        "columnName": "updated_time",
+        "comment": ""
+      }
+    ]
+  },
+  "am_announcement": {
+    "table": {
+      "tableName": "am_announcement",
+      "comment": "This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments"
+    },
+    "columns": [
+      {
+        "tableName": "am_announcement",
+        "columnName": "announcement_id",
+        "comment": "活动公告id"
+      },
+      {
+        "tableName": "am_announcement",
+        "columnName": "user_id",
+        "comment": "作者id"
+      },
+      {
+        "tableName": "am_announcement",
+        "columnName": "title",
+        "comment": "标题"
+      },
+      {
+        "tableName": "am_announcement",
+        "columnName": "content",
+        "comment": "内容"
+      },
+      {
+        "tableName": "am_announcement",
+        "columnName": "type",
+        "comment": "类型(1:公告,2:活动,3:消息,4:通知)"
+      },
+      {
+        "tableName": "am_announcement",
+        "columnName": "status",
+        "comment": "状态（0:禁用，1：开启）"
+      },
+      {
+        "tableName": "am_announcement",
+        "columnName": "pinned",
+        "comment": "是否置顶（0:否，1：是）"
+      },
+      {
+        "tableName": "am_announcement",
+        "columnName": "created_time",
+        "comment": ""
+      },
+      {
+        "tableName": "am_announcement",
+        "columnName": "updated_time",
+        "comment": ""
+      }
+    ]
+  },
+  "am_international": {
+    "table": {
+      "tableName": "am_international",
+      "comment": "This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments"
+    },
+    "columns": [
+      {
+        "tableName": "am_international",
+        "columnName": "id",
+        "comment": "国际化id"
+      },
+      {
+        "tableName": "am_international",
+        "columnName": "name",
+        "comment": "国际化字段"
+      },
+      {
+        "tableName": "am_international",
+        "columnName": "parent_id",
+        "comment": "父级id"
+      },
+      {
+        "tableName": "am_international",
+        "columnName": "zh-CN",
+        "comment": ""
+      },
+      {
+        "tableName": "am_international",
+        "columnName": "en-US",
+        "comment": ""
+      },
+      {
+        "tableName": "am_international",
+        "columnName": "ja-JP",
+        "comment": ""
+      },
+      {
+        "tableName": "am_international",
+        "columnName": "zh-TW",
+        "comment": ""
+      },
+      {
+        "tableName": "am_international",
+        "columnName": "founder",
+        "comment": "创建人"
+      },
+      {
+        "tableName": "am_international",
+        "columnName": "sort",
+        "comment": "排序"
+      },
+      {
+        "tableName": "am_international",
+        "columnName": "created_time",
+        "comment": "创建时间"
+      },
+      {
+        "tableName": "am_international",
+        "columnName": "updated_time",
+        "comment": "最后一次更新时间"
+      }
+    ]
+  },
+  "am_jobs": {
+    "table": {
+      "tableName": "am_jobs",
+      "comment": "This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments"
+    },
+    "columns": [
+      {
+        "tableName": "am_jobs",
+        "columnName": "jobs_id",
+        "comment": "岗位id"
+      },
+      {
+        "tableName": "am_jobs",
+        "columnName": "jobs_name",
+        "comment": "岗位名称"
+      },
+      {
+        "tableName": "am_jobs",
+        "columnName": "org_id",
+        "comment": "组织id"
+      },
+      {
+        "tableName": "am_jobs",
+        "columnName": "parent_id",
+        "comment": "父级id"
+      },
+      {
+        "tableName": "am_jobs",
+        "columnName": "describe",
+        "comment": "岗位描述"
+      },
+      {
+        "tableName": "am_jobs",
+        "columnName": "sort",
+        "comment": "排序"
+      },
+      {
+        "tableName": "am_jobs",
+        "columnName": "leader",
+        "comment": "岗位负责人"
+      },
+      {
+        "tableName": "am_jobs",
+        "columnName": "founder",
+        "comment": "创建人"
+      },
+      {
+        "tableName": "am_jobs",
+        "columnName": "created_time",
+        "comment": ""
+      },
+      {
+        "tableName": "am_jobs",
+        "columnName": "updated_time",
+        "comment": ""
+      }
+    ]
+  },
+  "am_logs": {
+    "table": {
+      "tableName": "am_logs",
+      "comment": "This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments"
+    },
+    "columns": [
+      {
+        "tableName": "am_logs",
+        "columnName": "log_id",
+        "comment": "日志id"
+      },
+      {
+        "tableName": "am_logs",
+        "columnName": "user_id",
+        "comment": "用户id"
+      },
+      {
+        "tableName": "am_logs",
+        "columnName": "ip",
+        "comment": "ip"
+      },
+      {
+        "tableName": "am_logs",
+        "columnName": "os",
+        "comment": "操作系统"
+      },
+      {
+        "tableName": "am_logs",
+        "columnName": "params",
+        "comment": "请求参数"
+      },
+      {
+        "tableName": "am_logs",
+        "columnName": "method",
+        "comment": "请求方式"
+      },
+      {
+        "tableName": "am_logs",
+        "columnName": "api_url",
+        "comment": "请求地址"
+      },
+      {
+        "tableName": "am_logs",
+        "columnName": "created_time",
+        "comment": ""
+      },
+      {
+        "tableName": "am_logs",
+        "columnName": "updated_time",
+        "comment": ""
+      },
+      {
+        "tableName": "am_logs",
+        "columnName": "browser",
+        "comment": "浏览器"
+      },
+      {
+        "tableName": "am_logs",
+        "columnName": "province",
+        "comment": "所在省份"
+      },
+      {
+        "tableName": "am_logs",
+        "columnName": "city",
+        "comment": "所在城市"
+      },
+      {
+        "tableName": "am_logs",
+        "columnName": "adcode",
+        "comment": "城市编码"
+      }
+    ]
+  },
+  "am_menu": {
+    "table": {
+      "tableName": "am_menu",
+      "comment": "This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments"
+    },
+    "columns": [
+      {
+        "tableName": "am_menu",
+        "columnName": "menu_id",
+        "comment": "菜单id"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "name",
+        "comment": "国际化对应的name"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "menu_type",
+        "comment": "菜单类型（dir:目录，menu:菜单,button:按钮）"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "path",
+        "comment": "路由url"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "icon",
+        "comment": "菜单图标"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "component",
+        "comment": "菜单对应的文件路径"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "redirect",
+        "comment": "路由重定向地址"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "parent_id",
+        "comment": "父级id"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "target",
+        "comment": "当path是一个url，点击新窗口打开"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "permission",
+        "comment": "菜单标识(页面按钮权限控制)"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "layout",
+        "comment": "是否显示layout布局（side:侧边菜单，top:顶部菜单,mix:混合菜单）"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "navTheme",
+        "comment": "导航菜单的主题（dark:暗黑风格，light:亮色风格）"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "headerTheme",
+        "comment": "顶部导航的主题，mix 模式生效（dark:暗黑风格，light:亮色风格）"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "hideChildrenInMenu",
+        "comment": "是否隐藏子路由"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "hideInMenu",
+        "comment": "是否隐藏菜单，包括子路由"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "hideInBreadcrumb",
+        "comment": "是否在面包屑中隐藏"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "headerRender",
+        "comment": "是否显示顶栏"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "footerRender",
+        "comment": "是否显示页脚"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "menuRender",
+        "comment": "当前路由是否展示菜单"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "menuHeaderRender",
+        "comment": "当前路由是否展示菜单顶栏"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "flatMenu",
+        "comment": "子项往上提，只是不展示父菜单"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "fixedHeader",
+        "comment": "固定顶栏"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "fixSiderbar",
+        "comment": "固定菜单"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "founder",
+        "comment": "创建人"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "sort",
+        "comment": "排序"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "status",
+        "comment": "菜单状态（0:禁用，1：正常）"
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "created_time",
+        "comment": ""
+      },
+      {
+        "tableName": "am_menu",
+        "columnName": "updated_time",
+        "comment": ""
+      }
+    ]
+  },
+  "am_organization": {
+    "table": {
+      "tableName": "am_organization",
+      "comment": "This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments"
+    },
+    "columns": [
+      {
+        "tableName": "am_organization",
+        "columnName": "org_id",
+        "comment": "组织id"
+      },
+      {
+        "tableName": "am_organization",
+        "columnName": "org_name",
+        "comment": "组织名称"
+      },
+      {
+        "tableName": "am_organization",
+        "columnName": "parent_id",
+        "comment": "父级id"
+      },
+      {
+        "tableName": "am_organization",
+        "columnName": "org_code",
+        "comment": "组织编码"
+      },
+      {
+        "tableName": "am_organization",
+        "columnName": "org_type",
+        "comment": "组织类型（group:集团,company:公司,unit:单位,department:部门）"
+      },
+      {
+        "tableName": "am_organization",
+        "columnName": "org_logo",
+        "comment": "组织logo"
+      },
+      {
+        "tableName": "am_organization",
+        "columnName": "leader",
+        "comment": "组织负责人"
+      },
+      {
+        "tableName": "am_organization",
+        "columnName": "founder",
+        "comment": "创建人"
+      },
+      {
+        "tableName": "am_organization",
+        "columnName": "status",
+        "comment": "组织状态（0:禁用，1：正常）"
+      },
+      {
+        "tableName": "am_organization",
+        "columnName": "sort",
+        "comment": "排序"
+      },
+      {
+        "tableName": "am_organization",
+        "columnName": "describe",
+        "comment": "组织描述"
+      },
+      {
+        "tableName": "am_organization",
+        "columnName": "created_time",
+        "comment": ""
+      },
+      {
+        "tableName": "am_organization",
+        "columnName": "updated_time",
+        "comment": ""
+      }
+    ]
+  },
+  "am_permission": {
+    "table": {
+      "tableName": "am_permission",
+      "comment": "This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments"
+    },
+    "columns": [
+      {
+        "tableName": "am_permission",
+        "columnName": "permission_id",
+        "comment": "权限id"
+      },
+      {
+        "tableName": "am_permission",
+        "columnName": "role_id",
+        "comment": "角色id"
+      },
+      {
+        "tableName": "am_permission",
+        "columnName": "menu_id",
+        "comment": "菜单id"
+      },
+      {
+        "tableName": "am_permission",
+        "columnName": "created_time",
+        "comment": ""
+      },
+      {
+        "tableName": "am_permission",
+        "columnName": "updated_time",
+        "comment": ""
+      }
+    ]
+  },
+  "am_role": {
+    "table": {
+      "tableName": "am_role",
+      "comment": "This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments"
+    },
+    "columns": [
+      {
+        "tableName": "am_role",
+        "columnName": "role_id",
+        "comment": "角色id"
+      },
+      {
+        "tableName": "am_role",
+        "columnName": "role_name",
+        "comment": "角色名称"
+      },
+      {
+        "tableName": "am_role",
+        "columnName": "role_code",
+        "comment": "角色编码"
+      },
+      {
+        "tableName": "am_role",
+        "columnName": "describe",
+        "comment": "角色描述"
+      },
+      {
+        "tableName": "am_role",
+        "columnName": "founder",
+        "comment": "创建人"
+      },
+      {
+        "tableName": "am_role",
+        "columnName": "sort",
+        "comment": "排序"
+      },
+      {
+        "tableName": "am_role",
+        "columnName": "status",
+        "comment": "角色状态（0:禁用，1：正常）"
+      },
+      {
+        "tableName": "am_role",
+        "columnName": "created_time",
+        "comment": ""
+      },
+      {
+        "tableName": "am_role",
+        "columnName": "updated_time",
+        "comment": ""
+      }
+    ]
+  },
+  "am_user": {
+    "table": {
+      "tableName": "am_user",
+      "comment": "This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments"
+    },
+    "columns": [
+      {
+        "tableName": "am_user",
+        "columnName": "user_id",
+        "comment": "用户id"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "user_name",
+        "comment": "用户名称"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "work_no",
+        "comment": "用户工号"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "password",
+        "comment": "密码(加密)"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "cn_name",
+        "comment": "中文名"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "en_name",
+        "comment": "英文名"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "age",
+        "comment": "年龄"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "email",
+        "comment": "电子邮箱"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "phone",
+        "comment": "电话号码"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "avatar_url",
+        "comment": "用户头像"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "sex",
+        "comment": "用户性别(0:女,1:男,2:隐私)"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "sort",
+        "comment": "排序"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "status",
+        "comment": "用户状态（0:禁用，1：正常）"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "token",
+        "comment": "token"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "motto",
+        "comment": "座右铭"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "tags",
+        "comment": "人物标签"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "city",
+        "comment": "所属城市"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "address",
+        "comment": "详细地址"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "jobs_id",
+        "comment": "岗位id"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "org_id",
+        "comment": "组织id"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "role_id",
+        "comment": "角色id"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "founder",
+        "comment": "创建人"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "login_num",
+        "comment": "登录次数"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "login_last_ip",
+        "comment": "最后一次登录ip"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "login_last_time",
+        "comment": "最后一次登录时间"
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "created_time",
+        "comment": ""
+      },
+      {
+        "tableName": "am_user",
+        "columnName": "updated_time",
+        "comment": ""
+      }
+    ]
+  }
+}

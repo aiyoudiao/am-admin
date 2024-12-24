@@ -43,3 +43,5 @@ Thumbs.db
 
 /docker/mysql/data
 /docker/redis/data
+
+!/apps/backend/.env
