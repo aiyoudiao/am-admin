@@ -1,101 +1,248 @@
-import { HeartTwoTone, LaptopOutlined, MenuFoldOutlined, MenuUnfoldOutlined, NotificationOutlined, SmileTwoTone, UserOutlined } from '@ant-design/icons';
-import { PageContainer } from '@ant-design/pro-components';
-
-import { Alert, Breadcrumb, Button, Card, Layout, Menu, MenuProps, Typography, theme } from 'antd';
 import React, { useState } from 'react';
+import { Card, Col, Row, Menu, Pagination, Checkbox, Tag, Avatar, Divider, Button, Space, Typography, Select, MenuProps } from 'antd';
+import { MailOutlined, MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from '@ant-design/icons';
+import { history } from '@umijs/max';
+import { TicketProvider, useTicketContext } from './context/TicketContext';
+import { ProCard } from '@ant-design/pro-components';
+import { flatMap } from 'lodash-es';
+import { SubMenuType } from 'rc-menu/lib/interface';
 
-const { Header, Content, Footer, Sider } = Layout;
 
-const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
-  (icon, index) => {
-    const key = String(index + 1);
+const { Option } = Select;
 
-    return {
-      key: `sub${key}`,
-      icon: React.createElement(icon),
-      label: `subnav ${key}`,
 
-      children: new Array(4).fill(null).map((_, j) => {
-        const subKey = index * 4 + j + 1;
-        return {
-          key: subKey,
-          label: `option${subKey}`,
-        };
-      }),
-    };
+const items: MenuProps['items'] = [
+  {
+    key: 'personal',
+    icon: <MailOutlined />,
+    label: '个人',
+    children: [
+      {
+        key: 'custom1',
+        label: '自定义 1',
+      },
+    ],
   },
-);
-const Admin: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  {
+    type: 'divider',
+  },
+  {
+    key: 'shared',
+    icon: <MailOutlined />,
+    label: '共享',
+    children: [
+      {
+        key: 'highPriority',
+        label: '紧急和高优先级工单',
+      },
+      {
+        key: 'allCopies',
+        label: '所有工单的副本',
+      },
+    ],
+  },
+  {
+    type: 'divider',
+  },
+  {
+    key: 'default',
+    icon: <MailOutlined />,
+    label: '默认',
+    children: [
+      {
+        key: 'all',
+        label: '所有工单',
+      },
+      {
+        key: 'unresolved',
+        label: '所有未解决的工单',
+      },
+      {
+        key: 'undelivered',
+        label: '所有未送达消息',
+      },
+      {
+        key: 'mentioned',
+        label: '提及我的工单',
+      },
+      {
+        key: 'raisedByMe',
+        label: '我提出的工单',
+      },
+      {
+        key: 'watching',
+        label: '我正在关注的工单',
+      },
+      {
+        key: 'newAndInProgress',
+        label: '新的和我处理中的工单',
+      },
+    ],
+  },
+  {
+    type: 'divider',
+  },
+  {
+    key: 'recycleBin',
+    icon: <MailOutlined />,
+    label: '回收站',
+  },
+  {
+    key: 'spam',
+    icon: <MailOutlined />,
+    label: '垃圾信息',
+  },
+];
+
+const TicketList: React.FC = () => {
   const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
+    tickets,
+    selectedKeys,
+    searchText,
+    currentPage,
+    setSelectedKeys,
+    setSearchText,
+    setCurrentPage,
+  } = useTicketContext();
+
+
+  const [menuItems, setMenuItems] = useState<string[]>([]);
+  const [searchOptions, setSearchOptions] = useState<string[]>([]);
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
+
+  const handleMenuClick = (e: any) => {
+    setSelectedKeys([e.key]);
+  };
+
+  const handleSearch = (value: string) => {
+    const options = menuItems.filter(item => item.includes(value));
+    setSearchOptions(options);
+  };
+
+  const handleSelect = (value: string) => {
+    console.log('value', value)
+    const key = value;
+    setSelectedKeys([key]);
+    setSearchOptions([])
+  };
+
+  const handleCardClick = (id: number) => {
+    history.push(`/ticket-manage/freshdesk/ticket-detail?id=${id}`);
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const filteredTickets = tickets.filter(ticket =>
+    ticket.subject.includes(searchText) || ticket.content.includes(searchText)
+  );
+
+  React.useEffect(() => {;
+    setMenuItems(flatMap(items, (item: SubMenuType) => item.children || []));
+  }, []);
+
 
   return (
-    <PageContainer header={{ title: null }}>
-      <Layout>
-        <Sider width={200} style={{ background: colorBgContainer }} trigger={null} collapsible collapsed={collapsed}>
-          <Menu
-            mode="inline"
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
-            style={{ height: '100%', borderRight: 0 }}
-            items={items2}
-          />
-        </Sider>
-        <Layout style={{ padding: '0 6px 6px' }}>
-          <Header style={{ padding: 0, background: colorBgContainer }}>
-            <Button
-              type="text"
-              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-              onClick={() => setCollapsed(!collapsed)}
-            />
-          </Header>
-          <Content
-            style={{
-              padding: 24,
-              margin: 0,
-              minHeight: 280,
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
-            }}
+    <div className="flex">
+      {/* 左侧菜单 */}
+      <div className="w-1/4 p-4">
+        <ProCard title={
+          <Space size={5} align="baseline">
+            <Typography.Title level={4}>所有工单</Typography.Title>
+            <Button type="primary" size="small" onClick={toggleCollapsed}>
+              {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+            </Button>
+          </Space>
+        }>
+          <Select
+            showSearch
+            placeholder="搜索视图"
+            onSearch={handleSearch}
+            onSelect={handleSelect}
+            style={{ width: '100%', marginBottom: 16 }}
+            filterOption={false}
           >
-            <Card>
-              <Alert
-                message={'更快更强的重型组件，已经发布。'}
-                type="success"
-                showIcon
-                banner
-                style={{
-                  margin: -12,
-                  marginBottom: 48,
-                }}
-              />
-              <Typography.Title
-                level={2}
-                style={{
-                  textAlign: 'center',
-                }}
+            {searchOptions.map(option => (
+              <Option key={option} value={option}>
+                {option}
+              </Option>
+            ))}
+          </Select>
+          <Menu
+            style={{ visibility: searchOptions.length > 0 ? 'hidden' : 'visible' }}
+            mode="inline"
+            selectedKeys={selectedKeys}
+            onClick={handleMenuClick}
+            defaultOpenKeys={['personal', 'shared', 'default']}
+            inlineCollapsed={collapsed}
+            items={items}
+          />
+        </ProCard>
+      </div>
+
+      {/* 右侧邮件卡片列表 */}
+      <div className="w-3/4 p-4">
+        <Row gutter={16}>
+          {filteredTickets.map(ticket => (
+            <Col span={24} key={ticket.id}>
+              <Card
+                onClick={() => handleCardClick(ticket.id)}
+                className="cursor-pointer"
+                style={{ marginBottom: 16 }}
               >
-                <SmileTwoTone /> Ant Design Pro <HeartTwoTone twoToneColor="#eb2f96" /> You
-              </Typography.Title>
-            </Card>
-            <p
-              style={{
-                textAlign: 'center',
-                marginTop: 24,
-              }}
-            >
-              Want to add more pages? Please refer to{' '}
-              <a href="https://pro.ant.design/docs/block-cn" target="_blank" rel="noopener noreferrer">
-                use block
-              </a>
-              。
-            </p>
-          </Content>
-        </Layout>
-      </Layout>
-    </PageContainer>
+                <Row align="middle">
+                  <Col span={1}>
+                    <Checkbox />
+                  </Col>
+                  <Col span={2}>
+                    <Avatar icon={<UserOutlined />} />
+                  </Col>
+                  <Col span={7}>
+                    <div>
+                      <Tag color={ticket.status === '新建' ? 'blue' : 'green'}>{ticket.status}</Tag>
+                    </div>
+                    <div>
+                      <strong>{ticket.subject}</strong>
+                    </div>
+                    <div>{ticket.createdAt}</div>
+                  </Col>
+                  <Col span={7}>
+                    <div>
+                      <Tag color={ticket.priority === '高' ? 'red' : ticket.priority === '中' ? 'orange' : 'green'}>
+                        {ticket.priority}
+                      </Tag>
+                    </div>
+                    <div>{ticket.assignee}</div>
+                    <div>{ticket.isProcessing ? '处理中' : '未处理'}</div>
+                  </Col>
+                </Row>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+
+        {/* 分页器 */}
+        <Pagination
+          current={currentPage}
+          total={filteredTickets.length}
+          pageSize={10}
+          onChange={handlePageChange}
+          style={{ marginTop: 16, textAlign: 'right' }}
+        />
+      </div>
+    </div>
   );
 };
-export default Admin;
+
+export default () => {
+  return (
+    <TicketProvider>
+      <TicketList />
+    </TicketProvider>
+  )
+}

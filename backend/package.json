@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "clear:db": "rm -rf ./docker/mysql/data && rm -rf ./docker/mysql/logs && rm -rf ./docker/redis/data",
     "init": "pnpm run docker:base && pnpm run dev",
     "db": "pnpm exec nx run drawdb:dev",
     "dev": "pnpm exec nx run backend:start:debug",

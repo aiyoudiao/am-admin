@@ -1,4 +1,5 @@
 export default [
+  'ant-design:account-book-twotone',
   'ant-design:account-book-outlined',
   'ant-design:aim-outlined',
   'ant-design:alert-outlined',
@@ -420,4 +421,4 @@ export default [
   'ant-design:zhihu-outlined',
   'ant-design:zoom-in-outlined',
   'ant-design:zoom-out-outlined',
-]
+];
