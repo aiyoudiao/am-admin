@@ -1,248 +1,81 @@
 import React, { useState } from 'react';
-import { Card, Col, Row, Menu, Pagination, Checkbox, Tag, Avatar, Divider, Button, Space, Typography, Select, MenuProps } from 'antd';
-import { MailOutlined, MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from '@ant-design/icons';
-import { history } from '@umijs/max';
-import { TicketProvider, useTicketContext } from './context/TicketContext';
-import { ProCard } from '@ant-design/pro-components';
-import { flatMap } from 'lodash-es';
-import { SubMenuType } from 'rc-menu/lib/interface';
+import { Tabs, Card, Row, Col } from 'antd';
+import MainLayout from './container/MainLayout';
+import TicketList from './components/TicketList';
+import TicketDetail from './components/TicketDetail';
+import CreateTicketForm from './components/CreateTicketForm';
+import Dashboard from './container/Dashboard';
+import PriorityManager from './components/PriorityManager';
+import AssignTicket from './components/AssignTicket';
+import KnowledgeBase from './components/KnowledgeBase';
 
+const { TabPane } = Tabs;
 
-const { Option } = Select;
+const HomePage: React.FC = () => {
+  const [activeKey, setActiveKey] = useState('1');
 
-
-const items: MenuProps['items'] = [
-  {
-    key: 'personal',
-    icon: <MailOutlined />,
-    label: '个人',
-    children: [
-      {
-        key: 'custom1',
-        label: '自定义 1',
-      },
-    ],
-  },
-  {
-    type: 'divider',
-  },
-  {
-    key: 'shared',
-    icon: <MailOutlined />,
-    label: '共享',
-    children: [
-      {
-        key: 'highPriority',
-        label: '紧急和高优先级工单',
-      },
-      {
-        key: 'allCopies',
-        label: '所有工单的副本',
-      },
-    ],
-  },
-  {
-    type: 'divider',
-  },
-  {
-    key: 'default',
-    icon: <MailOutlined />,
-    label: '默认',
-    children: [
-      {
-        key: 'all',
-        label: '所有工单',
-      },
-      {
-        key: 'unresolved',
-        label: '所有未解决的工单',
-      },
-      {
-        key: 'undelivered',
-        label: '所有未送达消息',
-      },
-      {
-        key: 'mentioned',
-        label: '提及我的工单',
-      },
-      {
-        key: 'raisedByMe',
-        label: '我提出的工单',
-      },
-      {
-        key: 'watching',
-        label: '我正在关注的工单',
-      },
-      {
-        key: 'newAndInProgress',
-        label: '新的和我处理中的工单',
-      },
-    ],
-  },
-  {
-    type: 'divider',
-  },
-  {
-    key: 'recycleBin',
-    icon: <MailOutlined />,
-    label: '回收站',
-  },
-  {
-    key: 'spam',
-    icon: <MailOutlined />,
-    label: '垃圾信息',
-  },
-];
-
-const TicketList: React.FC = () => {
-  const {
-    tickets,
-    selectedKeys,
-    searchText,
-    currentPage,
-    setSelectedKeys,
-    setSearchText,
-    setCurrentPage,
-  } = useTicketContext();
-
-
-  const [menuItems, setMenuItems] = useState<string[]>([]);
-  const [searchOptions, setSearchOptions] = useState<string[]>([]);
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
+  const dummyTicket = {
+    id: '#1001',
+    subject: '无法登录系统',
+    requester: '张三',
+    assignee: '李四',
+    status: '处理中',
+    priority: '高',
+    group: '技术支持',
+    createdAt: '2023-04-01 10:00:00',
+    description: '用户反馈无法使用常用密码登录系统，疑似账号被锁定或密码过期。',
+    tags: ['登录问题', '账户安全'],
   };
 
-  const handleMenuClick = (e: any) => {
-    setSelectedKeys([e.key]);
+  const agents = [
+    { id: '1', name: '李四' },
+    { id: '2', name: '王五' },
+    { id: '3', name: '赵六' },
+  ];
+
+  const handleAssign = (agentId: string) => {
+    console.log(`Assigning ticket ${dummyTicket.id} to agent ${agentId}`);
+    // Here you would typically update the ticket in your backend
   };
-
-  const handleSearch = (value: string) => {
-    const options = menuItems.filter(item => item.includes(value));
-    setSearchOptions(options);
-  };
-
-  const handleSelect = (value: string) => {
-    console.log('value', value)
-    const key = value;
-    setSelectedKeys([key]);
-    setSearchOptions([])
-  };
-
-  const handleCardClick = (id: number) => {
-    history.push(`/ticket-manage/freshdesk/ticket-detail?id=${id}`);
-  };
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
-
-  const filteredTickets = tickets.filter(ticket =>
-    ticket.subject.includes(searchText) || ticket.content.includes(searchText)
-  );
-
-  React.useEffect(() => {;
-    setMenuItems(flatMap(items, (item: SubMenuType) => item.children || []));
-  }, []);
-
 
   return (
-    <div className="flex">
-      {/* 左侧菜单 */}
-      <div className="w-1/4 p-4">
-        <ProCard title={
-          <Space size={5} align="baseline">
-            <Typography.Title level={4}>所有工单</Typography.Title>
-            <Button type="primary" size="small" onClick={toggleCollapsed}>
-              {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            </Button>
-          </Space>
-        }>
-          <Select
-            showSearch
-            placeholder="搜索视图"
-            onSearch={handleSearch}
-            onSelect={handleSelect}
-            style={{ width: '100%', marginBottom: 16 }}
-            filterOption={false}
-          >
-            {searchOptions.map(option => (
-              <Option key={option} value={option}>
-                {option}
-              </Option>
-            ))}
-          </Select>
-          <Menu
-            style={{ visibility: searchOptions.length > 0 ? 'hidden' : 'visible' }}
-            mode="inline"
-            selectedKeys={selectedKeys}
-            onClick={handleMenuClick}
-            defaultOpenKeys={['personal', 'shared', 'default']}
-            inlineCollapsed={collapsed}
-            items={items}
-          />
-        </ProCard>
-      </div>
-
-      {/* 右侧邮件卡片列表 */}
-      <div className="w-3/4 p-4">
-        <Row gutter={16}>
-          {filteredTickets.map(ticket => (
-            <Col span={24} key={ticket.id}>
-              <Card
-                onClick={() => handleCardClick(ticket.id)}
-                className="cursor-pointer"
-                style={{ marginBottom: 16 }}
-              >
-                <Row align="middle">
-                  <Col span={1}>
-                    <Checkbox />
-                  </Col>
-                  <Col span={2}>
-                    <Avatar icon={<UserOutlined />} />
-                  </Col>
-                  <Col span={7}>
-                    <div>
-                      <Tag color={ticket.status === '新建' ? 'blue' : 'green'}>{ticket.status}</Tag>
-                    </div>
-                    <div>
-                      <strong>{ticket.subject}</strong>
-                    </div>
-                    <div>{ticket.createdAt}</div>
-                  </Col>
-                  <Col span={7}>
-                    <div>
-                      <Tag color={ticket.priority === '高' ? 'red' : ticket.priority === '中' ? 'orange' : 'green'}>
-                        {ticket.priority}
-                      </Tag>
-                    </div>
-                    <div>{ticket.assignee}</div>
-                    <div>{ticket.isProcessing ? '处理中' : '未处理'}</div>
-                  </Col>
-                </Row>
-              </Card>
-            </Col>
-          ))}
+    <MainLayout>
+        <Dashboard />
+        <Row gutter={16} className="mt-4">
+          <Col span={18}>
+            <Card>
+              <Tabs activeKey={activeKey} onChange={setActiveKey}>
+                <TabPane tab="工单列表" key="1">
+                  <TicketList />
+                </TabPane>
+                <TabPane tab="创建工单" key="3">
+                  <CreateTicketForm />
+                </TabPane>
+                <TabPane tab="优先级管理" key="4">
+                  <Card title="工单优先级管理">
+                    <PriorityManager ticketId={dummyTicket.id} currentPriority={dummyTicket.priority} />
+                  </Card>
+                </TabPane>
+                <TabPane tab="分配工单" key="5">
+                  <Card title="工单分配">
+                    <AssignTicket
+                      ticketId={dummyTicket.id}
+                      currentAssignee={dummyTicket.assignee}
+                      agents={agents}
+                      onAssign={handleAssign}
+                    />
+                  </Card>
+                </TabPane>
+              </Tabs>
+            </Card>
+          </Col>
+          <Col span={6}>
+            <KnowledgeBase />
+          </Col>
         </Row>
-
-        {/* 分页器 */}
-        <Pagination
-          current={currentPage}
-          total={filteredTickets.length}
-          pageSize={10}
-          onChange={handlePageChange}
-          style={{ marginTop: 16, textAlign: 'right' }}
-        />
-      </div>
-    </div>
+    </MainLayout>
   );
 };
 
-export default () => {
-  return (
-    <TicketProvider>
-      <TicketList />
-    </TicketProvider>
-  )
-}
+export default HomePage;
+

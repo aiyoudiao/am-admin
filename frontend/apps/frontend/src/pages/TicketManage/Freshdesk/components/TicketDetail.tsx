@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Card, Descriptions, Tag, Timeline, Divider, Space } from 'antd';
 import { ClockCircleOutlined } from '@ant-design/icons';
-import TicketComments from './components/TicketComments';
-import TagManager from './components/TagManager';
+import TicketComments from '../pages/TicketDetails/components/TicketComments';
+import TagManager from '../pages/TicketDetails/components/TagManager';
 
 interface TicketDetailProps {
   ticket: {
@@ -19,20 +19,7 @@ interface TicketDetailProps {
   };
 }
 
-const dummyTicket = {
-  id: '#1001',
-  subject: '无法登录系统',
-  requester: '张三',
-  assignee: '李四',
-  status: '处理中',
-  priority: '高',
-  group: '技术支持',
-  createdAt: '2023-04-01 10:00:00',
-  description: '用户反馈无法使用常用密码登录系统，疑似账号被锁定或密码过期。',
-  tags: ['登录问题', '账户安全'],
-};
-
-const TicketDetail: React.FC<TicketDetailProps> = ({ticket = dummyTicket}) => {
+const TicketDetail: React.FC<TicketDetailProps> = ({ ticket }) => {
   const [tags, setTags] = useState(ticket.tags);
 
   const handleTagsChange = (newTags: string[]) => {
