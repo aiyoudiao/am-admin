@@ -1,3 +1,12 @@
+/*
+ * Filename: e:\Code\work\shared\temp\front-end\am-admin\backend\apps\backend\prisma\schema copy.prisma
+ * Path: e:\Code\work\shared\temp\front-end\am-admin\backend\apps\backend
+ * Created Date: Friday, December 27th 2024, 7:11:19 pm
+ * Author: aiyoudiao
+ *
+ * Copyright (c) 2024 aiyoudiao
+ */
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -48,6 +57,78 @@ model am_announcement {
   am_user         am_user              @relation(fields: [user_id], references: [user_id], map: "am_announcement_ibfk_1")
 
   @@index([user_id], map: "user_id")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model am_comment {
+  /// 评论编号
+  id         String   @id @db.VarChar(50)
+  /// 创建时间
+  createdAt  DateTime @default(now()) @db.Timestamp(0)
+  /// 评论内容
+  text       String   @db.Text
+  /// 是否公开
+  public     Boolean  @default(false)
+  /// 用户编号 am_user.user_id
+  userId     String?  @db.VarChar(50)
+  /// 工单编号
+  ticketId   String   @db.VarChar(50)
+  /// 是否属于回复
+  reply      Boolean  @default(false)
+  /// 回复的邮箱
+  replyEmail String?  @db.VarChar(100)
+
+  @@index([createdAt], map: "idx_created_at")
+  @@index([public], map: "idx_public")
+  @@index([ticketId], map: "idx_ticket_id")
+  @@index([userId], map: "idx_user_id")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model am_email {
+  /// 邮箱编号
+  id           String   @id @db.VarChar(50)
+  /// 创建时间
+  createdAt    DateTime @default(now()) @db.Timestamp(0)
+  /// 更新时间
+  updatedAt    DateTime @default(now()) @db.Timestamp(0)
+  /// 是否激活
+  active       Boolean  @default(false)
+  /// 用户编号
+  userId       String?  @db.VarChar(50)
+  /// 用户邮箱
+  user         String   @db.VarChar(100)
+  /// 用户密码
+  pass         String?  @db.VarChar(255)
+  /// 邮箱密钥
+  secure       Boolean  @default(false)
+  /// 邮箱服务器
+  host         String   @db.VarChar(100)
+  /// 回复邮箱
+  reply        String   @db.VarChar(100)
+  /// 邮箱服务器端口
+  port         String   @db.VarChar(10)
+  /// 绑定的邮箱客户端编号
+  clientId     String?  @db.VarChar(255)
+  /// 绑定的邮箱客户端密钥
+  clientSecret String?  @db.VarChar(255)
+  /// 绑定的邮箱客户端的刷新token
+  refreshToken String?  @db.Text
+  /// 邮箱服务类型(gmail/outlook/163/qq/other)
+  serviceType  String   @default("other") @db.VarChar(50)
+  /// 租户ID
+  tenantId     String?  @db.VarChar(50)
+  /// 绑定的邮箱客户端的访问授权token
+  accessToken  String?  @db.Text
+  /// 绑定的邮箱客户端的token过期时间
+  expiresIn    BigInt?
+  /// 授权成功后的重定向地址
+  redirectUri  String?  @db.VarChar(255)
+
+  @@index([active], map: "idx_active")
+  @@index([serviceType], map: "idx_service_type")
+  @@index([user], map: "idx_user_email")
+  @@index([userId], map: "idx_user_id")
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
@@ -253,6 +334,46 @@ model am_role {
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model am_ticket {
+  /// 工单号
+  id         String           @id @db.VarChar(50)
+  /// 创建时间
+  createdAt  DateTime         @default(now()) @db.Timestamp(0)
+  /// 更新时间
+  updatedAt  DateTime         @default(now()) @db.Timestamp(0)
+  /// 创建人
+  name       String?          @db.VarChar(100)
+  /// 工单标题
+  title      String           @db.VarChar(255)
+  /// 工单内容
+  detail     String?          @db.Text
+  /// 发件人邮箱
+  email      String?          @db.VarChar(100)
+  /// 是否完成
+  isComplete Boolean          @default(false)
+  /// 优先级(low/medium/high/urgent)
+  priority   String           @db.VarChar(20)
+  /// 是否是通过 Imap 协议拉取
+  fromImap   Boolean          @default(false)
+  /// 工单序号
+  Number     Int              @unique(map: "idx_number")
+  /// 工单状态
+  status     am_ticket_status @default(needs_support)
+  /// 是否隐藏
+  hidden     Boolean          @default(false)
+  /// 是否锁定
+  locked     Boolean          @default(false)
+  /// 关注该工单的用户
+  following  Json?
+
+  @@index([createdAt], map: "idx_created_at")
+  @@index([email], map: "idx_email")
+  @@index([isComplete], map: "idx_is_complete")
+  @@index([priority], map: "idx_priority")
+  @@index([status], map: "idx_status")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model am_user {
   /// 用户id
   user_id         String            @id @db.Char(36)
@@ -323,10 +444,10 @@ enum am_menu_menu_type {
 }
 
 enum am_announcement_type {
-  t1 @map("1")
-  t2 @map("2")
-  t3 @map("3")
-  t4 @map("4")
+  type_1 @map("1")
+  type_2 @map("2")
+  type_3 @map("3")
+  type_4 @map("4")
 }
 
 enum am_organization_org_type {
@@ -350,14 +471,22 @@ enum am_menu_layout {
 }
 
 enum am_user_sex {
-  s0 @map("0")
-  s1 @map("1")
-  s2 @map("2")
+  sex_0 @map("0")
+  sex_1 @map("1")
+  sex_2 @map("2")
 }
 
 enum am_menu_navTheme {
   dark
   light
+}
+
+enum am_ticket_status {
+  needs_support
+  in_progress
+  in_review
+  done
+  hold
 }
 
 enum am_menu_headerTheme {

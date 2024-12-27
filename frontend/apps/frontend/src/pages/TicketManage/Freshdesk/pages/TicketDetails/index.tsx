@@ -7,7 +7,7 @@ import TagManager from './components/TagManager';
 interface TicketDetailProps {
   ticket: {
     id: string;
-    subject: string;
+    title: string;
     requester: string;
     assignee: string;
     status: string;
@@ -21,7 +21,7 @@ interface TicketDetailProps {
 
 const dummyTicket = {
   id: '#1001',
-  subject: '无法登录系统',
+  title: '无法登录系统',
   requester: '张三',
   assignee: '李四',
   status: '处理中',
@@ -44,7 +44,7 @@ const TicketDetail: React.FC<TicketDetailProps> = ({ticket = dummyTicket}) => {
   return (
     <Card title={`工单 ${ticket.id}`} extra={<a href="#">编辑</a>}>
       <Descriptions column={2}>
-        <Descriptions.Item label="主题">{ticket.subject}</Descriptions.Item>
+        <Descriptions.Item label="主题">{ticket.title}</Descriptions.Item>
         <Descriptions.Item label="请求者">{ticket.requester}</Descriptions.Item>
         <Descriptions.Item label="处理人">{ticket.assignee}</Descriptions.Item>
         <Descriptions.Item label="状态">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { List, Card, Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import FilterForm from './FilterForm';
 
 const { Search } = Input;
 
@@ -30,8 +31,9 @@ const articles: Article[] = [
 
 const KnowledgeBase: React.FC = () => {
   return (
-    <Card title="知识库">
-      <Search
+    <Card>
+      <FilterForm />
+      {/* <Search
         placeholder="搜索文章"
         enterButton={<SearchOutlined />}
         style={{ marginBottom: 20 }}
@@ -47,7 +49,7 @@ const KnowledgeBase: React.FC = () => {
             />
           </List.Item>
         )}
-      />
+      /> */}
     </Card>
   );
 };

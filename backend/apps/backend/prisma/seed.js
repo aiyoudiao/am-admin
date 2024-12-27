@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
@@ -25,7 +26,7 @@ ORDER BY
   let count = 0;
 
   // 读取现有的 Prisma schema
-  const schemaPath = './schema.prisma';
+  const schemaPath = path.resolve(__dirname, './schema.prisma');
   let schema = fs.readFileSync(schemaPath, 'utf-8');
   // 遍历查询结果并在 Prisma schema 中添加注释
   result.forEach((row) => {

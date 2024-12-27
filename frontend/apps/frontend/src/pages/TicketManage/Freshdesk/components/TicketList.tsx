@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, Button, Input, Space } from 'antd';
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
 import TicketCard from './TicketCard';
+import NotificationCard from './NotificationCard';
 
 const { Search } = Input;
 
@@ -82,7 +83,17 @@ const TicketList: React.FC = () => {
       <Row gutter={[16, 16]}>
         {data.map((ticket) => (
           <Col xs={24} sm={24} md={24} lg={24} key={ticket.id}>
-            <TicketCard ticket={ticket} />
+            {/* <TicketCard ticket={ticket} /> */}
+            <NotificationCard
+              id="61387086"
+              title="Re: [Important] Your parcel's status has updated #61387086"
+              sender="Robert Southard"
+              createdAt="已创建/1秒前 · 首次回应到期时限1天"
+              isNew={true}
+              agent= 'blank'
+              priority = 'low'
+              status = 'processing'
+            />
           </Col>
         ))}
       </Row>

@@ -85,6 +85,157 @@
       }
     ]
   },
+  "am_comment": {
+    "table": {
+      "tableName": "am_comment",
+      "comment": "This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments"
+    },
+    "columns": [
+      {
+        "tableName": "am_comment",
+        "columnName": "id",
+        "comment": "评论编号"
+      },
+      {
+        "tableName": "am_comment",
+        "columnName": "createdAt",
+        "comment": "创建时间"
+      },
+      {
+        "tableName": "am_comment",
+        "columnName": "text",
+        "comment": "评论内容"
+      },
+      {
+        "tableName": "am_comment",
+        "columnName": "public",
+        "comment": "是否公开"
+      },
+      {
+        "tableName": "am_comment",
+        "columnName": "userId",
+        "comment": "用户编号 am_user.user_id"
+      },
+      {
+        "tableName": "am_comment",
+        "columnName": "ticketId",
+        "comment": "工单编号"
+      },
+      {
+        "tableName": "am_comment",
+        "columnName": "reply",
+        "comment": "是否属于回复"
+      },
+      {
+        "tableName": "am_comment",
+        "columnName": "replyEmail",
+        "comment": "回复的邮箱"
+      }
+    ]
+  },
+  "am_email": {
+    "table": {
+      "tableName": "am_email",
+      "comment": "This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments"
+    },
+    "columns": [
+      {
+        "tableName": "am_email",
+        "columnName": "id",
+        "comment": "邮箱编号"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "createdAt",
+        "comment": "创建时间"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "updatedAt",
+        "comment": "更新时间"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "active",
+        "comment": "是否激活"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "userId",
+        "comment": "用户编号"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "user",
+        "comment": "用户邮箱"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "pass",
+        "comment": "用户密码"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "secure",
+        "comment": "邮箱密钥"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "host",
+        "comment": "邮箱服务器"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "reply",
+        "comment": "回复邮箱"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "port",
+        "comment": "邮箱服务器端口"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "clientId",
+        "comment": "绑定的邮箱客户端编号"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "clientSecret",
+        "comment": "绑定的邮箱客户端密钥"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "refreshToken",
+        "comment": "绑定的邮箱客户端的刷新token"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "serviceType",
+        "comment": "邮箱服务类型(gmail/outlook/163/qq/other)"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "tenantId",
+        "comment": "租户ID"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "accessToken",
+        "comment": "绑定的邮箱客户端的访问授权token"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "expiresIn",
+        "comment": "绑定的邮箱客户端的token过期时间"
+      },
+      {
+        "tableName": "am_email",
+        "columnName": "redirectUri",
+        "comment": "授权成功后的重定向地址"
+      }
+    ]
+  },
   "am_international": {
     "table": {
       "tableName": "am_international",
@@ -583,6 +734,89 @@
         "tableName": "am_role",
         "columnName": "updated_time",
         "comment": ""
+      }
+    ]
+  },
+  "am_ticket": {
+    "table": {
+      "tableName": "am_ticket",
+      "comment": "This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments"
+    },
+    "columns": [
+      {
+        "tableName": "am_ticket",
+        "columnName": "id",
+        "comment": "工单号"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "createdAt",
+        "comment": "创建时间"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "updatedAt",
+        "comment": "更新时间"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "name",
+        "comment": "创建人"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "title",
+        "comment": "工单标题"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "detail",
+        "comment": "工单内容"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "email",
+        "comment": "发件人邮箱"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "isComplete",
+        "comment": "是否完成"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "priority",
+        "comment": "优先级(low/medium/high/urgent)"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "fromImap",
+        "comment": "是否是通过 Imap 协议拉取"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "Number",
+        "comment": "工单序号"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "status",
+        "comment": "工单状态"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "hidden",
+        "comment": "是否隐藏"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "locked",
+        "comment": "是否锁定"
+      },
+      {
+        "tableName": "am_ticket",
+        "columnName": "following",
+        "comment": "关注该工单的用户"
       }
     ]
   },

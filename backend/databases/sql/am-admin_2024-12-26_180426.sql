@@ -15,6 +15,227 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+
+DROP TABLE IF EXISTS `am_ticket`;
+
+-- 2024-12-47 13:59 新增表 Ticket
+
+CREATE TABLE `am_ticket` (
+  `id` VARCHAR(50) NOT NULL COMMENT '工单号',
+  `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `name` VARCHAR(100) DEFAULT NULL COMMENT '创建人',
+  `title` VARCHAR(255) NOT NULL COMMENT '工单标题',
+  `detail` TEXT COMMENT '工单内容',
+  `email` VARCHAR(100) DEFAULT NULL COMMENT '发件人邮箱',
+  `isComplete` TINYINT(1) NOT NULL DEFAULT 0 COMMENT '是否完成',
+  `priority` VARCHAR(20) NOT NULL COMMENT '优先级(low/medium/high/urgent)',
+  `fromImap` TINYINT(1) NOT NULL DEFAULT 0 COMMENT '是否是通过 Imap 协议拉取',
+  `Number` INT NOT NULL COMMENT '工单序号',
+  `status` ENUM('needs_support', 'in_progress', 'in_review', 'done', 'hold') NOT NULL DEFAULT 'needs_support' COMMENT '工单状态',
+  `hidden` TINYINT(1) NOT NULL DEFAULT 0 COMMENT '是否隐藏',
+  `locked` TINYINT(1) NOT NULL DEFAULT 0 COMMENT '是否锁定',
+  `following` JSON COMMENT '关注该工单的用户',
+
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_number` (`Number`),
+  KEY `idx_created_at` (`createdAt`),
+  KEY `idx_status` (`status`),
+  KEY `idx_priority` (`priority`),
+  KEY `idx_email` (`email`),
+  KEY `idx_is_complete` (`isComplete`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='工单表';
+
+INSERT INTO `am_ticket` (`id`, `createdAt`, `updatedAt`, `name`, `title`, `detail`, `email`, `isComplete`, `priority`, `fromImap`, `Number`, `status`, `hidden`, `locked`, `following`) VALUES
+-- 客户退款相关工单
+('TK20240101001', '2024-01-01 10:00:00', '2024-01-01 10:00:00', '张三', '申请退款-订单#12345', '客户要求退款，订单金额￥299', 'customer1@example.com', false, 'high', false, 1, 'needs_support', false, false, '["support1", "finance1"]'),
+('TK20240101002', '2024-01-01 11:30:00', '2024-01-02 09:15:00', '李四', '退款处理延迟问题', '已等待退款3天，请加急处理', 'customer2@example.com', false, 'urgent', true, 2, 'in_progress', false, false, '["support2", "finance2"]'),
+
+-- 物流相关工单
+('TK20240102001', '2024-01-02 08:00:00', '2024-01-02 14:20:00', '王五', '快递延迟送达', '订单显示已发货5天，仍未收到', 'customer3@example.com', false, 'medium', false, 3, 'in_progress', false, false, '["logistics1"]'),
+('TK20240102002', '2024-01-02 09:45:00', '2024-01-02 15:30:00', '赵六', '包裹破损理赔', '收到货物外包装严重损坏', 'customer4@example.com', true, 'high', false, 4, 'done', false, false, '["support3", "logistics2"]'),
+
+-- 商品质量问题
+('TK20240103001', '2024-01-03 13:20:00', '2024-01-03 14:00:00', '陈七', '商品质量问题反馈', '收到的产品与描述不符', 'customer5@example.com', false, 'high', true, 5, 'in_review', false, false, '["quality1"]'),
+('TK20240103002', '2024-01-03 14:15:00', '2024-01-03 16:45:00', '周八', '产品使用咨询', '需要详细的产品使用说明', 'customer6@example.com', true, 'low', false, 6, 'done', false, false, '["support4"]'),
+
+-- 账户相关问题
+('TK20240104001', '2024-01-04 09:00:00', '2024-01-04 09:30:00', '吴九', '账户无法登录', '密码重置后仍无法登录', 'customer7@example.com', false, 'medium', true, 7, 'needs_support', false, false, '["tech1"]'),
+('TK20240104002', '2024-01-04 10:20:00', '2024-01-04 11:00:00', '郑十', '会员积分异常', '近期购物积分未入账', 'customer8@example.com', false, 'low', false, 8, 'in_progress', false, false, '["member1"]'),
+
+-- 促销活动相关
+('TK20240105001', '2024-01-05 08:30:00', '2024-01-05 09:00:00', '黄一', '优惠券使用问题', '满减券无法使用', 'customer9@example.com', false, 'medium', true, 9, 'needs_support', false, false, '["marketing1"]'),
+('TK20240105002', '2024-01-05 10:45:00', '2024-01-05 11:30:00', '刘二', '活动价格争议', '实付金额与活动价不符', 'customer10@example.com', false, 'high', false, 10, 'in_review', false, false, '["marketing2", "support5"]'),
+
+-- 系统技术问题
+('TK20240106001', '2024-01-06 14:00:00', '2024-01-06 14:30:00', '孙三', '支付失败', '订单支付时系统报错', 'customer11@example.com', false, 'urgent', true, 11, 'in_progress', false, false, '["tech2", "payment1"]'),
+('TK20240106002', '2024-01-06 15:20:00', '2024-01-06 16:00:00', '杨四', 'APP闪退问题', 'iOS版本APP持续闪退', 'customer12@example.com', true, 'medium', false, 12, 'done', false, false, '["tech3"]'),
+
+-- 售后服务
+('TK20240107001', '2024-01-07 09:15:00', '2024-01-07 10:00:00', '朱五', '产品保修咨询', '商品保修期查询', 'customer13@example.com', false, 'low', true, 13, 'needs_support', false, false, '["aftersales1"]'),
+('TK20240107002', '2024-01-07 11:30:00', '2024-01-07 13:45:00', '钱六', '维修进度查询', '已寄送维修两周没有进展', 'customer14@example.com', false, 'high', false, 14, 'in_progress', false, false, '["aftersales2"]'),
+
+-- 投诉建议
+('TK20240108001', '2024-01-08 08:45:00', '2024-01-08 09:30:00', '孟七', '服务态度投诉', '客服服务态度恶劣', 'customer15@example.com', false, 'urgent', true, 15, 'in_review', false, false, '["service1", "manager1"]'),
+('TK20240108002', '2024-01-08 10:20:00', '2024-01-08 11:00:00', '范八', '网站优化建议', '网站搜索功能不够完善', 'customer16@example.com', true, 'low', false, 16, 'done', false, false, '["tech4"]'),
+
+-- 特殊处理
+('TK20240109001', '2024-01-09 13:00:00', '2024-01-09 13:30:00', '韩九', 'VIP客户咨询', 'VIP会员专属服务咨询', 'customer17@example.com', false, 'high', true, 17, 'hold', false, true, '["vip1"]'),
+('TK20240109002', '2024-01-09 14:45:00', '2024-01-09 15:20:00', '柳十', '批量订单处理', '企业批量采购订单问题', 'customer18@example.com', false, 'urgent', false, 18, 'in_progress', false, false, '["business1", "support6"]'),
+
+-- 其他问题
+('TK20240110001', '2024-01-10 09:00:00', '2024-01-10 09:30:00', '石一', '发票信息修改', '需要修改发票抬头', 'customer19@example.com', false, 'medium', true, 19, 'needs_support', false, false, '["finance3"]'),
+('TK20240110002', '2024-01-10 10:15:00', '2024-01-10 11:00:00', '陶二', '商品缺货提醒', '请求到货通知', 'customer20@example.com', true, 'low', false, 20, 'done', false, false, '["inventory1"]');
+
+
+DROP TABLE IF EXISTS `am_comment`;
+
+-- 2024-12-47 14:08 新增表 Comment
+
+CREATE TABLE `am_comment` (
+  `id` VARCHAR(50) NOT NULL COMMENT '评论编号',
+  `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `text` TEXT NOT NULL COMMENT '评论内容',
+  `public` TINYINT(1) NOT NULL DEFAULT 0 COMMENT '是否公开',
+  `userId` VARCHAR(50) DEFAULT NULL COMMENT '用户编号 am_user.user_id',
+  `ticketId` VARCHAR(50) NOT NULL COMMENT '工单编号',
+  `reply` TINYINT(1) NOT NULL DEFAULT 0 COMMENT '是否属于回复',
+  `replyEmail` VARCHAR(100) DEFAULT NULL COMMENT '回复的邮箱',
+
+  PRIMARY KEY (`id`),
+  KEY `idx_ticket_id` (`ticketId`),
+  KEY `idx_user_id` (`userId`),
+  KEY `idx_created_at` (`createdAt`),
+  KEY `idx_public` (`public`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='工单评论表';
+
+INSERT INTO `am_comment` (`id`, `createdAt`, `text`, `public`, `userId`, `ticketId`, `reply`, `replyEmail`) VALUES
+-- 退款工单相关评论 TK20240101001
+('CM20240101001', '2024-01-01 10:05:00', '您好，已收到您的退款申请，请提供订单截图和退款原因', true, 'support1', 'TK20240101001', true, 'customer1@example.com'),
+('CM20240101002', '2024-01-01 10:15:00', '已上传订单截图，商品与描述不符，申请退款', false, null, 'TK20240101001', false, 'customer1@example.com'),
+('CM20240101003', '2024-01-01 10:30:00', '正在为您处理退款申请，请耐心等待', true, 'finance1', 'TK20240101001', true, 'customer1@example.com'),
+('CM20240101004', '2024-01-01 11:00:00', '退款已提交到支付渠道，预计1-3个工作日到账', true, 'finance1', 'TK20240101001', true, 'customer1@example.com'),
+
+-- 退款延迟工单相关评论 TK20240101002
+('CM20240101005', '2024-01-01 11:35:00', '您好，非常抱歉造成等待。我们会加急处理您的退款', true, 'support2', 'TK20240101002', true, 'customer2@example.com'),
+('CM20240101006', '2024-01-01 13:20:00', '请问退款大约还需要多久？', false, null, 'TK20240101002', false, 'customer2@example.com'),
+('CM20240101007', '2024-01-01 14:00:00', '已加急处理，今天内会完成退款', true, 'finance2', 'TK20240101002', true, 'customer2@example.com'),
+
+-- 物流延迟工单相关评论 TK20240102001
+('CM20240102001', '2024-01-02 08:10:00', '已联系物流公司核实包裹状态', true, 'logistics1', 'TK20240102001', true, 'customer3@example.com'),
+('CM20240102002', '2024-01-02 09:30:00', '包裹目前在配送中，预计今天送达', true, 'logistics1', 'TK20240102001', true, 'customer3@example.com'),
+('CM20240102003', '2024-01-02 14:25:00', '包裹已送达，请查收', true, 'logistics1', 'TK20240102001', true, 'customer3@example.com'),
+
+-- 包裹破损工单相关评论 TK20240102002
+('CM20240102004', '2024-01-02 09:50:00', '请提供包裹破损的照片，我们会尽快处理理赔', true, 'support3', 'TK20240102002', true, 'customer4@example.com'),
+('CM20240102005', '2024-01-02 10:15:00', '已上传破损照片，请查收', false, null, 'TK20240102002', false, 'customer4@example.com'),
+('CM20240102006', '2024-01-02 11:00:00', '已确认破损情况，赔付金额将在24小时内到账', true, 'logistics2', 'TK20240102002', true, 'customer4@example.com'),
+
+-- 商品质量问题工单相关评论 TK20240103001
+('CM20240103001', '2024-01-03 13:25:00', '请详细描述商品与描述不符的具体情况', true, 'quality1', 'TK20240103001', true, 'customer5@example.com'),
+('CM20240103002', '2024-01-03 13:40:00', '商品颜色与网站展示不一致，尺寸也偏小', false, null, 'TK20240103001', false, 'customer5@example.com'),
+('CM20240103003', '2024-01-03 14:00:00', '经核实属实，可以选择退换货或折价补偿', true, 'quality1', 'TK20240103001', true, 'customer5@example.com'),
+
+-- 产品使用咨询工单相关评论 TK20240103002
+('CM20240103004', '2024-01-03 14:20:00', '已发送产品使用说明书，请查收邮件', true, 'support4', 'TK20240103002', true, 'customer6@example.com'),
+('CM20240103005', '2024-01-03 15:00:00', '感谢，已收到说明书', false, null, 'TK20240103002', false, 'customer6@example.com'),
+
+-- 账户登录问题工单相关评论 TK20240104001
+('CM20240104001', '2024-01-04 09:05:00', '请提供您的账户名，我们帮您检查登录问题', true, 'tech1', 'TK20240104001', true, 'customer7@example.com'),
+('CM20240104002', '2024-01-04 09:15:00', '账户名已私信发送', false, null, 'TK20240104001', false, 'customer7@example.com'),
+('CM20240104003', '2024-01-04 09:25:00', '已重置密码，请使用新密码登录', true, 'tech1', 'TK20240104001', true, 'customer7@example.com'),
+
+-- 会员积分工单相关评论 TK20240104002
+('CM20240104004', '2024-01-04 10:25:00', '正在核实您的购物记录和积分情况', true, 'member1', 'TK20240104002', true, 'customer8@example.com'),
+('CM20240104005', '2024-01-04 10:45:00', '已补录缺失积分，请查看会员中心', true, 'member1', 'TK20240104002', true, 'customer8@example.com'),
+
+-- 优惠券问题工单相关评论 TK20240105001
+('CM20240105001', '2024-01-05 08:35:00', '请提供优惠券编号，我们帮您查询', true, 'marketing1', 'TK20240105001', true, 'customer9@example.com'),
+('CM20240105002', '2024-01-05 08:45:00', '优惠券编号：COUPON2024001', false, null, 'TK20240105001', false, 'customer9@example.com'),
+('CM20240105003', '2024-01-05 09:00:00', '该优惠券需要满500元才能使用，您的订单金额不足', true, 'marketing1', 'TK20240105001', true, 'customer9@example.com'),
+
+-- 活动价格工单相关评论 TK20240105002
+('CM20240105004', '2024-01-05 10:50:00', '正在核实活动价格差异', true, 'marketing2', 'TK20240105002', true, 'customer10@example.com'),
+('CM20240105005', '2024-01-05 11:15:00', '经核实系统显示错误，已按活动价重新收费', true, 'support5', 'TK20240105002', true, 'customer10@example.com'),
+
+-- 支付失败工单相关评论 TK20240106001
+('CM20240106001', '2024-01-06 14:05:00', '请提供订单号和支付失败截图', true, 'tech2', 'TK20240106001', true, 'customer11@example.com'),
+('CM20240106002', '2024-01-06 14:15:00', '已提供截图，订单号：ORDER2024001', false, null, 'TK20240106001', false, 'customer11@example.com'),
+('CM20240106003', '2024-01-06 14:25:00', '支付通道已恢复，请重新尝试支付', true, 'payment1', 'TK20240106001', true, 'customer11@example.com'),
+
+-- APP闪退工单相关评论 TK20240106002
+('CM20240106004', '2024-01-06 15:25:00', '请提供您的iOS系统版本号', true, 'tech3', 'TK20240106002', true, 'customer12@example.com'),
+('CM20240106005', '2024-01-06 15:35:00', 'iOS 16.5.1', false, null, 'TK20240106002', false, 'customer12@example.com'),
+('CM20240106006', '2024-01-06 15:45:00', '请更新至最新版本APP，已修复此问题', true, 'tech3', 'TK20240106002', true, 'customer12@example.com'),
+
+-- 保修咨询工单相关评论 TK20240107001
+('CM20240107001', '2024-01-07 09:20:00', '请提供产品序列号，帮您查询保修信息', true, 'aftersales1', 'TK20240107001', true, 'customer13@example.com'),
+('CM20240107002', '2024-01-07 09:35:00', '序列号：SN2024001', false, null, 'TK20240107001', false, 'customer13@example.com'),
+('CM20240107003', '2024-01-07 09:50:00', '您的产品在保修期内，可以免费维修', true, 'aftersales1', 'TK20240107001', true, 'customer13@example.com'),
+
+-- 维修进度工单相关评论 TK20240107002
+('CM20240107004', '2024-01-07 11:35:00', '已加急处理您的维修申请', true, 'aftersales2', 'TK20240107002', true, 'customer14@example.com'),
+('CM20240107005', '2024-01-07 13:00:00', '维修已完成，预计明天寄出', true, 'aftersales2', 'TK20240107002', true, 'customer14@example.com'),
+
+-- 服务态度投诉工单相关评论 TK20240108001
+('CM20240108001', '2024-01-08 08:50:00', '对此服务态度问题深表歉意，正在调查处理', true, 'service1', 'TK20240108001', true, 'customer15@example.com'),
+('CM20240108002', '2024-01-08 09:15:00', '已对相关客服进行培训，并给予处分', true, 'manager1', 'TK20240108001', true, 'customer15@example.com'),
+('CM20240108003', '2024-01-08 09:25:00', '感谢处理，希望服务质量能够提升', false, null, 'TK20240108001', false, 'customer15@example.com'),
+
+-- 网站优化建议工单相关评论 TK20240108002
+('CM20240108004', '2024-01-08 10:25:00', '感谢您的建议，我们会改进搜索功能', true, 'tech4', 'TK20240108002', true, 'customer16@example.com'),
+('CM20240108005', '2024-01-08 10:45:00', '已将建议转交给开发团队', true, 'tech4', 'TK20240108002', true, 'customer16@example.com'),
+
+-- VIP客户咨询工单相关评论 TK20240109001
+('CM20240109001', '2024-01-09 13:05:00', '您好，已为您安排专属客服', true, 'vip1', 'TK20240109001', true, 'customer17@example.com'),
+('CM20240109002', '2024-01-09 13:15:00', '感谢等待，这是我们的VIP专属服务介绍', true, 'vip1', 'TK20240109001', true, 'customer17@example.com'),
+
+-- 批量订单工单相关评论 TK20240109002
+('CM20240109003', '2024-01-09 14:50:00', '已收到您的批量采购需求', true, 'business1', 'TK20240109002', true, 'customer18@example.com'),
+('CM20240109004', '2024-01-09 15:10:00', '已为您准备专属采购方案，请查收', true, 'support6', 'TK20240109002', true, 'customer18@example.com'),
+
+-- 发票信息工单相关评论 TK20240110001
+('CM20240110001', '2024-01-10 09:05:00', '请提供新的发票抬头信息', true, 'finance3', 'TK20240110001', true, 'customer19@example.com'),
+('CM20240110002', '2024-01-10 09:20:00', '已提供新的发票信息', false, null, 'TK20240110001', false, 'customer19@example.com'),
+('CM20240110003', '2024-01-10 09:25:00', '已更新发票信息，将重新开具发票', true, 'finance3', 'TK20240110001', true, 'customer19@example.com'),
+
+-- 缺货提醒工单相关评论 TK20240110002
+('CM20240110004', '2024-01-10 10:20:00', '已设置到货提醒，预计下周到货', true, 'inventory1', 'TK20240110002', true, 'customer20@example.com'),
+('CM20240110005', '2024-01-10 10:45:00', '感谢，请到货后及时通知', false, null, 'TK20240110002', false, 'customer20@example.com');
+
+
+DROP TABLE IF EXISTS `am_email`;
+-- 2024-12-47 14:43 新增表 Email
+CREATE TABLE `am_email` (
+  `id` VARCHAR(50) NOT NULL COMMENT '邮箱编号',
+  `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `active` TINYINT(1) NOT NULL DEFAULT 0 COMMENT '是否激活',
+  `userId` VARCHAR(50) DEFAULT NULL COMMENT '用户编号',
+  `user` VARCHAR(100) NOT NULL COMMENT '用户邮箱',
+  `pass` VARCHAR(255) DEFAULT NULL COMMENT '用户密码',
+  `secure` TINYINT(1) NOT NULL DEFAULT 0 COMMENT '邮箱密钥',
+  `host` VARCHAR(100) NOT NULL COMMENT '邮箱服务器',
+  `reply` VARCHAR(100) NOT NULL COMMENT '回复邮箱',
+  `port` VARCHAR(10) NOT NULL COMMENT '邮箱服务器端口',
+  `clientId` VARCHAR(255) DEFAULT NULL COMMENT '绑定的邮箱客户端编号',
+  `clientSecret` VARCHAR(255) DEFAULT NULL COMMENT '绑定的邮箱客户端密钥',
+  `refreshToken` TEXT DEFAULT NULL COMMENT '绑定的邮箱客户端的刷新token',
+  `serviceType` VARCHAR(50) NOT NULL DEFAULT 'other' COMMENT '邮箱服务类型(gmail/outlook/163/qq/other)',
+  `tenantId` VARCHAR(50) DEFAULT NULL COMMENT '租户ID',
+  `accessToken` TEXT DEFAULT NULL COMMENT '绑定的邮箱客户端的访问授权token',
+  `expiresIn` BIGINT DEFAULT NULL COMMENT '绑定的邮箱客户端的token过期时间',
+  `redirectUri` VARCHAR(255) DEFAULT NULL COMMENT '授权成功后的重定向地址',
+
+  PRIMARY KEY (`id`),
+  KEY `idx_user_id` (`userId`),
+  KEY `idx_user_email` (`user`),
+  KEY `idx_service_type` (`serviceType`),
+  KEY `idx_active` (`active`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='邮箱配置表';
+
+
 --
 -- Table structure for table `am_already`
 --
@@ -373,3 +594,5 @@ INSERT INTO `am_user` VALUES ('0b0d4594-3ef6-4bc6-b5ce-b5fc81c27995','meixi','MX
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2024-12-26 18:04:30
+
+
