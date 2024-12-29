@@ -1,12 +1,3 @@
-/*
- * Filename: e:\Code\work\shared\temp\front-end\am-admin\backend\apps\backend\prisma\schema copy.prisma
- * Path: e:\Code\work\shared\temp\front-end\am-admin\backend\apps\backend
- * Created Date: Friday, December 27th 2024, 7:11:19 pm
- * Author: aiyoudiao
- *
- * Copyright (c) 2024 aiyoudiao
- */
-
 generator client {
   provider = "prisma-client-js"
 }

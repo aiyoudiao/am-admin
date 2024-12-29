@@ -3,6 +3,7 @@ import { am_ticket } from '@/prisma';
 
 import { CreateTicketManageDto } from './dto/create-ticket-manage.dto';
 import { UpdateTicketManageDto } from './dto/update-ticket-manage.dto';
+import { responseMessage } from '@/utils'; // 全局工具函数
 
 @Injectable()
 export class TicketManageService {
@@ -10,8 +11,9 @@ export class TicketManageService {
     return 'This action adds a new ticketManage';
   }
 
-  findAll() {
-    return am_ticket.findMany();
+  async findAll() {
+    const response = await am_ticket.findMany();
+    return responseMessage(response);
   }
 
   findOne(id: number) {
