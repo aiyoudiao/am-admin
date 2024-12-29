@@ -28,6 +28,11 @@
       "path": "./tsconfig.spec.json"
     }
   ],
-  "include": ["src/**/*.ts", "src/**/*.js", "types/**/*.d.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.js",
+    "types/**/*.d.ts",
+    "types/**/*.json"
+  ],
   "exclude": ["node_modules", "scripts", "test", "dist", "**/*spec.ts"]
 }

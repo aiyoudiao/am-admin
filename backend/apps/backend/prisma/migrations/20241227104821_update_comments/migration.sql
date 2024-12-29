@@ -14,6 +14,37 @@ COMMENT ON COLUMN "am_announcement"."type" IS '类型(1:公告,2:活动,3:消息
 COMMENT ON COLUMN "am_announcement"."status" IS '状态（0:禁用，1：开启）';
 COMMENT ON COLUMN "am_announcement"."pinned" IS '是否置顶（0:否，1：是）';
 
+-- am_comment comments
+COMMENT ON COLUMN "am_comment"."id" IS '评论编号';
+COMMENT ON COLUMN "am_comment"."createdAt" IS '创建时间';
+COMMENT ON COLUMN "am_comment"."text" IS '评论内容';
+COMMENT ON COLUMN "am_comment"."public" IS '是否公开';
+COMMENT ON COLUMN "am_comment"."userId" IS '用户编号 am_user.user_id';
+COMMENT ON COLUMN "am_comment"."ticketId" IS '工单编号';
+COMMENT ON COLUMN "am_comment"."reply" IS '是否属于回复';
+COMMENT ON COLUMN "am_comment"."replyEmail" IS '回复的邮箱';
+
+-- am_email comments
+COMMENT ON COLUMN "am_email"."id" IS '邮箱编号';
+COMMENT ON COLUMN "am_email"."createdAt" IS '创建时间';
+COMMENT ON COLUMN "am_email"."updatedAt" IS '更新时间';
+COMMENT ON COLUMN "am_email"."active" IS '是否激活';
+COMMENT ON COLUMN "am_email"."userId" IS '用户编号';
+COMMENT ON COLUMN "am_email"."user" IS '用户邮箱';
+COMMENT ON COLUMN "am_email"."pass" IS '用户密码';
+COMMENT ON COLUMN "am_email"."secure" IS '邮箱密钥';
+COMMENT ON COLUMN "am_email"."host" IS '邮箱服务器';
+COMMENT ON COLUMN "am_email"."reply" IS '回复邮箱';
+COMMENT ON COLUMN "am_email"."port" IS '邮箱服务器端口';
+COMMENT ON COLUMN "am_email"."clientId" IS '绑定的邮箱客户端编号';
+COMMENT ON COLUMN "am_email"."clientSecret" IS '绑定的邮箱客户端密钥';
+COMMENT ON COLUMN "am_email"."refreshToken" IS '绑定的邮箱客户端的刷新token';
+COMMENT ON COLUMN "am_email"."serviceType" IS '邮箱服务类型(gmail/outlook/163/qq/other)';
+COMMENT ON COLUMN "am_email"."tenantId" IS '租户ID';
+COMMENT ON COLUMN "am_email"."accessToken" IS '绑定的邮箱客户端的访问授权token';
+COMMENT ON COLUMN "am_email"."expiresIn" IS '绑定的邮箱客户端的token过期时间';
+COMMENT ON COLUMN "am_email"."redirectUri" IS '授权成功后的重定向地址';
+
 -- am_international comments
 COMMENT ON COLUMN "am_international"."id" IS '国际化id';
 COMMENT ON COLUMN "am_international"."name" IS '国际化字段';
@@ -100,6 +131,23 @@ COMMENT ON COLUMN "am_role"."describe" IS '角色描述';
 COMMENT ON COLUMN "am_role"."founder" IS '创建人';
 COMMENT ON COLUMN "am_role"."sort" IS '排序';
 COMMENT ON COLUMN "am_role"."status" IS '角色状态（0:禁用，1：正常）';
+
+-- am_ticket comments
+COMMENT ON COLUMN "am_ticket"."id" IS '工单号';
+COMMENT ON COLUMN "am_ticket"."createdAt" IS '创建时间';
+COMMENT ON COLUMN "am_ticket"."updatedAt" IS '更新时间';
+COMMENT ON COLUMN "am_ticket"."name" IS '创建人';
+COMMENT ON COLUMN "am_ticket"."title" IS '工单标题';
+COMMENT ON COLUMN "am_ticket"."detail" IS '工单内容';
+COMMENT ON COLUMN "am_ticket"."email" IS '发件人邮箱';
+COMMENT ON COLUMN "am_ticket"."isComplete" IS '是否完成';
+COMMENT ON COLUMN "am_ticket"."priority" IS '优先级(low/medium/high/urgent)';
+COMMENT ON COLUMN "am_ticket"."fromImap" IS '是否是通过 Imap 协议拉取';
+COMMENT ON COLUMN "am_ticket"."Number" IS '工单序号';
+COMMENT ON COLUMN "am_ticket"."status" IS '工单状态';
+COMMENT ON COLUMN "am_ticket"."hidden" IS '是否隐藏';
+COMMENT ON COLUMN "am_ticket"."locked" IS '是否锁定';
+COMMENT ON COLUMN "am_ticket"."following" IS '关注该工单的用户';
 
 -- am_user comments
 COMMENT ON COLUMN "am_user"."user_id" IS '用户id';

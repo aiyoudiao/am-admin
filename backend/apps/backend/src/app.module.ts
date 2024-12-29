@@ -16,6 +16,7 @@ import { MenuManagementModule } from '@/modules/system/menu-management/menu-mana
 import { OperationLogsModule } from '@/modules/system/operation-logs/operation-logs.module'; // 系统设置-操作日志
 import { RoleManagementModule } from '@/modules/system/role-management/role-management.module'; // 系统设置-角色管理
 import { UserManagementModule } from '@/modules/system/user-management/user-management.module'; // 系统设置-用户管理
+import { TicketManageModule } from '@/modules/system/ticket-manage/ticket-manage.module'; // 系统设置-工单管理
 
 import App_globalConfig from './config/configuration'; // 全局配置
 import DatabaseConfig from './config/database'; // 数据库配置
@@ -47,6 +48,7 @@ import DatabaseConfig from './config/database'; // 数据库配置
     AuthModule,
     AnnouncementModule,
     CommonModule,
+    TicketManageModule,
   ],
 })
-export class AppModule { }
+export class AppModule {}

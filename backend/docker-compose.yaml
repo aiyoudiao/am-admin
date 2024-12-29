@@ -19,12 +19,12 @@ services:
         '--default-time-zone=+8:00',
         '--lower-case-table-names=1',
       ]
-  am-redis:
-    container_name: am-admin-redis
-    image: redis
-    ports:
-      - '6379:6379'
-    volumes:
-      - ./docker/redis/data:/data
-      - ./docker/redis/conf/redis.conf:/home/redis/redis.conf
-    command: redis-server /home/redis/redis.conf
+  # am-redis:
+  #   container_name: am-admin-redis
+  #   image: redis
+  #   ports:
+  #     - '6379:6379'
+  #   volumes:
+  #     - ./docker/redis/data:/data
+  #     - ./docker/redis/conf/redis.conf:/home/redis/redis.conf
+  #   command: redis-server /home/redis/redis.conf

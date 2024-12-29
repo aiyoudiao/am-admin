@@ -214,6 +214,6 @@ export default defineConfig({
    */
   conventionRoutes: {
     base: 'src/pages',
-    exclude: [/\/components\//, /\/models\//],
+    exclude: [/\/components\//, /\/models\//, /\/types\//, /\/context\//, /\/container\//],
   },
 });

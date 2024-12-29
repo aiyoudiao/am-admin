@@ -16,10 +16,12 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "postinstall": "prisma generate",
-    "generate": "prisma generate",
-    "db:push": "prisma db push --accept-data-loss",
-    "db:migrate": "prisma migrate dev"
+    "generate": "npx prisma generate",
+    "db:push": "npx prisma db push --accept-data-loss",
+    "db:migrate": "npx prisma migrate dev",
+    "db:pull": "npx prisma db pull",
+    "db:seed": "node prisma/seed.js",
+    "nest:system:curd": "pnpm exec nx generate @nestjs/schematics:resource --sourceRoot=./src/modules/system --crud=true "
   },
   "dependencies": {
     "@nestjs/axios": "^3.0.0",
@@ -60,8 +62,9 @@
   },
   "devDependencies": {
     "@nestjs/cli": "^10.1.18",
-    "@nestjs/schematics": "^10.0.2",
+    "@nestjs/schematics": "^10.2.3",
     "@nestjs/testing": "^10.2.7",
+    "@onozaty/prisma-db-comments-generator": "^1.0.2",
     "@types/cache-manager": "^4.0.3",
     "@types/express": "^4.17.18",
     "@types/express-session": "^1.17.8",
@@ -90,22 +93,5 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "4.2.0",
     "typescript": "^5.2.2"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "rootDir": "src",
-    "testRegex": ".*\\.spec\\.ts$",
-    "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "collectCoverageFrom": [
-      "**/*.(t|j)s"
-    ],
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
   }
 }

@@ -6,6 +6,12 @@ COMMENT ON TABLE "am_already" IS 'This model or at least one of its fields has c
 -- am_announcement comments
 COMMENT ON TABLE "am_announcement" IS 'This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments';
 
+-- am_comment comments
+COMMENT ON TABLE "am_comment" IS 'This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments';
+
+-- am_email comments
+COMMENT ON TABLE "am_email" IS 'This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments';
+
 -- am_international comments
 COMMENT ON TABLE "am_international" IS 'This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments';
 
@@ -26,6 +32,9 @@ COMMENT ON TABLE "am_permission" IS 'This model or at least one of its fields ha
 
 -- am_role comments
 COMMENT ON TABLE "am_role" IS 'This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments';
+
+-- am_ticket comments
+COMMENT ON TABLE "am_ticket" IS 'This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments';
 
 -- am_user comments
 COMMENT ON TABLE "am_user" IS 'This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments';

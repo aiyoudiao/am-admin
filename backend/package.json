@@ -3,8 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "clear:db": "rm -rf ./docker/mysql/data && rm -rf ./docker/mysql/logs && rm -rf ./docker/redis/data",
     "init": "pnpm run docker:base && pnpm run dev",
     "db": "pnpm exec nx run drawdb:dev",
+    "jest": "pnpm exec nx run backend:test",
+    "db:prisma": "pnpm exec nx run backend:db:pull",
     "dev": "pnpm exec nx run backend:start:debug",
     "build": "pnpm exec nx run backend:build",
     "e2e": "pnpm exec nx run backend-e2e:e2e",
@@ -14,10 +17,11 @@
     "pm2:monit": "pm2 monit",
     "docker:rm": "docker-compose rm",
     "docker:stop": "docker-compose stop",
-    "docker:base": "docker-compose up -d am-mysql am-redis"
+    "docker:base": "docker-compose up -d"
   },
   "private": true,
   "dependencies": {
+    "@nestjs/mapped-types": "*",
     "axios": "^1.6.0",
     "pm2": "^5.4.3"
   },
