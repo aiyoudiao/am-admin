@@ -1,0 +1,12 @@
+services:
+  oha-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: oha-service:latest
+    container_name: oha-service
+    ports:
+      - "8080:8080" # 根据需要映射端口
+    environment:
+      - RUST_VERSION=1.79
+    restart: unless-stopped
