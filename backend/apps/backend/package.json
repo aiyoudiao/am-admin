@@ -21,7 +21,7 @@
     "db:migrate": "npx prisma migrate dev",
     "db:pull": "npx prisma db pull",
     "db:seed": "node prisma/seed.js",
-    "nest:system:curd": "pnpm exec nx generate @nestjs/schematics:resource --sourceRoot=./src/modules/system --crud=true "
+    "nest:system:curd": "pnpm exec nx generate @nestjs/schematics:resource --sourceRoot=./apps/backend/src/modules/system --crud=true"
   },
   "dependencies": {
     "@nestjs/axios": "^3.0.0",
@@ -58,6 +58,7 @@
     "stacktrace-js": "^2.0.2",
     "svg-captcha": "^1.4.0",
     "swagger-ui-express": "^5.0.0",
+    "tablestore": "^5.5.1",
     "ua-parser-js": "^1.0.39"
   },
   "devDependencies": {

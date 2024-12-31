@@ -66,6 +66,7 @@
     "element-china-area-data": "^6.1.0",
     "event-source-polyfill": "^1.0.31",
     "events": "^3.3.0",
+    "framer-motion": "^11.15.0",
     "lodash-es": "^4.17.21",
     "nprogress": "^0.2.0",
     "rc-menu": "^9.12.2",
