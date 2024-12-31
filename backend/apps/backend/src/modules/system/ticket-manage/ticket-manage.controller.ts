@@ -1,9 +1,29 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+/*
+ * @Description: RoleManagement Controller
+ */
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Put,
+  Query,
+  Session,
+  UseGuards,
+  UseInterceptors,
+} from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { LoggerInterceptor } from '@/interceptor/logger.interceptor';
 import { TicketManageService } from './ticket-manage.service';
 import { CreateTicketManageDto } from './dto/create-ticket-manage.dto';
 import { UpdateTicketManageDto } from './dto/update-ticket-manage.dto';
 
-@Controller('ticket-manage')
+@UseInterceptors(LoggerInterceptor)
+@UseGuards(AuthGuard('jwt'))
+@Controller('system/ticket-manage')
 export class TicketManageController {
   constructor(private readonly ticketManageService: TicketManageService) {}
 
@@ -13,8 +33,10 @@ export class TicketManageController {
   }
 
   @Get()
-  findAll() {
-    return this.ticketManageService.findAll();
+  async findAll() {
+    const response = await this.ticketManageService.findAll();
+    console.log('response', response);
+    return response;
   }
 
   @Get(':id')
@@ -23,7 +45,10 @@ export class TicketManageController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTicketManageDto: UpdateTicketManageDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateTicketManageDto: UpdateTicketManageDto,
+  ) {
     return this.ticketManageService.update(+id, updateTicketManageDto);
   }
 
