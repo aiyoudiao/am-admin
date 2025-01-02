@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { PageContainer } from '@ant-design/pro-components';
-import { Tabs, message } from 'antd';
+import { Button, Tabs, message, Typography, Space } from 'antd';
 import TableList from './components/TableList';
 import TableDetail from './components/TableDetail';
 import AddRowForm from './components/AddRowForm';
 
 import TableData from './components/TableData';
-import { useSearchParams } from '@umijs/max';
+import { useSearchParams, history } from '@umijs/max';
 import { listTables, describeTable } from '@/services/development-tools/table-store';
 import { motion } from 'framer-motion';
+import { DoubleLeftOutlined } from '@ant-design/icons';
 
 const { TabPane } = Tabs;
+const { Title } = Typography;
 
 const TableStorePage: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -45,9 +47,19 @@ const TableStorePage: React.FC = () => {
       message.error('Failed to fetch table info');
     }
   };
-
   return (
-    <PageContainer>
+    <PageContainer header={{
+      title: <Space align="baseline">
+        <Title level={4}>{tableName ? `阿里云 TableStore：${tableName}` : '阿里云 TableStore'}</Title>
+        {tableName &&
+          <Button
+            color="primary"
+            icon={<DoubleLeftOutlined />}
+            variant="outlined"
+            onClick={() => history.push('/development-tools/table-store')}
+          />}
+      </Space>
+    }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -58,7 +70,7 @@ const TableStorePage: React.FC = () => {
             <TabPane tab="表格详情" key="1">
               <TableDetail tableName={tableName} tableInfo={tableInfo} />
             </TabPane>
-             <TabPane tab="表格数据" key="2">
+            <TabPane tab="表格数据" key="2">
               <TableData tableName={tableName} />
             </TabPane>
             <TabPane tab="添加数据" key="3">
