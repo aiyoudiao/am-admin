@@ -16,7 +16,7 @@ export const updateRow = (tableName: string, primaryKey: any, attributeColumns: 
   });
 export const deleteRow = (tableName: string, primaryKey: any) =>
   httpRequest.delete(`/development-tools/table-store/tables/${tableName}/row`, {
-    data: primaryKey,
+    primaryKey,
   });
 
 export const queryTable = (

@@ -69,8 +69,12 @@ export class TableStoreService {
             TableStore.RowExistenceExpectation.IGNORE,
             null,
           ),
-          primaryKey,
-          attributeColumns,
+          primaryKey: Object.keys(primaryKey).map((key) => ({
+            [key]: primaryKey[key],
+          })),
+          attributeColumns: Object.keys(attributeColumns).map((key) => ({
+            [key]: attributeColumns[key],
+          })),
         },
         (err) => {
           if (err) {
@@ -96,8 +100,16 @@ export class TableStoreService {
             TableStore.RowExistenceExpectation.IGNORE,
             null,
           ),
-          primaryKey,
-          updateOfAttributeColumns: [{ PUT: attributeColumns }],
+          primaryKey: Object.keys(primaryKey).map((key) => ({
+            [key]: primaryKey[key],
+          })),
+          updateOfAttributeColumns: [
+            {
+              PUT: Object.keys(attributeColumns).map((key) => ({
+                [key]: attributeColumns[key],
+              })),
+            },
+          ],
         },
         (err) => {
           if (err) {
@@ -119,7 +131,9 @@ export class TableStoreService {
             TableStore.RowExistenceExpectation.IGNORE,
             null,
           ),
-          primaryKey,
+          primaryKey: Object.keys(primaryKey).map((key) => ({
+            [key]: primaryKey[key],
+          })),
         },
         (err) => {
           if (err) {
@@ -143,58 +157,45 @@ export class TableStoreService {
   ): Promise<{ rows: any[]; total: number }> {
     const { offset, limit, columnToQuery, queryValue } = options;
 
-    return new Promise((resolve, reject) => {
-      this.client.describeTable({ tableName }, (err, data) => {
-        const list = data.tableMeta.primaryKey.map((item) => item.name);
-        if (err) {
-          reject(err);
-        } else {
-          const params: any = {
-            tableName,
-            direction: TableStore.Direction.FORWARD,
-            maxVersions: 1,
-            inclusiveStartPrimaryKey: list.map((item) => ({
-              [item]: TableStore.INF_MIN,
-            })),
-            exclusiveEndPrimaryKey: list.map((item) => ({
-              [item]: TableStore.INF_MAX,
-            })),
-            limit: limit,
-            offset: offset,
-          };
-          if (columnToQuery && queryValue) {
-            params.columnFilter = new TableStore.SingleColumnCondition(
-              columnToQuery,
-              queryValue,
-              TableStore.ComparatorType.EQUAL,
-              true,
-            );
-          }
+    const res = await this.client.describeTable({ tableName });
 
-          this.client.getRange(params, (err, data) => {
-            if (err) {
-              reject(err);
-            } else {
-              const rows = data.rows.map((row: any) => {
-                const item: any = {};
-                row.primaryKey.forEach((col: any) => {
-                  item[col.name] = col.value;
-                });
-                row.attributes.forEach((col: any) => {
-                  item[col.columnName] = col.columnValue;
-                });
-                return item;
-              });
+    const list = res.tableMeta.primaryKey.map((item) => item.name);
+    const params: any = {
+      tableName,
+      direction: TableStore.Direction.FORWARD,
+      maxVersions: 1,
+      inclusiveStartPrimaryKey: list.map((item) => ({
+        [item]: TableStore.INF_MIN,
+      })),
+      exclusiveEndPrimaryKey: list.map((item) => ({
+        [item]: TableStore.INF_MAX,
+      })),
+      limit: limit,
+    };
+    if (columnToQuery && queryValue) {
+      params.columnFilter = new TableStore.SingleColumnCondition(
+        columnToQuery,
+        queryValue,
+        TableStore.ComparatorType.EQUAL,
+        true,
+      );
+    }
 
-              resolve(
-                responseMessage({
-                  rows,
-                }) as any,
-              );
-            }
-          });
-        }
+    const data = await this.client.getRange(params);
+
+    const rows = data.rows.map((row: any) => {
+      const item: any = {};
+      row.primaryKey.forEach((col: any) => {
+        item[col.name] = col.value;
       });
+      row.attributes.forEach((col: any) => {
+        item[col.columnName] = col.columnValue;
+      });
+      return item;
     });
+
+    return responseMessage({
+      rows,
+    }) as any;
   }
 }

@@ -60,9 +60,9 @@ export class TableStoreController {
   @Delete('tables/:tableName/row')
   async deleteRow(
     @Param('tableName') tableName: string,
-    @Body() primaryKey: any,
+    @Body() body: { primaryKey: any },
   ) {
-    await this.tableStoreService.deleteRow(tableName, primaryKey);
+    await this.tableStoreService.deleteRow(tableName, body.primaryKey);
     return { message: 'Row deleted successfully' };
   }
 
@@ -91,6 +91,16 @@ export class TableStoreController {
       limit: Number(limit) || 10,
       columnToQuery,
       queryValue,
+    });
+  }
+
+  @Get('tables/:tableName/get')
+  async get(@Param('tableName') tableName: string) {
+    return this.tableStoreService.queryTable(tableName, {
+      offset: 0,
+      limit: 1000,
+      columnToQuery: undefined,
+      queryValue: undefined,
     });
   }
 }

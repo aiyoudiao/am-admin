@@ -7,7 +7,7 @@ import { message } from 'antd';
 const useCopyToClipboard = () => {
   const [isCopied, setIsCopied] = useState(false);
 
-  const copy = async (text: string) => {
+  const copy = async (text: string, messageSuccess = true) => {
     if (!navigator.clipboard) {
       // 如果 navigator.clipboard 不存在，使用 document.execCommand 作为回退方案
       const textArea = document.createElement('textarea');
@@ -17,7 +17,7 @@ const useCopyToClipboard = () => {
       try {
         document.execCommand('copy');
         setIsCopied(true);
-        message.success(`粘贴 "${text}" 成功`);
+        messageSuccess && message.success(`粘贴 "${text}" 成功`);
       } catch (err) {
         setIsCopied(false);
         message.error('复制失败');
@@ -30,7 +30,7 @@ const useCopyToClipboard = () => {
     try {
       await navigator.clipboard.writeText(text);
       setIsCopied(true);
-      message.success(`粘贴 "${text}" 成功`);
+      messageSuccess && message.success(`粘贴 "${text}" 成功`);
     } catch (err) {
       setIsCopied(false);
       message.error('复制失败');

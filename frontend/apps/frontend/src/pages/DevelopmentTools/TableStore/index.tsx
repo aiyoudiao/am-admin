@@ -19,6 +19,7 @@ const TableStorePage: React.FC = () => {
   const tableName = searchParams.get('tableName');
   const [tables, setTables] = useState<string[]>([]);
   const [tableInfo, setTableInfo] = useState<any>(null);
+  const [now, setNow] = useState(0);
 
   useEffect(() => {
     fetchTables();
@@ -35,7 +36,7 @@ const TableStorePage: React.FC = () => {
       const response = await listTables();
       setTables(response.data);
     } catch (error) {
-      message.error('Failed to fetch tables');
+      message.success('获取表格数据失败');
     }
   };
 
@@ -44,7 +45,7 @@ const TableStorePage: React.FC = () => {
       const response = await describeTable(name);
       setTableInfo(response.data.tableMeta);
     } catch (error) {
-      message.error('Failed to fetch table info');
+      message.success('获取表格结构数据失败');
     }
   };
   return (
@@ -71,14 +72,16 @@ const TableStorePage: React.FC = () => {
               <TableDetail tableName={tableName} tableInfo={tableInfo} />
             </TabPane>
             <TabPane tab="表格数据" key="2">
-              <TableData tableName={tableName} />
+              <TableData tableName={tableName} tableInfo={tableInfo} now={now} />
             </TabPane>
             <TabPane tab="添加数据" key="3">
               <AddRowForm
                 tableName={tableName}
                 primaryKey={tableInfo?.primaryKey || []}
                 definedColumn={tableInfo?.definedColumn || []}
-                onSuccess={() => message.success('Data added successfully')}
+                onSuccess={() => {
+                  setNow(Date.now());
+                }}
               />
             </TabPane>
           </Tabs>
