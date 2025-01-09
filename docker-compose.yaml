@@ -5,15 +5,15 @@ services:
     environment:
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
-      - ELASTIC_PASSWORD=123456  # 设置管理员密码
-      - xpack.security.enabled=false  # 禁用安全设置，不启用 SSL/TLS
-      - xpack.security.transport.ssl.enabled=false  # 禁用集群之间的 SSL
-      - xpack.security.http.ssl.enabled=false  # 禁用 HTTP SSL
+      - ELASTIC_PASSWORD=123456  # 设置管理员密码，账号：elastic
+      - ELASTICSEARCH_HTTP_PORT=9200
+      - ELASTICSEARCH_TRANSPORT_PORT=9300
+    volumes:
+      - ./certs:/certs  # 将证书挂载到容器中
+      - esdata:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
-    volumes:
-      - esdata:/usr/share/elasticsearch/data
     networks:
       - elastic
     ulimits:
@@ -21,7 +21,7 @@ services:
         soft: -1
         hard: -1
     healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost:9200/_cluster/health"]
+        test: ["CMD", "curl", "-f", "https://localhost:9200/_cluster/health"]
         interval: 30s
         retries: 3
     # 配置资源限制
@@ -37,8 +37,8 @@ services:
     container_name: kibana
     environment:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
-      # - ELASTICSEARCH_USERNAME=elastic # 由于我禁用了 安全设置，所以这里不用填写  注：8.x 就设置服务账号
-      # - ELASTICSEARCH_PASSWORD=123456  # 设置与 Elasticsearch 相同的密码 注：8.x 就设置服务密码
+      - ELASTICSEARCH_USERNAME=kibana_system # 由于我禁用了 安全设置，所以这里不用填写  注：8.x 就设置服务账号
+      - ELASTICSEARCH_PASSWORD="123456" # 设置与 Elasticsearch 相同的密码 注：8.x 就设置服务密码
     ports:
       - "5601:5601"
     networks:
