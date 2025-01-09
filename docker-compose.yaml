@@ -37,8 +37,8 @@ services:
     container_name: kibana
     environment:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
-      # - ELASTICSEARCH_USERNAME=elastic
-      # - ELASTICSEARCH_PASSWORD=123456  # 设置与 Elasticsearch 相同的密码
+      # - ELASTICSEARCH_USERNAME=elastic # 由于我禁用了 安全设置，所以这里不用填写  注：8.x 就设置服务账号
+      # - ELASTICSEARCH_PASSWORD=123456  # 设置与 Elasticsearch 相同的密码 注：8.x 就设置服务密码
     ports:
       - "5601:5601"
     networks:

@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle } from 'react';
 import { Form, Input, Button } from 'antd';
 
 interface SearchFormProps {
+  ref: any;
   onSearch: (values: any) => void;
 }
 
-const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
+const SearchForm: React.FC<SearchFormProps> = forwardRef(({ onSearch }, ref) => {
   const [form] = Form.useForm();
 
   const handleSearch = (values: any) => {
     onSearch(values);
   };
+
+  useImperativeHandle(ref, () => ({
+    resetForm() {
+      form.resetFields();
+    }
+  }))
 
   return (
     <Form form={form} layout="inline" onFinish={handleSearch}>
@@ -27,7 +34,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
       </Form.Item>
     </Form>
   );
-};
+});
 
 export default SearchForm;
 

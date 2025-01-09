@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PageContainer } from '@ant-design/pro-components';
 import { Table, Button, Modal, Form, Input, message, Card, Space } from 'antd';
 import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
-import { Line } from '@ant-design/plots';
 import * as elasticsearchApi from '@/services/development-tools/elasticsearch';
 
 import SearchForm from './components/SearchForm';
@@ -14,6 +13,7 @@ const ElasticsearchCrud: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
   const [editingId, setEditingId] = useState(null);
+  const ref = useRef<{ resetForm: () => void }>(null);
 
   const fetchData = async () => {
     try {
@@ -52,6 +52,7 @@ const ElasticsearchCrud: React.FC = () => {
       await elasticsearchApi.createDocument('my_index', values);
       message.success('创建成功');
       setIsModalVisible(false);
+      ref.current?.resetForm();
       await fetchData();
     } catch (error) {
       message.error('创建项目失败');
@@ -72,6 +73,7 @@ const ElasticsearchCrud: React.FC = () => {
       message.success('更新成功');
       setIsModalVisible(false);
       setEditingId(null);
+      ref.current?.resetForm();
       await fetchData();
     } catch (error) {
       message.error('更新项目失败');
@@ -86,6 +88,7 @@ const ElasticsearchCrud: React.FC = () => {
       setLoading(true);
       await elasticsearchApi.deleteDocument('my_index', id);
       message.success('删除成功');
+      ref.current?.resetForm();
       await fetchData();
     } catch (error) {
       message.error('删除项目失败');
@@ -123,12 +126,6 @@ const ElasticsearchCrud: React.FC = () => {
     },
   ];
 
-  const config = {
-    data,
-    xField: 'name',
-    yField: 'description',
-  };
-
   return (
     <PageContainer header={{ title: null }}>
 
@@ -138,7 +135,9 @@ const ElasticsearchCrud: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="mb-4">
+          <section className="mb-4 flex justify-between flex-row">
+            <SearchForm onSearch={handleSearch} ref={ref} />
+
             <Button
               icon={<PlusOutlined />}
               onClick={() => {
@@ -150,13 +149,7 @@ const ElasticsearchCrud: React.FC = () => {
             >
               添加新项
             </Button>
-          </div>
-
-
-          <div className="mb-4">
-            <SearchForm onSearch={handleSearch} />
-          </div>
-
+          </section>
 
           <Table
             columns={columns}
@@ -164,10 +157,6 @@ const ElasticsearchCrud: React.FC = () => {
             loading={loading}
             rowKey="id"
           />
-
-          <div className="mt-8">
-            <Line {...config} />
-          </div>
         </motion.div>
 
         <Modal

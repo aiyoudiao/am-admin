@@ -26,6 +26,11 @@ export class ElasticsearchCrudController {
     return this.elasticsearchService.findAll(index);
   }
 
+  @Get('elastic/:index/:id')
+  async findOne(@Param('index') index: string, @Param('id') id: string) {
+    return this.elasticsearchService.findOne(index, id);
+  }
+
   @Put('elastic/:index/:id')
   async update(
     @Param('index') index: string,

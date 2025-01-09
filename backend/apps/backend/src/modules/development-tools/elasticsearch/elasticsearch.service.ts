@@ -41,6 +41,17 @@ export class ElasticsearchCrudService {
     );
   }
 
+  async findOne(index: string, id: string) {
+    const result = await this.elasticsearchService.get<SearchResult<any>>({
+      index,
+      id,
+    });
+    return responseMessage({
+      ...result._source,
+      id: result._id,
+    });
+  }
+
   async update(index: string, id: string, document: any) {
     const result = await this.elasticsearchService.update({
       index,

@@ -16,5 +16,3 @@ export const searchDocuments = (index: string, query: any) =>
 
 export const getDocument = (index: string, id: string) =>
   httpRequest.get(`/elasticsearch/elastic/${index}/${id}`);
-
-export const checkHealth = () => httpRequest.get(`/elasticsearch/elastic-health`);
