@@ -6,10 +6,20 @@ services:
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
       - ELASTIC_PASSWORD=123456  # 设置管理员密码，账号：elastic
-      - ELASTICSEARCH_HTTP_PORT=9200
-      - ELASTICSEARCH_TRANSPORT_PORT=9300
+      # - xpack.security.enabled=false  # 禁用安全设置
+      - ELASTICSEARCH_HEAP_SIZE=1g
+      - xpack.security.enabled=true
+      - xpack.security.transport.ssl.enabled=true
+      - xpack.security.transport.ssl.key=/usr/share/elasticsearch/config/certs/elasticsearch-key.pem
+      - xpack.security.transport.ssl.certificate=/usr/share/elasticsearch/config/certs/elasticsearch-cert.pem
+      - xpack.security.transport.ssl.certificate_authorities=/usr/share/elasticsearch/config/certs/elasticsearch-cert.pem
+      - xpack.security.http.ssl.enabled=true
+      - xpack.security.http.ssl.key=/usr/share/elasticsearch/config/certs/elasticsearch-key.pem
+      - xpack.security.http.ssl.certificate=/usr/share/elasticsearch/config/certs/elasticsearch-cert.pem
+      - xpack.security.http.ssl.certificate_authorities=/usr/share/elasticsearch/config/certs/elasticsearch-cert.pem
     volumes:
-      - ./certs:/certs  # 将证书挂载到容器中
+      # - ./certs:/certs  # 将证书挂载到容器中
+      - ./backend/apps/backend/certs:/usr/share/elasticsearch/config/certs
       - esdata:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
@@ -35,10 +45,21 @@ services:
   kibana:
     image: docker.elastic.co/kibana/kibana:8.6.0
     container_name: kibana
+    # environment:
+      # - ELASTICSEARCH_URL=http://elasticsearch:9200
+      # - ELASTICSEARCH_USERNAME=kibana_system # 由于我禁用了 安全设置，所以这里不用填写  注：8.x 就设置服务账号
+      # - ELASTICSEARCH_PASSWORD="123456" # 设置与 Elasticsearch 相同的密码 注：8.x 就设置服务密码
     environment:
-      - ELASTICSEARCH_URL=http://elasticsearch:9200
-      - ELASTICSEARCH_USERNAME=kibana_system # 由于我禁用了 安全设置，所以这里不用填写  注：8.x 就设置服务账号
-      - ELASTICSEARCH_PASSWORD="123456" # 设置与 Elasticsearch 相同的密码 注：8.x 就设置服务密码
+      - ELASTICSEARCH_HOSTS=https://elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=kibana_system
+      - ELASTICSEARCH_PASSWORD="123456"
+      - ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=/usr/share/kibana/config/certs/elasticsearch-cert.pem
+      - ELASTICSEARCH_SSL_VERIFICATIONMODE=none  # 可选：强验证 full，忽略主机名验证 none，在容器里跑可能得设置为 none
+      - SERVER_SSL_ENABLED=true
+      - SERVER_SSL_KEY=/usr/share/kibana/config/certs/kibana-key.pem
+      - SERVER_SSL_CERTIFICATE=/usr/share/kibana/config/certs/kibana-cert.pem
+    volumes:
+      - ./backend/apps/backend/certs:/usr/share/kibana/config/certs
     ports:
       - "5601:5601"
     networks:

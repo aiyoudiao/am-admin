@@ -9,13 +9,20 @@ import { ElasticsearchCrudController } from './elasticsearch.controller';
     ConfigModule.forRoot(),
     ElasticsearchModule.registerAsync({
       imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({
-        node: configService.get('elasticsearch.elasticsearchNode'),
-        // auth: {
-        //   username: configService.get('ELASTICSEARCH_USERNAME'),
-        //   password: configService.get('ELASTICSEARCH_PASSWORD'),
-        // },
-      }),
+      useFactory: async (configService: ConfigService) => {
+        const config = {
+          node: configService.get('elasticsearch.elasticsearchNode'),
+          auth: {
+            username: configService.get('elasticsearch.elasticsearchUsername'),
+            password: String(
+              configService.get('elasticsearch.elasticsearchPassword'),
+            ),
+          },
+          tls: configService.get('elasticsearch.elasticsearchTls'),
+        };
+        console.log('elasticsearch config:', config);
+        return config;
+      },
       inject: [ConfigService],
     }),
   ],
