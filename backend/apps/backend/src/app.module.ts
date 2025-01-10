@@ -17,9 +17,12 @@ import { OperationLogsModule } from '@/modules/system/operation-logs/operation-l
 import { RoleManagementModule } from '@/modules/system/role-management/role-management.module'; // 系统设置-角色管理
 import { UserManagementModule } from '@/modules/system/user-management/user-management.module'; // 系统设置-用户管理
 import { TicketManageModule } from '@/modules/system/ticket-manage/ticket-manage.module'; // 系统设置-工单管理
+import { TableStoreModule } from './modules/development-tools/table-store/table-store.module'; // 开发工具-表格存储
+import { ElasticsearchCrudModule } from './modules/development-tools/elasticsearch/elasticsearch.module';
 
 import App_globalConfig from './config/configuration'; // 全局配置
 import DatabaseConfig from './config/database'; // 数据库配置
+import ElasticsearchConfig from './config/elasticsearch'; // elasticsearch 配置
 
 @Module({
   imports: [
@@ -27,7 +30,7 @@ import DatabaseConfig from './config/database'; // 数据库配置
     ConfigModule.forRoot({
       envFilePath: '.development.env', // 设置 .env 文件路径
       isGlobal: true,
-      load: [App_globalConfig, DatabaseConfig],
+      load: [App_globalConfig, DatabaseConfig, ElasticsearchConfig],
     }),
     SequelizeModule.forRootAsync({
       imports: [ConfigModule],
@@ -49,6 +52,8 @@ import DatabaseConfig from './config/database'; // 数据库配置
     AnnouncementModule,
     CommonModule,
     TicketManageModule,
+    TableStoreModule,
+    ElasticsearchCrudModule,
   ],
 })
 export class AppModule {}
